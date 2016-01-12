@@ -15,7 +15,7 @@
 #'   comparison to root mean square error (RMSE).
 #'
 #'
-#' @param predicted is a numeric vector that contains the model predicted
+#' @param predicted A numeric vector that contains the model predicted
 #'   data points (1st parameter)
 #' @param observed A numeric vector that contains the observed data
 #'   points (2nd parameter)
@@ -37,10 +37,14 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords mean absolute error MAE
 #'
 #'
-#' @seealso \code{\link{mape}}, \code{\link{vnse}}, \code{\link{madstat}}, \code{\link{dr}}, \code{\link{rmse}}
+#'
+#' @family statistical error functions
+#' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{madstat}} for
+#'  mean absolute deviation (MAD), \code{\link{dr}} for index of agreement (dr), \code{\link{vnse}}
+#'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
+#'  root mean square error (RMSE).
 #'
 #'
 #'

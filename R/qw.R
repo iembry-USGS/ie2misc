@@ -71,7 +71,6 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords QW NWIS USGS
 #'
 #'
 #'

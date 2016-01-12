@@ -40,7 +40,7 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords dr index agreement
+#'
 #'
 #'
 #' @seealso \code{\link{mape}}, \code{\link{vnse}}, \code{\link{madstat}}, \code{\link{mae}}, \code{\link{rmse}}

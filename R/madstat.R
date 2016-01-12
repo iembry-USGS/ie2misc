@@ -4,7 +4,7 @@
 #'
 #' MAD is expressed as
 #'
-#'	\deqn{n^{-1} \sum \limits_{i=1}^n{ \left| O_i - \={O} \right|}}
+#'	\deqn{n^{-1} \sum \limits_{i=1}^n{ \left| O_i - \bar{O} \right|}}
 #'
 #' Reference 1 fully discusses MAD, while Reference 2 provides the formula
 #' used to calculate the MAD.
@@ -34,11 +34,16 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords mean absolute deviation MAD
 #'
 #'
-#' @seealso \code{\link[stats]{mad}}, \code{\link{mape}}, \code{\link{vnse}}, \code{\link{mae}}, \code{\link{dr}}, \code{\link{rmse}}
 #'
+#' @seealso \code{\link[stats]{mad}} for median absolute deviation (MAD)
+#'
+#' @family statistical error functions
+#' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
+#'  mean absolute error (MAE), \code{\link{dr}} for index of agreement (dr), \code{\link{vnse}}
+#'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
+#'  root mean square error (RMSE).
 #'
 #'
 #' @examples

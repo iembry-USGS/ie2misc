@@ -62,7 +62,6 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords rdb ADAPS USGS
 #'
 #'
 #'

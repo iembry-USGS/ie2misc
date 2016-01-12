@@ -23,7 +23,6 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords NA addition dyadic operator
 #'
 #'
 #' @examples

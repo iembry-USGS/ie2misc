@@ -46,7 +46,6 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords psf SkewSE GenSkew SkewOpt USGS
 #'
 #'
 #'

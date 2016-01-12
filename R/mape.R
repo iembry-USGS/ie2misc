@@ -44,10 +44,14 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords mean absolute percent error MAPE
 #'
 #'
-#' @seealso \code{\link{mape}}, \code{\link{mae}}, \code{\link{vnse}}, \code{\link{madstat}}, \code{\link{dr}}, \code{\link{rmse}}
+#'
+#' @family statistical error functions
+#' @seealso \code{\link{mae}} for mean absolute error (MAE), \code{\link{madstat}} for
+#'  mean absolute deviation (MAD), \code{\link{dr}} for index of agreement (dr), \code{\link{vnse}}
+#'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
+#'  root mean square error (RMSE).
 #'
 #'
 #'

@@ -5,7 +5,7 @@
 #'
 #' NSE or E is expressed as
 #'
-#' 	\deqn{E = 1 - \frac{\sum \limits_{i=1}^n{(P_i - O_i)^2}}{\sum \limits_{i=1}^n{(O_i - \={O})^2}}}
+#' 	\deqn{E = 1 - \frac{\sum \limits_{i=1}^n{(P_i - O_i)^2}}{\sum \limits_{i=1}^n{(O_i - \bar{O})^2}}}
 #'
 #'	where \emph{n} is the number of observations,
 #'	where \emph{P} represents the "model estimates or predictions", and
@@ -19,7 +19,7 @@
 #'   Willmott reference.
 #'
 #'
-#' @param predicted is a numeric vector that contains the model predicted
+#' @param predicted A numeric vector that contains the model predicted
 #'   data points (1st parameter)
 #' @param observed A numeric vector that contains the observed data
 #'   points (2nd parameter)
@@ -40,10 +40,13 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords NSE Nash Sutcliffe model efficiency
 #'
 #'
-#' @seealso \code{\link{mape}}, \code{\link{mae}}, \code{\link{madstat}}, \code{\link{dr}}, \code{\link{rmse}}
+#'
+#' @family statistical error functions
+#' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
+#' mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
+#' for index of agreement (dr), and \code{\link{rmse}} for root mean square error (RMSE).
 #'
 #'
 #'

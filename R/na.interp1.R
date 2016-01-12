@@ -40,7 +40,6 @@
 #'
 #' @encoding UTF-8
 #'
-#' @keywords NA linear interpolation gaps time series pracma zoo
 #'
 #'
 #' @seealso \code{\link[zoo]{na.approx}}, \code{\link[pracma]{interp1}}

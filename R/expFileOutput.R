@@ -55,7 +55,6 @@
 #' @author Irucka Embry, Anne Hoos
 #'
 #'
-#' @keywords exp goodness-of-fit trend exceedance probability USGS
 #'
 #' @examples
 #' \dontrun{
