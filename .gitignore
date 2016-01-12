@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Rbuildignore
+.Rbuildignore~
+.gitignore
+.gitignore~
+README.Rmd
+cran-comments.md
+travischanges.txt
