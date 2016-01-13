@@ -4,3 +4,4 @@
 ^travischanges\.txt$
 ^cran-comments\.md$
 ^\.gitignore
+^\.git
