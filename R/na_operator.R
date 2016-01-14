@@ -1,4 +1,4 @@
-﻿#' "\%+na\%"
+﻿#' \%+na\%
 #'
 #' This function "defines a dyadic operator that will behave differently than
 #' 	the "+" operator with regards to missing values". (Quote by 42-, see the
@@ -30,34 +30,34 @@
 #' a <- 1:10
 #' b <- c(98:106, NA)
 #'
-#' a \%+na\% b
+#' a %+na% b
 #'
 #' ## Note that if the vector with the NA value(s) is first, then the additive
 #' ## result will still be an NA value(s)
-#' b \%+na\% a
+#' b %+na% a
 #'
 #'
 #' a1 <- 1:12
 #' b1 <- c(98:106, rep(NA, 3))
 #'
-#' a1 \%+na\% b1
+#' a1 %+na% b1
 #'
 #'
 #' ## using a matrix of the numeric vectors a and b
 #' mat1 <- matrix(data = c(a, b), nrow = length(b), ncol = 2, byrow = FALSE,
 #'         dimnames = list(c(rep("", length(b))), c("a", "b")))
-#' mat1[, 1] \%+na\% mat1[, 2]
+#' mat1[, 1] %+na% mat1[, 2]
 #'
 #'
 #' ## using a data.frame of the numeric vectors a and b
 #' df1 <- data.frame(a, b)
-#' df1[, 1] \%+na\% df1[, 2]
+#' df1[, 1] %+na% df1[, 2]
 #'
 #'
 #' ## using a data.table of the numeric vectors a and b
 #' library(data.table)
 #' df2 <- data.table(a, b)
-#' df2[, 1, with = FALSE][[1]] \%+na\% df2[, 2, with = FALSE][[1]]
+#' df2[, 1, with = FALSE][[1]] %+na% df2[, 2, with = FALSE][[1]]
 #'
 #'
 #'
