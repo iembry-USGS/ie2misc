@@ -83,7 +83,6 @@
 #'
 #'
 #' ## using a data.table of the numeric vectors pre1 and obs1
-#' library(data.table)
 #' df2 <- data.table(obs1, pre1)
 #' rmse(df2[, 2, with = FALSE][[1]], df2[, 1, with = FALSE][[1]])
 #'
