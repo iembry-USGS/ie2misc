@@ -57,7 +57,6 @@ df1[, 1] \%+na\% df1[, 2]
 
 
 ## using a data.table of the numeric vectors a and b
-library(data.table)
 df2 <- data.table(a, b)
 df2[, 1, with = FALSE][[1]] \%+na\% df2[, 2, with = FALSE][[1]]
 
