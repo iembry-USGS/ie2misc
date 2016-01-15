@@ -95,8 +95,8 @@
 #' @export
 mae <- function (predicted, observed, na.rm = TRUE) {
 
-## The base::mean.default code has been helpful with regards to the treatment
-## of non-numeric values
+# The base::mean.default code has been helpful with regards to the treatment
+# of non-numeric values
 
 if (length(predicted) < 1 | length(observed) < 1) {
 
