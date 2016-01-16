@@ -1,4 +1,4 @@
-# ie2misc
+﻿# ie2misc
 
 R package that contains Irucka Embry's miscellaneous USGS functions (processing .exp and .psf files, statistical error functions, "+" dyadic operator for use with NA, linear interpolation with NA, creating ADAPS and QW spreadsheet files, etc.). Irucka created these functions while a Cherokee Nation Technology Solutions (CNTS) United States Geological Survey (USGS) Contractor and/or USGS employee.
 
@@ -23,6 +23,7 @@ obs1 <- rnorm(100) # observed
 
 ## Using the default value of na.rm = TRUE
 # using a matrix of the numeric vector obs1
-mat1 <- matrix(data = obs1, nrow = length(obs1), ncol = 1, byrow = FALSE, dimnames = list(c(rep("", length(obs1))), "Observed"))
+mat1 <- matrix(data = obs1, nrow = length(obs1), ncol = 1, byrow = FALSE,
+dimnames = list(c(rep("", length(obs1))), "Observed"))
 madstat(mat1)
 ```
