@@ -4,8 +4,7 @@
 \name{ie2misc}
 \alias{ie2misc}
 \alias{ie2misc-package}
-\title{ie2misc: Irucka Embry's miscellaneous functions created while he was a CNTS
-         USGS Contractor}
+\title{ie2misc: Irucka Embry's miscellaneous USGS functions}
 \description{
 ie2misc provides many functions that will be useful to people within the
  USGS, while other functions will be useful for others. Functions are
