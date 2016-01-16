@@ -1,15 +1,15 @@
 Package: ie2misc
-Title: Irucka Embry's miscellaneous functions
+Title: Irucka Embry's miscellaneous USGS functions
 Version: 1.0.0
-Author: Irucka Embry [aut, cre] and Anne Hoos [ctb]. Includes R source
-    code and/or documentation previously published by: Felix Andrews
-    (zoo), Hans Werner Borchers (pracma), 24- (Stack Overflow
-    Contributor). [Borrowed from DescTools description.]
+Author: Irucka Embry [aut, cre] and Anne Hoos [ctb]. Includes R source code
+    and/or documentation previously published by: Felix Andrews (zoo),
+    Hans Werner Borchers (pracma), 24- (Stack Overflow Contributor).
+    [Borrowed from DescTools description.]
 Maintainer: Irucka Embry <iembry@usgs.gov>
 Depends: R (>= 3.0.0), tcltk, data.table (>= 1.9.4), stats, utils, tools
 Imports: openxlsx, gWidgets2, gWidgets2tcltk, stringi, qdap, reader, zoo
 Suggests: Rcpp (>= 0.11.5), pracma
-Description: A collection of Irucka Embry's miscellaneous functions
+Description: A collection of Irucka Embry's miscellaneous USGS functions
     (processing .exp and .psf files, statistical error functions,
     "+" dyadic operator for use with NA, linear interpolation with NA,
     creating ADAPS and QW spreadsheet files, etc.). (Other functions
