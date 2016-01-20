@@ -61,39 +61,39 @@ Searches for a character vector of patterns (SkewSE, GenSkew, and SkewOpt)
 }
 \examples{
 \dontrun{
-## Examples to change (a) .psf file(s) interactively and non-interactively
+# Examples to change (a) .psf file(s) interactively and non-interactively
 library(ie2misc)
 psfFileChange() # default where interactive = TRUE
-## Follow the file dialog instructions
+# Follow the file dialog instructions
 
 
-## These are the rows that have been added or changed as a result of this function:
+# These are the rows that have been added or changed as a result of this function:
 
-## SkewSE 0.361804179633127
-## GenSkew 0.0104293904
-## SkewOpt Weighted
+# SkewSE 0.361804179633127
+# GenSkew 0.0104293904
+# SkewOpt Weighted
 
 
 
 psfFileChange(interactive = FALSE)
-## Follow the file dialog instructions
+# Follow the file dialog instructions
 
-## These are the rows that have been added or changed as a result of this function:
+# These are the rows that have been added or changed as a result of this function:
 
-## SkewSE 0.361804179633127
-## GenSkew 0.0104293904
-## SkewOpt Weighted
+# SkewSE 0.361804179633127
+# GenSkew 0.0104293904
+# SkewOpt Weighted
 
 
 
 psfFileChangeBATCH() # Follow the file dialog instructions
 
 
-## These are the rows that have been added or changed as a result of this function:
+# These are the rows that have been added or changed as a result of this function:
 
-## SkewSE 0.361804179633127
-## GenSkew 0.0104293904
-## SkewOpt Weighted
+# SkewSE 0.361804179633127
+# GenSkew 0.0104293904
+# SkewOpt Weighted
 }
 
 }

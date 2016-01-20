@@ -52,7 +52,7 @@ The following were obtained from both interp1 and na.approx:
 \examples{
 library(ie2misc)
 
-## zoo time series example
+# zoo time series example
 zoo1 <- structure(c(1.6, 1.7, 1.7, 1.7, 1.7, 1.7, 1.6, 1.7, 1.7, 1.7,
 1.7, 1.7, 2, 2.1, 2.1, NA, NA, 2.1, 2.1, NA, 2.3, NA, 2, 2.1), .Dim = c(12L,
 2L), .Dimnames = list(NULL, c("V1", "V2")), index = structure(c(1395242100,
@@ -81,7 +81,7 @@ zoo1
 
 
 
-## data frame time series example
+# data frame time series example
 df1 <- structure(list(Time = structure(c(1395242100, 1395243000, 1395243900,
  1395244800, 1395245700, 1395256500, 1395257400, 1395258300, 1395259200,
  1395260100, 1395261000, 1395261900), class = c("POSIXct", "POSIXt"),
@@ -103,7 +103,7 @@ df1
 
 
 
-## data.table time series example
+# data.table time series example
 dt1 <- structure(list(Time = structure(c(1395242100, 1395243000, 1395243900,
  1395244800, 1395245700, 1395256500, 1395257400, 1395258300, 1395259200,
  1395260100, 1395261000, 1395261900), class = c("POSIXct", "POSIXt"),

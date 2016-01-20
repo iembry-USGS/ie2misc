@@ -77,19 +77,19 @@ Line5 19D	16N	16N	16N	16N
 }
 \examples{
 \dontrun{
-## Examples to change (an) ADAPS .rdb file(s) interactively and non-interactively
+# Examples to change (an) ADAPS .rdb file(s) interactively and non-interactively
 library(ie2misc)
 adaps() # default where interactive = TRUE
-## Follow the file dialog instructions
+# Follow the file dialog instructions
 
 
 adaps(interactive = FALSE)
-## Follow the file dialog instructions
+# Follow the file dialog instructions
 
 
-## Example to change a directory of ADAPS .rdb files
+# Example to change a directory of ADAPS .rdb files
 adapsBATCH()
-## Follow the file dialog instructions
+# Follow the file dialog instructions
 }
 
 }

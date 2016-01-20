@@ -11,8 +11,8 @@
 madstat(observed, na.rm = TRUE)
 }
 \arguments{
-\item{observed}{is a numeric vector, matrix, data.frame, or data.table
-that contains the observed data points}
+\item{observed}{A numeric vector, matrix, data.frame, or data.table
+that contains the observed data points.}
 
 \item{na.rm}{A logical vector that determines whether the missing
 values should be removed or not.}
@@ -24,7 +24,7 @@ mean absolute deviation (MAD) as a numeric \code{\link{vector}} or a named
   will be removed (\code{na.rm = TRUE}). This can be changed by specifying \code{na.rm = FALSE}, such as \code{madstat(obs, na.rm = FALSE)}.
 }
 \description{
-This function computes the mean absolute deviation (MAD)
+This function computes the mean absolute deviation (MAD).
 }
 \details{
 MAD is expressed as
@@ -36,9 +36,9 @@ used to calculate the MAD.
 }
 \examples{
 library(ie2misc)
-## All of the following examples use the default value of na.rm = TRUE
+# All of the following examples use the default value of na.rm = TRUE
 
-## Example from Kottegoda
+# Example 1.18 from Kottegoda (page 15)
 obs <- c(50, 56, 42, 53, 49) # annual rainfall in cm
 madstat(obs)
 
@@ -48,22 +48,22 @@ set.seed(100) # makes the example reproducible
 obs1 <- rnorm(100) # observed
 
 
-## using the numeric vector obs1
+# using the numeric vector obs1
 madstat(obs1)
 
 
-## using a matrix of the numeric vector obs1
+# using a matrix of the numeric vector obs1
 mat1 <- matrix(data = obs1, nrow = length(obs1), ncol = 1, byrow = FALSE,
         dimnames = list(c(rep("", length(obs1))), "Observed"))
 madstat(mat1)
 
 
-## using a data.frame of the numeric vector obs1
+# using a data.frame of the numeric vector obs1
 df1 <- data.frame(obs1)
 madstat(df1)
 
 
-## using a data.table of the numeric vector obs1
+# using a data.table of the numeric vector obs1
 df2 <- data.table(obs1)
 madstat(df2)
 
