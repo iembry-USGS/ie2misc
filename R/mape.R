@@ -1,14 +1,14 @@
 ﻿#' Mean absolute percent error (MAPE)
 #'
-#' This function computes the mean absolute percent error (MAPE)
+#' This function computes the mean absolute percent error (MAPE).
 #'
 #' MAPE is expressed as
 #'
 #' 	\deqn{\frac{1}{n} \sum \limits_{i=1}^n{ 100 \frac{\left| X_i - Y_i \right|} {X_i}}}
 #'
 #' 	where \emph{n} is the number of observations,
-#' 	where \emph{X} represents the observations,
-#' 	where \emph{Y} represents the predictions,
+#' 	where \emph{X} represents the observations, and
+#' 	where \emph{Y} represents the predictions.
 #'
 #' 	Below are some points to remember about MAPE from the Ji reference:
 #' \enumerate{
@@ -57,7 +57,7 @@
 #'
 #' @examples
 #' library(ie2misc)
-#' ## All of the following examples use the default value of na.rm = TRUE
+#' # All of the following examples use the default value of na.rm = TRUE
 #' obs <- 1:10 # observed
 #' pre <- 2:11 # predicted
 #' mape(pre, obs)
@@ -69,34 +69,34 @@
 #' pre1 <- rnorm(100) # predicted
 #'
 #'
-#' ## using the vectors pre1 and obs1
+#' # using the vectors pre1 and obs1
 #' mape(pre1, obs1)
 #'
 #'
-#' ## using a matrix of the numeric vectors pre1 and obs1
+#' # using a matrix of the numeric vectors pre1 and obs1
 #' mat1 <- matrix(data = c(obs1, pre1), nrow = length(pre1), ncol = 2,
 #'         byrow = FALSE, dimnames = list(c(rep("", length(pre1))),
 #'         c("Predicted", "Observed")))
 #' mape(mat1[, 2], mat1[, 1])
 #'
-#' ## mat1[, 1] # observed values from column 1 of mat1
-#' ## mat1[, 2] # predicted values from column 2 of mat1
+#' # mat1[, 1] # observed values from column 1 of mat1
+#' # mat1[, 2] # predicted values from column 2 of mat1
 #'
 #'
-#' ## using a data.frame of the numeric vectors pre1 and obs1
+#' # using a data.frame of the numeric vectors pre1 and obs1
 #' df1 <- data.frame(obs1, pre1)
 #' mape(df1[, 2], df1[, 1])
 #'
-#' ## df1[, 1] # observed values from column 1 of df1
-#' ## df1[, 2] # predicted values from column 2 of df1
+#' # df1[, 1] # observed values from column 1 of df1
+#' # df1[, 2] # predicted values from column 2 of df1
 #'
 #'
-#' ## using a data.table of the numeric vectors pre1 and obs1
+#' # using a data.table of the numeric vectors pre1 and obs1
 #' df2 <- data.table(obs1, pre1)
 #' mape(df2[, 2, with = FALSE][[1]], df2[, 1, with = FALSE][[1]])
 #'
-#' ## df2[, 1, with = FALSE][[1]] # observed values from column 1 of df2
-#' ## df2[, 2, with = FALSE][[1]] # predicted values from column 2 of df2
+#' # df2[, 1, with = FALSE][[1]] # observed values from column 1 of df2
+#' # df2[, 2, with = FALSE][[1]] # predicted values from column 2 of df2
 #'
 #'
 #'

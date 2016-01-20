@@ -69,19 +69,19 @@
 #'
 #' @examples
 #' \dontrun{
-#' ## Examples to change (an) ADAPS .rdb file(s) interactively and non-interactively
+#' # Examples to change (an) ADAPS .rdb file(s) interactively and non-interactively
 #' library(ie2misc)
 #' adaps() # default where interactive = TRUE
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #'
 #' adaps(interactive = FALSE)
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #'
-#' ## Example to change a directory of ADAPS .rdb files
+#' # Example to change a directory of ADAPS .rdb files
 #' adapsBATCH()
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #' }
 #'
 #' @import stringi
@@ -156,7 +156,7 @@ if (checkdelim == "\t") {
   rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
 
 
-## creation of the raw ADAPS data spreadsheet
+# creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")
@@ -237,7 +237,7 @@ if (checkdelim == "\t") {
   rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
 
 
-## creation of the raw ADAPS data spreadsheet
+# creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")
@@ -303,7 +303,7 @@ if (checkdelim == "\t") {
   rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
 
 
-## creation of the raw ADAPS data spreadsheet
+# creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")
@@ -414,7 +414,7 @@ if (checkdelim == "\t") {
 # Source 5 and 6 ends
 
 
-## creation of the raw ADAPS data spreadsheet
+# creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")

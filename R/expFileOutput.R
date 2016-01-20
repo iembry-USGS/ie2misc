@@ -58,39 +58,39 @@
 #'
 #' @examples
 #' \dontrun{
-#' ## Example to check the input file format
+#' # Example to check the input file format
 #' library(ie2misc)
 #'
-#' ## Copy and paste the following code into the R console if you
-#' ## wish to see the .exp input file format.
-#' ## Note the number of lines and the row headings.
+#' # Copy and paste the following code into the R console if you
+#' # wish to see the .exp input file format.
+#' # Note the number of lines and the row headings.
 #' file.show(system.file("extdata", "01110000_PEAK_WATSTORE.EXP",
 #'   package = "ie2misc"), title = paste("01110000_PEAK_WATSTORE.EXP"))
-#' ## opens the .exp file using the default text editor or within RStudio
+#' # opens the .exp file using the default text editor or within RStudio
 #'
 #'
-#' ## Examples to show you different output cases
+#' # Examples to show you different output cases
 #' expFileOutput(output = "csv") # returns .csv files
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #' expFileOutput(output = "xlsx") # returns .xlsx files
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #' expFileOutput(output = "both") # returns .csv and .xlsx files
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #'
 #'
 #'
-#' ## Examples to show you different output cases (BATCH)
+#' # Examples to show you different output cases (BATCH)
 #' expFileOutputBATCH(output = "csv") # returns .csv files
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #' expFileOutputBATCH(output = "xlsx") # returns .xlsx files
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #' expFileOutputBATCH(output = "both") # returns .csv and .xlsx files
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #' }
 #'
 #' @import stringi
@@ -219,7 +219,7 @@ write.csv(rddatatmp3, filesave2, row.names = FALSE)
 
 } else if (output == "xlsx") {
 
-## create Microsoft Excel workbook
+# create Microsoft Excel workbook
 wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
 addWorksheet(wb, "Goodness-of-Fit_Trend Results")
@@ -253,7 +253,7 @@ write.csv(rddatatmp3, filesave4, row.names = FALSE)
 # Write the table contained in rddatatmp3 and end with the .csv file extension
 
 
-## create Microsoft Excel workbook
+# create Microsoft Excel workbook
 wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
 addWorksheet(wb, "Goodness-of-Fit_Trend Results")
@@ -386,7 +386,7 @@ write.csv(dataas2, filesave2, row.names = FALSE)
 
 } else if (output == "xlsx") {
 
-## create Microsoft Excel workbook
+# create Microsoft Excel workbook
 wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
 addWorksheet(wb, "Goodness-of-Fit_Trend Results")
@@ -417,7 +417,7 @@ write.csv(dataas2, filesave4, row.names = FALSE)
 # Write the table contained in dataas2 and end with the .csv file extension
 
 
-## create Microsoft Excel workbook
+# create Microsoft Excel workbook
 wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
 addWorksheet(wb, "Goodness-of-Fit_Trend Results")
@@ -563,7 +563,7 @@ write.csv(dataas2, filesave2, row.names = FALSE)
 
 } else if (output == "xlsx") {
 
-## create Microsoft Excel workbook
+# create Microsoft Excel workbook
 wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
 addWorksheet(wb, "Goodness-of-Fit_Trend Results")
@@ -594,7 +594,7 @@ write.csv(dataas2, filesave4, row.names = FALSE)
 # Write the table contained in dataas2 and end with the .csv file extension
 
 
-## create Microsoft Excel workbook
+# create Microsoft Excel workbook
 wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
 addWorksheet(wb, "Goodness-of-Fit_Trend Results")

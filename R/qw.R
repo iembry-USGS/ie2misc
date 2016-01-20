@@ -78,19 +78,19 @@
 #'
 #' @examples
 #' \dontrun{
-#' ## Examples to change (an) QW file(s) interactively and non-interactively
+#' # Examples to change (an) QW file(s) interactively and non-interactively
 #' library(ie2misc)
 #' qw() # default where interactive = TRUE
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #'
 #' qw(interactive = FALSE)
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #'
 #'
-#' ## Example to change QW files in batch mode
+#' # Example to change QW files in batch mode
 #' qwBATCH()
-#' ## Follow the file dialog instructions
+#' # Follow the file dialog instructions
 #' }
 #'
 #' @import stringi

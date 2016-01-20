@@ -50,7 +50,7 @@
 #' @examples
 #' library(ie2misc)
 #'
-#' ## zoo time series example
+#' # zoo time series example
 #' zoo1 <- structure(c(1.6, 1.7, 1.7, 1.7, 1.7, 1.7, 1.6, 1.7, 1.7, 1.7,
 #' 1.7, 1.7, 2, 2.1, 2.1, NA, NA, 2.1, 2.1, NA, 2.3, NA, 2, 2.1), .Dim = c(12L,
 #' 2L), .Dimnames = list(NULL, c("V1", "V2")), index = structure(c(1395242100,
@@ -79,7 +79,7 @@
 #'
 #'
 #'
-#' ## data frame time series example
+#' # data frame time series example
 #' df1 <- structure(list(Time = structure(c(1395242100, 1395243000, 1395243900,
 #'  1395244800, 1395245700, 1395256500, 1395257400, 1395258300, 1395259200,
 #'  1395260100, 1395261000, 1395261900), class = c("POSIXct", "POSIXt"),
@@ -101,7 +101,7 @@
 #'
 #'
 #'
-#' ## data.table time series example
+#' # data.table time series example
 #' dt1 <- structure(list(Time = structure(c(1395242100, 1395243000, 1395243900,
 #'  1395244800, 1395245700, 1395256500, 1395257400, 1395258300, 1395259200,
 #'  1395260100, 1395261000, 1395261900), class = c("POSIXct", "POSIXt"),
@@ -137,12 +137,12 @@ na.interp1 <- function (x, y, xi = x, ..., na.rm = TRUE, maxgap = Inf) {
 
 if (maxgap < length(y)) {
 
-## construct a series like y but with only gaps > maxgap
-## (actual values don't matter as we only use is.na(ygap) below)
+# construct a series like y but with only gaps > maxgap
+# (actual values don't matter as we only use is.na(ygap) below)
 
   ygap <- .fill_short_gaps(y, seq_along(y), maxgap = maxgap)
-## construct y values at 'xi', keeping NAs from ygap
-## (using indexing, as approx() does not allow NAs to be propagated)
+# construct y values at 'xi', keeping NAs from ygap
+# (using indexing, as approx() does not allow NAs to be propagated)
 
   ix <- approx(x, seq_along(y), xi, ...)$y
 
@@ -189,8 +189,8 @@ if (na.rm) {
 
 }
 
-## x = series with gaps
-## fill = same series with filled gaps
+# x = series with gaps
+# fill = same series with filled gaps
 .fill_short_gaps <- function(x, fill, maxgap) {
 
 if (maxgap <= 0)

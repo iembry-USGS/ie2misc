@@ -6,10 +6,10 @@
 #' 	is ignored when \code{x} is a number and \code{x = NA} when \code{x = 0}.
 #'
 #'
-#' @param x numeric vector that does not contain any \code{NA} values
-#' @param y numeric vector which contains at least one \code{NA} value
+#' @param x A numeric vector that does not contain any \code{NA} values
+#' @param y A numeric vector which contains at least one \code{NA} value
 #'
-#' @return numeric vector resulting from the \code{sum} of \code{x} and \code{y}
+#' @return A numeric vector resulting from the \code{sum} of \code{x} and \code{y}
 #'
 #'
 #'
@@ -32,8 +32,8 @@
 #'
 #' a %+na% b
 #'
-#' ## Note that if the vector with the NA value(s) is first, then the additive
-#' ## result will still be an NA value(s)
+#' # Note that if the vector with the NA value(s) is first, then the additive
+#' # result will still be an NA value(s)
 #' b %+na% a
 #'
 #'
@@ -43,18 +43,18 @@
 #' a1 %+na% b1
 #'
 #'
-#' ## using a matrix of the numeric vectors a and b
+#' # using a matrix of the numeric vectors a and b
 #' mat1 <- matrix(data = c(a, b), nrow = length(b), ncol = 2, byrow = FALSE,
 #'         dimnames = list(c(rep("", length(b))), c("a", "b")))
 #' mat1[, 1] %+na% mat1[, 2]
 #'
 #'
-#' ## using a data.frame of the numeric vectors a and b
+#' # using a data.frame of the numeric vectors a and b
 #' df1 <- data.frame(a, b)
 #' df1[, 1] %+na% df1[, 2]
 #'
 #'
-#' ## using a data.table of the numeric vectors a and b
+#' # using a data.table of the numeric vectors a and b
 #' df2 <- data.table(a, b)
 #' df2[, 1, with = FALSE][[1]] %+na% df2[, 2, with = FALSE][[1]]
 #'
