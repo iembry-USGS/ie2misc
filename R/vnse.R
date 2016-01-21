@@ -27,8 +27,8 @@
 #'   values should be removed or not.
 #'
 #' @return Nash-Sutcliffe model efficiency (NSE) as a numeric vector. The
-#'   default choice is that any NA values will be removed (\code{na.rm = TRUE}). This can
-#'   be changed by specifying \code{na.rm = FALSE}, such as \code{vnse(pre, obs, na.rm = FALSE)}.
+#'   default choice is that any NA values will be kept (\code{na.rm = FALSE}). This can
+#'   be changed by specifying \code{na.rm = TRUE}, such as \code{vnse(pre, obs, na.rm = TRUE)}.
 #'
 #'
 #' @source
@@ -45,14 +45,13 @@
 #'
 #' @family statistical error functions
 #' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
-#' mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
-#' for index of agreement (dr), and \code{\link{rmse}} for root mean square error (RMSE).
+#'  mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
+#'  for index of agreement (dr), and \code{\link{rmse}} for root mean square error (RMSE).
 #'
 #'
 #'
 #' @examples
 #' library(ie2misc)
-#' # All of the following examples use the default value of na.rm = TRUE
 #' obs <- 1:10 # observed
 #' pre <- 2:11 # predicted
 #' vnse(pre, obs)
@@ -96,9 +95,10 @@
 #'
 #'
 #' @export
-vnse <- function(predicted, observed, na.rm = TRUE) {
+vnse <- function(predicted, observed, na.rm = FALSE) {
 
-# The base::mean.default code has been helpful with regards to the treatment of non-numeric values
+# The base::mean.default code has been helpful with regards to the treatment
+# of non-numeric values
 
 if (length(predicted) < 1 | length(observed) < 1) {
 
@@ -124,11 +124,23 @@ if (!is.numeric(predicted) | !is.numeric(observed)) {
 
 } else {
 
+if (na.rm) {
+
 num <- sum((predicted - observed) ^ 2, na.rm = na.rm)
 
-denom <- sum((observed - mean(observed) ^ 2), na.rm = na.rm)
+denom <- sum((observed - mean(observed, na.rm = na.rm) ^ 2), na.rm = na.rm)
 
 1 - (num / denom)
+
+} else {
+
+num <- sum((predicted - observed) ^ 2, na.rm = na.rm)
+
+denom <- sum((observed - mean(observed, na.rm = na.rm) ^ 2), na.rm = na.rm)
+
+1 - (num / denom)
+
+}
 }
 }
 }

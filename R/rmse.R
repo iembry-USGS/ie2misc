@@ -23,8 +23,8 @@
 #'   values should be removed or not.
 #'
 #' @return mean absolute percent error (RMSE) as a numeric vector. The default
-#'   choice is that any NA values will be removed (\code{na.rm = TRUE}). This can be
-#'   changed by specifying \code{na.rm = FALSE}, such as \code{rmse(pre, obs, na.rm = FALSE)}.
+#'   choice is that any NA values will be kept (\code{na.rm = FALSE}). This can be
+#'   changed by specifying \code{na.rm = TRUE}, such as \code{rmse(pre, obs, na.rm = TRUE)}.
 #'
 #'
 #' @source
@@ -41,14 +41,13 @@
 #'
 #' @family statistical error functions
 #' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
-#' mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
-#' for index of agreement (dr), and \code{\link{vnse}} for
-#' Nash-Sutcliffe model efficiency (NSE).
+#'  mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
+#'  for index of agreement (dr), and \code{\link{vnse}} for
+#'  Nash-Sutcliffe model efficiency (NSE).
 #'
 #'
 #' @examples
 #' library(ie2misc)
-#' # All of the following examples use the default value of na.rm = TRUE
 #' obs <- 1:10 # observed
 #' pre <- 2:11 # predicted
 #' rmse(pre, obs)
@@ -92,10 +91,13 @@
 #'
 #'
 #' @export
-rmse <- function (predicted, observed, na.rm = TRUE) {
+rmse <- function (predicted, observed, na.rm = FALSE) {
 
 # The base::mean.default code has been helpful with regards to the treatment
 # of non-numeric values
+
+# The moments::kurtosis code has been helpful with regards to the treatment of
+# na.rm
 
 if (length(predicted) < 1 | length(observed) < 1) {
 
@@ -121,11 +123,27 @@ if (!is.numeric(predicted) | !is.numeric(observed)) {
 
 } else {
 
+if (na.rm == TRUE) {
+
+observed <- observed[!is.na(observed)]
+
+predicted <- predicted[!is.na(predicted)]
+
 n <- length(predicted)
 
 error <- predicted - observed
 
 sqrt((n ^ -1) * sum(abs(error) ^ 2, na.rm = na.rm))
+
+} else {
+
+n <- length(predicted)
+
+error <- predicted - observed
+
+sqrt((n ^ -1) * sum(abs(error) ^ 2, na.rm = na.rm))
+
+}
 }
 }
 }

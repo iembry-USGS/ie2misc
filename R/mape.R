@@ -30,8 +30,8 @@
 #'        values should be removed or not.
 #'
 #' @return mean absolute percent error (MAPE) as a numeric vector. The default
-#'         choice is that any NA values will be removed (\code{na.rm = TRUE}). This can be
-#'         changed by specifying \code{na.rm = FALSE}, such as \code{mape(pre, obs, na.rm = FALSE)}.
+#'         choice is that any NA values will be kept (\code{na.rm = FALSE}). This can be
+#'         changed by specifying \code{na.rm = TRUE}, such as \code{mape(pre, obs, na.rm = TRUE)}.
 #'
 #'
 #'
@@ -57,7 +57,6 @@
 #'
 #' @examples
 #' library(ie2misc)
-#' # All of the following examples use the default value of na.rm = TRUE
 #' obs <- 1:10 # observed
 #' pre <- 2:11 # predicted
 #' mape(pre, obs)
@@ -101,10 +100,13 @@
 #'
 #'
 #' @export
-mape <- function (predicted, observed, na.rm = TRUE) {
+mape <- function (predicted, observed, na.rm = FALSE) {
 
 # The base::mean.default code has been helpful with regards to the treatment
 # of non-numeric values
+
+# The moments::kurtosis code has been helpful with regards to the treatment of
+# na.rm
 
 if (length(predicted) < 1 | length(observed) < 1) {
 
@@ -132,9 +134,23 @@ if (!is.numeric(predicted) | !is.numeric(observed)) {
 
 } else {
 
+if (na.rm == TRUE) {
+
+  observed <- observed[!is.na(observed)]
+
+  predicted <- predicted[!is.na(predicted)]
+
   n <- length(predicted)
 
   (1 / n) * (sum(100 * (abs((observed - predicted) / observed)), na.rm = na.rm))
+
+} else {
+
+  n <- length(predicted)
+
+  (1 / n) * (sum(100 * (abs((observed - predicted) / observed)), na.rm = na.rm))
+
+}
 }
 }
 }

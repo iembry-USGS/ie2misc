@@ -20,10 +20,10 @@
 #' The following lines are representative of the .rdb format used in these
 #'   functions.
 #'
-#' Line1    DATETIME	ght
-#' Line2	cfs
-#' Line3	fnu
-#' Line4	ntru # may and may not be present
+#' Line1 DATETIME	ght
+#' Line2 cfs
+#' Line3 fnu
+#' Line4 ntru # may and may not be present
 #' Line5 19D	16N	16N	16N	16N
 #'
 #'

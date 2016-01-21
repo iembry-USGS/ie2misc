@@ -18,7 +18,7 @@
 #' @return mean absolute deviation (MAD) as a numeric \code{\link{vector}} or a named
 #'   numeric vector if using a named object (\code{\link{matrix}}, \code{\link{data.frame}}, or \code{\link{data.table}}). MAD has the
 #'   same units as the observed values. The default choice is that any NA values
-#'   will be removed (\code{na.rm = TRUE}). This can be changed by specifying \code{na.rm = FALSE}, such as \code{madstat(obs, na.rm = FALSE)}.
+#'   will be kept (\code{na.rm = FALSE}). This can be changed by specifying \code{na.rm = TRUE}, such as \code{madstat(obs, na.rm = TRUE)}.
 #'
 #'
 #' @source
@@ -48,8 +48,6 @@
 #'
 #' @examples
 #' library(ie2misc)
-#' # All of the following examples use the default value of na.rm = TRUE
-#'
 #' # Example 1.18 from Kottegoda (page 15)
 #' obs <- c(50, 56, 42, 53, 49) # annual rainfall in cm
 #' madstat(obs)
@@ -81,11 +79,9 @@
 #'
 #'
 #' @export
-madstat <- function (observed, na.rm = TRUE) {
+madstat <- function (observed, na.rm = FALSE) {
 
 # The moments::kurtosis code has been helpful with regards to the treatment of na.rm
-
-  n <- length(observed)
 
 if (is.matrix(observed))
 
@@ -96,6 +92,8 @@ else if (is.vector(observed)) {
 if (na.rm)
 
   observed <- observed[!is.na(observed)]
+
+  n <- length(observed)
 
   n ^ -1 * (sum(abs(observed - mean(observed)), na.rm = na.rm))
 

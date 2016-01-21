@@ -8,7 +8,7 @@
 r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 }
 \usage{
-rmse(predicted, observed, na.rm = TRUE)
+rmse(predicted, observed, na.rm = FALSE)
 }
 \arguments{
 \item{predicted}{A numeric vector that contains the predicted data
@@ -22,8 +22,8 @@ values should be removed or not.}
 }
 \value{
 mean absolute percent error (RMSE) as a numeric vector. The default
-  choice is that any NA values will be removed (\code{na.rm = TRUE}). This can be
-  changed by specifying \code{na.rm = FALSE}, such as \code{rmse(pre, obs, na.rm = FALSE)}.
+  choice is that any NA values will be kept (\code{na.rm = FALSE}). This can be
+  changed by specifying \code{na.rm = TRUE}, such as \code{rmse(pre, obs, na.rm = TRUE)}.
 }
 \description{
 This function computes the root mean square error (RMSE).
@@ -43,7 +43,6 @@ RMSE is fully discussed in the Willmott reference, including a comparison
 }
 \examples{
 library(ie2misc)
-# All of the following examples use the default value of na.rm = TRUE
 obs <- 1:10 # observed
 pre <- 2:11 # predicted
 rmse(pre, obs)
@@ -92,11 +91,12 @@ Cort J. Willmott and Kenji Matsuura, "Advantages of the mean absolute error (MAE
 }
 \seealso{
 \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
-mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
-for index of agreement (dr), and \code{\link{vnse}} for
-Nash-Sutcliffe model efficiency (NSE).
+ mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
+ for index of agreement (dr), and \code{\link{vnse}} for
+ Nash-Sutcliffe model efficiency (NSE).
 
-Other statistical.error.functions: \code{\link{madstat}},
-  \code{\link{mae}}, \code{\link{mape}}, \code{\link{vnse}}
+Other statistical.error.functions: \code{\link{dr}},
+  \code{\link{madstat}}, \code{\link{mae}},
+  \code{\link{mape}}, \code{\link{vnse}}
 }
 

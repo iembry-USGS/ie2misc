@@ -8,7 +8,7 @@
 r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 }
 \usage{
-mape(predicted, observed, na.rm = TRUE)
+mape(predicted, observed, na.rm = FALSE)
 }
 \arguments{
 \item{predicted}{A numeric vector that contains the predicted data
@@ -22,8 +22,8 @@ values should be removed or not.}
 }
 \value{
 mean absolute percent error (MAPE) as a numeric vector. The default
-        choice is that any NA values will be removed (\code{na.rm = TRUE}). This can be
-        changed by specifying \code{na.rm = FALSE}, such as \code{mape(pre, obs, na.rm = FALSE)}.
+        choice is that any NA values will be kept (\code{na.rm = FALSE}). This can be
+        changed by specifying \code{na.rm = TRUE}, such as \code{mape(pre, obs, na.rm = TRUE)}.
 }
 \description{
 This function computes the mean absolute percent error (MAPE).
@@ -50,7 +50,6 @@ Below are some points to remember about MAPE from the Ji reference:
 }
 \examples{
 library(ie2misc)
-# All of the following examples use the default value of na.rm = TRUE
 obs <- 1:10 # observed
 pre <- 2:11 # predicted
 mape(pre, obs)
@@ -103,7 +102,8 @@ Lei Ji and Kevin Gallo, "An Agreement Coefficient for Image Comparison", \emph{P
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 
-Other statistical.error.functions: \code{\link{madstat}},
-  \code{\link{mae}}, \code{\link{rmse}}, \code{\link{vnse}}
+Other statistical.error.functions: \code{\link{dr}},
+  \code{\link{madstat}}, \code{\link{mae}},
+  \code{\link{rmse}}, \code{\link{vnse}}
 }
 

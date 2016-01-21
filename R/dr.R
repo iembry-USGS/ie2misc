@@ -26,8 +26,8 @@
 #'	values should be removed or not.
 #'
 #' @return index of agreement (dr) as a numeric vector. The default choice
-#'	is that any NA values will be removed (na.rm = TRUE). This can be
-#'	changed by specifying \code{na.rm = FALSE}, such as \code{dr(pre, obs, na.rm = FALSE)}.
+#'	is that any NA values will be kept (na.rm = FALSE). This can be
+#'	changed by specifying \code{na.rm = TRUE}, such as \code{dr(pre, obs, na.rm = TRUE)}.
 #'
 #'
 #' @source
@@ -43,13 +43,16 @@
 #'
 #'
 #'
-#' @seealso \code{\link{mape}}, \code{\link{vnse}}, \code{\link{madstat}}, \code{\link{mae}}, \code{\link{rmse}}
+#'
+#' @family statistical error functions
+#' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
+#'  mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{vnse}}
+#'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for root mean square error (RMSE).
 #'
 #'
 #'
 #' @examples
 #' library(ie2misc)
-#' # All of the following examples use the default value of na.rm = TRUE
 #' obs <- 1:10 # observed
 #' pre <- 2:11 # predicted
 #' dr(pre, obs)
@@ -93,15 +96,15 @@
 #'
 #'
 #' @export
-dr <- function (predicted, observed, na.rm = TRUE) {
+dr <- function (predicted, observed, na.rm = FALSE) {
 
 # The base::mean.default code has been helpful with regards to the treatment
 # of non-numeric values
 
 if (length(predicted) < 1 | length(observed) < 1) {
 
-  stop("Check the length of the predicted and observed vectors since one of them
- has a length of 0. Use a different set of values and then try again.")
+  stop("Check the length of the predicted and observed vectors since one of
+  them has a length of 0. Use a different set of values and then try again.")
 # Source 1 / provide a stop warning if the length of one of the vectors is 0
 
 } else {
@@ -126,16 +129,43 @@ if (!is.numeric(predicted) | !is.numeric(observed)) {
 
   c <- 2
 
+if (na.rm == TRUE) {
+
 if (sum(abs(predicted - observed), na.rm = na.rm) <=
-(c * sum(abs(observed - mean(observed)), na.rm = na.rm))) {
+(c * sum(abs(observed - mean(observed, na.rm = na.rm)), na.rm = na.rm))) {
 
   1 - (sum(abs(predicted - observed), na.rm = na.rm) /
-  (c * sum(abs(observed - mean(observed)), na.rm = na.rm)))
+  (c * sum(abs(observed - mean(observed, na.rm = na.rm)), na.rm = na.rm)))
 
 } else {
 
-  ((c * sum(abs(observed - mean(observed)), na.rm = na.rm)) /
+  ((c * sum(abs(observed - mean(observed, na.rm = na.rm)), na.rm = na.rm)) /
   sum(abs(predicted - observed), na.rm = na.rm)) - 1
+
+} }
+
+else {
+
+if (anyNA(predicted) | anyNA(observed)) {
+
+NA
+
+} else {
+
+if (sum(abs(predicted - observed), na.rm = na.rm) <=
+(c * sum(abs(observed - mean(observed, na.rm = na.rm)), na.rm = na.rm))) {
+
+  1 - (sum(abs(predicted - observed), na.rm = na.rm) /
+  (c * sum(abs(observed - mean(observed, na.rm = na.rm)), na.rm = na.rm)))
+
+} else {
+
+  ((c * sum(abs(observed - mean(observed, na.rm = na.rm)), na.rm = na.rm)) /
+  sum(abs(predicted - observed), na.rm = na.rm)) - 1
+
+} }
+
+
 }
 }
 }

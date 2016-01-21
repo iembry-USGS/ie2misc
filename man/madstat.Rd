@@ -8,7 +8,7 @@
 \code{\link[moments]{kurtosis}} for use of na.rm for numeric vector, matrix, and data.frame objects
 }
 \usage{
-madstat(observed, na.rm = TRUE)
+madstat(observed, na.rm = FALSE)
 }
 \arguments{
 \item{observed}{A numeric vector, matrix, data.frame, or data.table
@@ -21,7 +21,7 @@ values should be removed or not.}
 mean absolute deviation (MAD) as a numeric \code{\link{vector}} or a named
   numeric vector if using a named object (\code{\link{matrix}}, \code{\link{data.frame}}, or \code{\link{data.table}}). MAD has the
   same units as the observed values. The default choice is that any NA values
-  will be removed (\code{na.rm = TRUE}). This can be changed by specifying \code{na.rm = FALSE}, such as \code{madstat(obs, na.rm = FALSE)}.
+  will be kept (\code{na.rm = FALSE}). This can be changed by specifying \code{na.rm = TRUE}, such as \code{madstat(obs, na.rm = TRUE)}.
 }
 \description{
 This function computes the mean absolute deviation (MAD).
@@ -36,8 +36,6 @@ used to calculate the MAD.
 }
 \examples{
 library(ie2misc)
-# All of the following examples use the default value of na.rm = TRUE
-
 # Example 1.18 from Kottegoda (page 15)
 obs <- c(50, 56, 42, 53, 49) # annual rainfall in cm
 madstat(obs)
@@ -84,8 +82,8 @@ madstat(df2)
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 
-Other statistical.error.functions: \code{\link{mae}},
-  \code{\link{mape}}, \code{\link{rmse}},
-  \code{\link{vnse}}
+Other statistical.error.functions: \code{\link{dr}},
+  \code{\link{mae}}, \code{\link{mape}},
+  \code{\link{rmse}}, \code{\link{vnse}}
 }
 

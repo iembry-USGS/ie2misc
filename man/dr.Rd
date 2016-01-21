@@ -8,7 +8,7 @@
 r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 }
 \usage{
-dr(predicted, observed, na.rm = TRUE)
+dr(predicted, observed, na.rm = FALSE)
 }
 \arguments{
 \item{predicted}{A numeric vector that contains the predicted data
@@ -22,8 +22,8 @@ values should be removed or not.}
 }
 \value{
 index of agreement (dr) as a numeric vector. The default choice
-is that any NA values will be removed (na.rm = TRUE). This can be
-changed by specifying \code{na.rm = FALSE}, such as \code{dr(pre, obs, na.rm = FALSE)}.
+is that any NA values will be kept (na.rm = FALSE). This can be
+changed by specifying \code{na.rm = TRUE}, such as \code{dr(pre, obs, na.rm = TRUE)}.
 }
 \description{
 This function computes the index of agreement (dr).
@@ -46,7 +46,6 @@ The index of agreement (dr) is fully discussed in the Willmott reference.
 }
 \examples{
 library(ie2misc)
-# All of the following examples use the default value of na.rm = TRUE
 obs <- 1:10 # observed
 pre <- 2:11 # predicted
 dr(pre, obs)
@@ -94,6 +93,12 @@ dr(df2[, 2, with = FALSE][[1]], df2[, 1, with = FALSE][[1]])
 Cort J. Willmott, Scott M. Robeson, and Kenji Matsuura, "A refined index of model performance", \emph{International Journal of Climatology}, Volume 32, Issue 13, pages 2088-2094, 15 November 2012, \url{http://onlinelibrary.wiley.com/doi/10.1002/joc.2419/pdf}.
 }
 \seealso{
-\code{\link{mape}}, \code{\link{vnse}}, \code{\link{madstat}}, \code{\link{mae}}, \code{\link{rmse}}
+\code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
+ mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{vnse}}
+ for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for root mean square error (RMSE).
+
+Other statistical.error.functions: \code{\link{madstat}},
+  \code{\link{mae}}, \code{\link{mape}},
+  \code{\link{rmse}}, \code{\link{vnse}}
 }
 

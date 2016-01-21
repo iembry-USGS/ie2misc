@@ -8,7 +8,7 @@
 r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 }
 \usage{
-mae(predicted, observed, na.rm = TRUE)
+mae(predicted, observed, na.rm = FALSE)
 }
 \arguments{
 \item{predicted}{A numeric vector that contains the model predicted
@@ -23,8 +23,8 @@ values should be removed or not.}
 \value{
 mean absolute error (MAE) as a numeric vector using the same
    units as the given variables. The default choice is that any NA values
-   will be removed (\code{na.rm = TRUE}). This can be changed by
- specifying \code{na.rm = FALSE}, such as \code{mae(pre, obs, na.rm = FALSE)}.
+   will be kept (\code{na.rm = FALSE}). This can be changed by
+ specifying \code{na.rm = TRUE}, such as \code{mae(pre, obs, na.rm = TRUE)}.
 }
 \description{
 This function computes the mean absolute error (MAE).
@@ -44,7 +44,6 @@ MAE is fully discussed in the Willmott reference, including a
 }
 \examples{
 library(ie2misc)
-# All of the following examples use the default value of na.rm = TRUE
 obs <- 1:10 # observed
 pre <- 2:11 # predicted
 mae(pre, obs)
@@ -96,8 +95,8 @@ Cort J. Willmott and Kenji Matsuura, "Advantages of the mean absolute error (MAE
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 
-Other statistical.error.functions: \code{\link{madstat}},
-  \code{\link{mape}}, \code{\link{rmse}},
-  \code{\link{vnse}}
+Other statistical.error.functions: \code{\link{dr}},
+  \code{\link{madstat}}, \code{\link{mape}},
+  \code{\link{rmse}}, \code{\link{vnse}}
 }
 

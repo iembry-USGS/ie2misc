@@ -24,8 +24,8 @@
 #'
 #' @return mean absolute error (MAE) as a numeric vector using the same
 #'    units as the given variables. The default choice is that any NA values
-#'    will be removed (\code{na.rm = TRUE}). This can be changed by
-#'	 specifying \code{na.rm = FALSE}, such as \code{mae(pre, obs, na.rm = FALSE)}.
+#'    will be kept (\code{na.rm = FALSE}). This can be changed by
+#'	 specifying \code{na.rm = TRUE}, such as \code{mae(pre, obs, na.rm = TRUE)}.
 #'
 #'
 #' @source
@@ -50,7 +50,6 @@
 #'
 #' @examples
 #' library(ie2misc)
-#' # All of the following examples use the default value of na.rm = TRUE
 #' obs <- 1:10 # observed
 #' pre <- 2:11 # predicted
 #' mae(pre, obs)
@@ -93,10 +92,13 @@
 #'
 #'
 #' @export
-mae <- function (predicted, observed, na.rm = TRUE) {
+mae <- function (predicted, observed, na.rm = FALSE) {
 
 # The base::mean.default code has been helpful with regards to the treatment
 # of non-numeric values
+
+# The moments::kurtosis code has been helpful with regards to the treatment of
+# na.rm
 
 if (length(predicted) < 1 | length(observed) < 1) {
 
@@ -122,10 +124,23 @@ if (!is.numeric(predicted) | !is.numeric(observed)) {
 
 } else {
 
-n <- length(predicted)
+if (na.rm == TRUE) {
 
-(n ^ -1) * (sum(abs(predicted - observed), na.rm = na.rm))
+  observed <- observed[!is.na(observed)]
 
+  predicted <- predicted[!is.na(predicted)]
+
+  n <- length(predicted)
+
+  (n ^ -1) * (sum(abs(predicted - observed), na.rm = na.rm))
+
+} else {
+
+  n <- length(predicted)
+
+  (n ^ -1) * (sum(abs(predicted - observed), na.rm = na.rm))
+
+}
 }
 }
 }
