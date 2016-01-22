@@ -11,13 +11,13 @@ r - Better error message for stopifnot? - Stack Overflow answered by Andrie on D
 rmse(predicted, observed, na.rm = FALSE)
 }
 \arguments{
-\item{predicted}{A numeric vector that contains the predicted data
+\item{predicted}{numeric vector that contains the predicted data
 points (1st parameter)}
 
-\item{observed}{A numeric vector that contains the observed data
+\item{observed}{numeric vector that contains the observed data
 points (2nd parameter)}
 
-\item{na.rm}{A logical vector that determines whether the missing
+\item{na.rm}{logical vector that determines whether the missing
 values should be removed or not.}
 }
 \value{
@@ -33,13 +33,15 @@ RMSE is expressed as
 
 \deqn{\sqrt{n^{-1} \sum \limits_{i=1}^n{ \left| P_i - O_i \right|^2}}}
 
-where \emph{n} is the number of observations,
-where \emph{P} represents the "model estimates or predictions", and
-where \emph{O} represents the "thought-to-be reliable and pairwise matched
-    observations".
+\describe{
+\item{\emph{n}}{the number of observations}
+\item{\emph{P}}{the "model estimates or predictions"}
+\item{\emph{O}}{the "thought-to-be reliable and pairwise matched
+  observations"}
+}
 
 RMSE is fully discussed in the Willmott reference, including a comparison
-  to mean absolute error (MAE).
+  to mean-absolute error (MAE).
 }
 \examples{
 library(ie2misc)
@@ -87,16 +89,12 @@ rmse(df2[, 2, with = FALSE][[1]], df2[, 1, with = FALSE][[1]])
 
 }
 \references{
-Cort J. Willmott and Kenji Matsuura, "Advantages of the mean absolute error (MAE) over the root mean square error (RMSE) in assessing average model performance", \emph{Climate Research}, Vol. 30: 79-82, 2005, \url{http://climate.geog.udel.edu/~climate/publication_html/Pdf/WM_CR_05.pdf}.
+Cort J. Willmott and Kenji Matsuura, "Advantages of the mean-absolute error (MAE) over the root mean square error (RMSE) in assessing average model performance", \emph{Climate Research}, Vol. 30: 79-82, 2005, \url{http://climate.geog.udel.edu/~climate/publication_html/Pdf/WM_CR_05.pdf}.
 }
 \seealso{
 \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
- mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
- for index of agreement (dr), and \code{\link{vnse}} for
+ mean-absolute error (MAE), \code{\link{madstat}} for mean-absolute deviation (MAD), \code{\link{dr}}
+ for "index of agreement (dr)", and \code{\link{vnse}} for
  Nash-Sutcliffe model efficiency (NSE).
-
-Other statistical.error.functions: \code{\link{dr}},
-  \code{\link{madstat}}, \code{\link{mae}},
-  \code{\link{mape}}, \code{\link{vnse}}
 }
 

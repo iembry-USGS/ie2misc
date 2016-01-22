@@ -5,9 +5,8 @@
 #' interpolation method. Here, \code{x = x} rather than
 #' \code{x = index(object)} in na.approx. Here, \code{y = y} rather than
 #' \code{y = object} in na.approx. Also, here, \code{xi} is used instead
-#' of \code{xout} in na.approx.
-#'
-#' The following were obtained from both interp1 and na.approx:
+#' of \code{xout} in na.approx. The Arguments list was obtained from both
+#' interp1 and na.approx.
 #'
 #' @param x Numeric vector; points on the x-axis; at least two points
 #' 	required; will be sorted if necessary.

@@ -61,15 +61,15 @@ QW .xlsx file(s) where sheet1 is named after the original filename
   application.
 }
 \description{
-qw
-Opens a single or multiple raw, QW file(s) to modify the format and then
-  exports the file(s) in .xlsx format. This is done for a single file or
-  multiple files that the user selects.
+qw and qwBATCH process raw QW files.
 }
 \details{
-qwBATCH
-Opens raw QW files, from a directory, to modify the format and then
-  exports the files in .xlsx format.  This is done in a BATCH mode
+qw function opens a single or multiple raw, QW file(s) to modify the format
+  and then exports the file(s) in .xlsx format. This is done for a single
+  file or multiple files that the user selects.
+
+qwBATCH function opens raw QW files, from a directory, to modify the format
+  and then exports the files in .xlsx format.  This is done in a BATCH mode
   (whole directory of QW files).
 
 Both qw and qwBATCH functions perform the same processes on the raw QW
@@ -81,9 +81,9 @@ Both qw and qwBATCH functions perform the same processes on the raw QW
   and sheet3 provides the meta data from the top of the file). The
   supported US timezones are the following: Eastern, Central, Mountain, and
   Pacific. If you are processing stations in the Alaska, Hawai'i and/or
-  Puerto Rico timezones, then the timezones will not be adjusted for Daylight
-  Savings Time. The same is also true of any stations located in other US
-  regions that do not following Daylight Savings Time.
+  Puerto Rico timezones, then the timezones will not be adjusted for
+  Daylight Savings Time. The same is also true of any stations located in
+  other US regions that do not following Daylight Savings Time.
 }
 \examples{
 \dontrun{

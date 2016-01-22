@@ -1,15 +1,15 @@
 ﻿#' adaps and adapsBATCH
 #'
-#' adaps
-#' Opens single or multiple raw ADAPS .rdb file(s) to modify the format and
-#'   then exports the file(s) in .xlsx format. This is done for a single file or
-#'   multiple files that the user selects.
+#' adaps and adapsBATCH process raw ADAPS .rdb files.
+#'
+#' adaps function opens single or multiple raw ADAPS .rdb file(s) to modify the
+#'   format and then exports the file(s) in .xlsx format. This is done for a
+#'   single file or multiple files that the user selects.
 #'
 #'
-#' adapsBATCH
-#' Opens raw ADAPS .rdb files, from a directory, to modify the format and then
-#'   exports the files in .xlsx format.  This is done in a BATCH mode
-#'   (whole directory of ADAPS .rdb files).
+#' adapsBATCH function opens raw ADAPS .rdb files, from a directory, to modify
+#'   the format and then exports the files in .xlsx format. This is done in a
+#'   BATCH mode (whole directory of ADAPS .rdb files).
 #'
 #' Both adaps and adapsBATCH functions perform the same processes on the raw
 #'   ADAPS .rdb files: 1) Read in the file and remove the 1st 4 or 5 lines
@@ -18,14 +18,16 @@
 #'   1st 4 or 5 lines, and 3) export the modified file in .xlsx format.
 #'
 #' The following lines are representative of the .rdb format used in these
-#'   functions.
+#'   functions. Note: ntru may not be present. If so, then there will only be 3
+#'   cases of 16N in the last row.
 #'
-#' Line1 DATETIME	ght
-#' Line2 cfs
-#' Line3 fnu
-#' Line4 ntru # may and may not be present
-#' Line5 19D	16N	16N	16N	16N
-#'
+#' \tabular{ccccc}{
+#'   DATETIME \tab ght\cr
+#'   cfs\cr
+#'   fnu\cr
+#'   ntru\cr
+#'   19D \tab 16N \tab 16N \tab 16N \tab 16N
+#' }
 #'
 #'
 #'

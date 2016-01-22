@@ -1,28 +1,30 @@
-﻿#' Mean absolute error (MAE)
+﻿#' Mean-absolute error (MAE)
 #'
-#' This function computes the mean absolute error (MAE).
+#' This function computes the mean-absolute error (MAE).
 #'
 #' (MAE) is expressed as
 #'
 #'	\deqn{n^{-1} \sum \limits_{i=1}^n{ \left| P_i - O_i \right|}}
 #'
-#'	where \emph{n} is the number of observations,
-#'	where \emph{P} represents the "model estimates or predictions", and
-#'	where \emph{O} represents the "thought-to-be reliable and pairwise matched
-#'   observations".
+#' \describe{
+#'	\item{\emph{n}}{the number of observations}
+#'	\item{\emph{P}}{the "model estimates or predictions"}
+#'	\item{\emph{O}}{the "thought-to-be reliable and pairwise matched
+#'   observations"}
+#' }
 #'
 #'	MAE is fully discussed in the Willmott reference, including a
 #'   comparison to root mean square error (RMSE).
 #'
 #'
-#' @param predicted A numeric vector that contains the model predicted
+#' @param predicted numeric vector that contains the model predicted
 #'   data points (1st parameter)
-#' @param observed A numeric vector that contains the observed data
+#' @param observed numeric vector that contains the observed data
 #'   points (2nd parameter)
-#' @param na.rm A logical vector that determines whether the missing
+#' @param na.rm logical vector that determines whether the missing
 #'   values should be removed or not.
 #'
-#' @return mean absolute error (MAE) as a numeric vector using the same
+#' @return mean-absolute error (MAE) as a numeric vector using the same
 #'    units as the given variables. The default choice is that any NA values
 #'    will be kept (\code{na.rm = FALSE}). This can be changed by
 #'	 specifying \code{na.rm = TRUE}, such as \code{mae(pre, obs, na.rm = TRUE)}.
@@ -33,18 +35,22 @@
 #'
 #'
 #' @references
-#' Cort J. Willmott and Kenji Matsuura, "Advantages of the mean absolute error (MAE) over the root mean square error (RMSE) in assessing average model performance", \emph{Climate Research}, Vol. 30: 79-82, 2005, \url{http://climate.geog.udel.edu/~climate/publication_html/Pdf/WM_CR_05.pdf}.
+#' Cort J. Willmott and Kenji Matsuura, "Advantages of the mean-absolute error (MAE) over the root mean square error (RMSE) in assessing average model performance", \emph{Climate Research}, Vol. 30: 79-82, 2005, \url{http://climate.geog.udel.edu/~climate/publication_html/Pdf/WM_CR_05.pdf}.
 #'
 #' @encoding UTF-8
 #'
 #'
 #'
 #'
-#' @family statistical error functions
+#'
 #' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{madstat}} for
-#'  mean absolute deviation (MAD), \code{\link{dr}} for index of agreement (dr), \code{\link{vnse}}
+#'  mean-absolute deviation (MAD), \code{\link{dr}} for "index of agreement (dr)", \code{\link{vnse}}
 #'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
 #'  root mean square error (RMSE).
+#'
+#'
+#'
+#'
 #'
 #'
 #'

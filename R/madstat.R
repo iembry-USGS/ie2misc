@@ -1,21 +1,29 @@
-﻿#' Mean absolute deviation (MAD)
+﻿#' Mean-absolute deviation (MAD)
 #'
-#' This function computes the mean absolute deviation (MAD).
+#' This function computes the mean-absolute deviation (MAD) -- "the average of
+#'   the magnitudes of the errors or deviations."
 #'
 #' MAD is expressed as
 #'
 #'	\deqn{n^{-1} \sum \limits_{i=1}^n{ \left| O_i - \bar{O} \right|}}
 #'
+#' \describe{
+#'	\item{\emph{n}}{the number of observations}
+#'	\item{\emph{O}}{the "pairwise-matched observations that are judged to
+#'   be reliable"}
+#'	\item{\emph{\eqn{\bar{O}}}}{the "true" mean of the observations}
+#' }
+#'
 #' Reference 1 fully discusses MAD, while Reference 2 provides the formula
 #' used to calculate the MAD.
 #'
 #'
-#' @param observed A numeric vector, matrix, data.frame, or data.table
+#' @param observed numeric vector, matrix, data.frame, or data.table
 #'   that contains the observed data points.
-#' @param na.rm A logical vector that determines whether the missing
+#' @param na.rm logical vector that determines whether the missing
 #'   values should be removed or not.
 #'
-#' @return mean absolute deviation (MAD) as a numeric \code{\link{vector}} or a named
+#' @return mean-absolute deviation (MAD) as a numeric \code{\link{vector}} or a named
 #'   numeric vector if using a named object (\code{\link{matrix}}, \code{\link{data.frame}}, or \code{\link{data.table}}). MAD has the
 #'   same units as the observed values. The default choice is that any NA values
 #'   will be kept (\code{na.rm = FALSE}). This can be changed by specifying \code{na.rm = TRUE}, such as \code{madstat(obs, na.rm = TRUE)}.
@@ -28,7 +36,7 @@
 #' @references
 #' \enumerate{
 #'    \item Cort J. Willmott, Kenji Matsuura, and Scott M. Robeson, "Ambiguities inherent in sums-of-squares-based error statistics", \emph{Atmospheric Environment}, vol. 43, no. 3, pp. 749-752, 2009, \url{http://www.sciencedirect.com/science/article/pii/S1352231008009564}.
-#'    \item Cort J. Willmott, Scott M. Robeson, and Kenji Matsuura, "A refined index of model performance", \emph{International Journal of Climatology}, Volume 32, Issue 13, pages 2088-2094, 15 November 2012, \url{http://onlinelibrary.wiley.com/doi/10.1002/joc.2419/pdf}.
+#'    \item Cort J. Willmott, Scott M. Robeson, and Kenji Matsuura, "Short Communication: A refined index of model performance", \emph{International Journal of Climatology}, Volume 32, Issue 13, pages 2088-2094, 15 November 2012, \url{http://onlinelibrary.wiley.com/doi/10.1002/joc.2419/pdf}.
 #'    \item Nathabandu T. Kottegoda and Renzo Rosso, \emph{Statistics, Probability, and Reliability for Civil and Environmental Engineers}, New York City, New York: The McGraw-Hill Companies, Inc., 1997, page 15.
 #'}
 #'
@@ -39,11 +47,12 @@
 #'
 #' @seealso \code{\link[stats]{mad}} for median absolute deviation (MAD)
 #'
-#' @family statistical error functions
+#'
 #' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
-#'  mean absolute error (MAE), \code{\link{dr}} for index of agreement (dr), \code{\link{vnse}}
+#'  mean-absolute error (MAE), \code{\link{dr}} for "index of agreement (dr)", \code{\link{vnse}}
 #'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
 #'  root mean square error (RMSE).
+#'
 #'
 #'
 #' @examples

@@ -11,13 +11,13 @@ r - Better error message for stopifnot? - Stack Overflow answered by Andrie on D
 vnse(predicted, observed, na.rm = FALSE)
 }
 \arguments{
-\item{predicted}{A numeric vector that contains the model predicted
+\item{predicted}{numeric vector that contains the model predicted
 data points (1st parameter)}
 
-\item{observed}{A numeric vector that contains the observed data
+\item{observed}{numeric vector that contains the observed data
 points (2nd parameter)}
 
-\item{na.rm}{A logical vector that determines whether the missing
+\item{na.rm}{logical vector that determines whether the missing
 values should be removed or not.}
 }
 \value{
@@ -34,10 +34,14 @@ NSE or E is expressed as
 
 \deqn{E = 1 - \frac{\sum \limits_{i=1}^n{\left(P_i - O_i\right)^2}}{\sum \limits_{i=1}^n{\left(O_i - \bar{O}\right)^2}}}
 
-where \emph{n} is the number of observations,
-where \emph{P} represents the "model estimates or predictions", and
-where \emph{O} represents the "pairwise-matched observations that are
-  judged to be reliable".
+\describe{
+\item{\emph{E}}{"Nash and Sutcliffe’s coefficient of efficiency (E)"}
+\item{\emph{n}}{the number of observations}
+\item{\emph{P}}{the "model estimates or predictions"}
+\item{\emph{O}}{the "pairwise-matched observations that are judged to
+  be reliable"}
+\item{\emph{\eqn{\bar{O}}}}{the "true" mean of the observations}
+}
 
 Note: Both P and O should have the same units.
 
@@ -95,11 +99,7 @@ Cort J. Willmott, Scott M. Robeson, and Kenji Matsuura, "A refined index of mode
 }
 \seealso{
 \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
- mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
- for index of agreement (dr), and \code{\link{rmse}} for root mean square error (RMSE).
-
-Other statistical.error.functions: \code{\link{dr}},
-  \code{\link{madstat}}, \code{\link{mae}},
-  \code{\link{mape}}, \code{\link{rmse}}
+ mean-absolute error (MAE), \code{\link{madstat}} for mean-absolute deviation (MAD), \code{\link{dr}}
+ for "index of agreement (dr)", and \code{\link{rmse}} for root mean square error (RMSE).
 }
 

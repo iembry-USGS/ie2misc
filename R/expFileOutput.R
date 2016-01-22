@@ -1,16 +1,15 @@
 ﻿#' expFileOutput and expFileOutputBATCH
 #'
-#' expFileOutput
+#' expFileOutput and expFileOutputBATCH process raw .exp files.
 #'
-#' Obtains 1) the goodness-of-fit and trend results & 2) the exceedance
-#'   probability values from .exp files that the user selects.
+#' expFileOutput function obtains 1) the goodness-of-fit and trend results &
+#'   2) the exceedance probability values from .exp files that the user
+#'   selects.
 #'
 #'
-#' expFileOutputBATCH
-#'
-#' Obtains 1) the goodness-of-fit and trend results & 2) the exceedance
-#'   probability values from .exp files in a BATCH mode (whole directory of
-#'   .exp files).
+#' expFileOutputBATCH function obtains 1) the goodness-of-fit and trend results
+#'   & 2) the exceedance probability values from .exp files in a BATCH mode
+#'   (whole directory of .exp files).
 #'
 #' In the Examples section, there is R code for the user to view the example
 #'   .exp file.
@@ -20,7 +19,7 @@
 #'   goodness-of-fit and trend results & 2) the exceedance probability values.
 #' @param output The exported format for each set of results (options are .csv,
 #'   .xlsx, and both file types).
-#' @param overwrite A logical vector that determines whether the existing
+#' @param overwrite logical vector that determines whether the existing
 #'   should be overwritten or not.
 #'
 #' @param path Directory path of .exp files, to be selected through a directory

@@ -36,7 +36,7 @@ goodness-of-fit and trend results & 2) the exceedance probability values.}
 \item{output}{The exported format for each set of results (options are .csv,
 .xlsx, and both file types).}
 
-\item{overwrite}{A logical vector that determines whether the existing
+\item{overwrite}{logical vector that determines whether the existing
 should be overwritten or not.}
 
 \item{path}{Directory path of .exp files, to be selected through a directory
@@ -51,17 +51,16 @@ exceedance probability values. The user will be asked where to find the
   directory are combined in a single data.frame with both 1) and 2).
 }
 \description{
-expFileOutput
+expFileOutput and expFileOutputBATCH process raw .exp files.
 }
 \details{
-Obtains 1) the goodness-of-fit and trend results & 2) the exceedance
-  probability values from .exp files that the user selects.
+expFileOutput function obtains 1) the goodness-of-fit and trend results &
+  2) the exceedance probability values from .exp files that the user
+  selects.
 
-expFileOutputBATCH
-
-Obtains 1) the goodness-of-fit and trend results & 2) the exceedance
-  probability values from .exp files in a BATCH mode (whole directory of
-  .exp files).
+expFileOutputBATCH function obtains 1) the goodness-of-fit and trend results
+  & 2) the exceedance probability values from .exp files in a BATCH mode
+  (whole directory of .exp files).
 
 In the Examples section, there is R code for the user to view the example
   .exp file.

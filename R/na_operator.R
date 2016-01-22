@@ -1,15 +1,15 @@
 ﻿#' \%+na\%
 #'
 #' This function "defines a dyadic operator that will behave differently than
-#' 	the "+" operator with regards to missing values". (Quote by 42-, see the
-#' 	source below). In this case, add \code{x} and \code{y} so that \code{NA}
-#' 	is ignored when \code{x} is a number and \code{x = NA} when \code{x = 0}.
+#' 	the "+" operator with regards to missing values". (Quote by 42- in Source
+#'   1 below). In this case, add \code{x} and \code{y} so that \code{NA} is ignored
+#'   when \code{x} is a number and \code{x = NA} when \code{x = 0}.
 #'
 #'
-#' @param x A numeric vector that does not contain any \code{NA} values
-#' @param y A numeric vector which contains at least one \code{NA} value
+#' @param x numeric vector that does not contain any \code{NA} values
+#' @param y numeric vector which contains at least one \code{NA} value
 #'
-#' @return A numeric vector resulting from the \code{sum} of \code{x} and \code{y}
+#' @return numeric vector resulting from the \code{sum} of \code{x} and \code{y}
 #'
 #'
 #'

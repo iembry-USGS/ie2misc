@@ -44,20 +44,18 @@ information. The user will be asked where to find the .psf files
 Revised .psf text file(s)
 }
 \description{
-psfFileChange
+psfFileChange and psfFileChangeBATCH process raw .psf files.
 }
 \details{
-Searches for a character vector of patterns (SkewSE, GenSkew, and SkewOpt)
- in single or multiple .psf file(s) to replace. If the patterns are missing,
- then the patterns are added to the file(s). This is done for a single file
- or multiple files that the user selects.
+psfFileChange function searches for a character vector of patterns (SkewSE,
+  GenSkew, and SkewOpt) in single or multiple .psf file(s) to replace. If
+  the patterns are missing, then the patterns are added to the file(s).
+  This is done for a single file or multiple files that the user selects.
 
-psfFileChangeBATCH
-
-Searches for a character vector of patterns (SkewSE, GenSkew, and SkewOpt)
-  in a directory of .psf files to replace. If the patterns are missing, then
-  the patterns are added to the files. This is done in a BATCH mode
-  (whole directory of .psf files).
+psfFileChangeBATCH function searches for a character vector of patterns
+  (SkewSE, GenSkew, and SkewOpt) in a directory of .psf files to replace. If
+  the patterns are missing, then the patterns are added to the files. This
+  is done in a BATCH mode (whole directory of .psf files).
 }
 \examples{
 \dontrun{

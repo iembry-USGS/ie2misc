@@ -11,13 +11,13 @@ r - Better error message for stopifnot? - Stack Overflow answered by Andrie on D
 mape(predicted, observed, na.rm = FALSE)
 }
 \arguments{
-\item{predicted}{A numeric vector that contains the predicted data
+\item{predicted}{numeric vector that contains the predicted data
 points (1st parameter)}
 
-\item{observed}{A numeric vector that contains the observed data
+\item{observed}{numeric vector that contains the observed data
 points (2nd parameter)}
 
-\item{na.rm}{A logical vector that determines whether the missing
+\item{na.rm}{logical vector that determines whether the missing
 values should be removed or not.}
 }
 \value{
@@ -33,9 +33,11 @@ MAPE is expressed as
 
 \deqn{\frac{1}{n} \sum \limits_{i=1}^n{ 100 \frac{\left| X_i - Y_i \right|} {X_i}}}
 
-where \emph{n} is the number of observations,
-	where \emph{X} represents the observations, and
-	where \emph{Y} represents the predictions.
+\describe{
+\item{\emph{n}}{the number of observations}
+\item{\emph{X}}{the observations}
+\item{\emph{Y}}{the predictions}
+}
 
 Below are some points to remember about MAPE from the Ji reference:
 \enumerate{
@@ -97,13 +99,9 @@ mape(df2[, 2, with = FALSE][[1]], df2[, 1, with = FALSE][[1]])
 Lei Ji and Kevin Gallo, "An Agreement Coefficient for Image Comparison", \emph{Photogrammetric Engineering & Remote Sensing}, Vol. 72, No. 7, July 2006, p. 823-8335, \url{http://www.asprs.org/a/publications/pers/2006journal/july/2006_jul_823-833.pdf}.
 }
 \seealso{
-\code{\link{mae}} for mean absolute error (MAE), \code{\link{madstat}} for
- mean absolute deviation (MAD), \code{\link{dr}} for index of agreement (dr), \code{\link{vnse}}
+\code{\link{mae}} for mean-absolute error (MAE), \code{\link{madstat}} for
+ mean-absolute deviation (MAD), \code{\link{dr}} for "index of agreement (dr)", \code{\link{vnse}}
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
-
-Other statistical.error.functions: \code{\link{dr}},
-  \code{\link{madstat}}, \code{\link{mae}},
-  \code{\link{rmse}}, \code{\link{vnse}}
 }
 

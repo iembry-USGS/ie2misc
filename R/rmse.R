@@ -6,20 +6,22 @@
 #'
 #'	\deqn{\sqrt{n^{-1} \sum \limits_{i=1}^n{ \left| P_i - O_i \right|^2}}}
 #'
-#'	where \emph{n} is the number of observations,
-#'	where \emph{P} represents the "model estimates or predictions", and
-#'	where \emph{O} represents the "thought-to-be reliable and pairwise matched
-#'     observations".
+#' \describe{
+#'	\item{\emph{n}}{the number of observations}
+#'	\item{\emph{P}}{the "model estimates or predictions"}
+#'	\item{\emph{O}}{the "thought-to-be reliable and pairwise matched
+#'   observations"}
+#' }
 #'
 #' RMSE is fully discussed in the Willmott reference, including a comparison
-#'   to mean absolute error (MAE).
+#'   to mean-absolute error (MAE).
 #'
 #'
-#' @param predicted A numeric vector that contains the predicted data
+#' @param predicted numeric vector that contains the predicted data
 #'   points (1st parameter)
-#' @param observed A numeric vector that contains the observed data
+#' @param observed numeric vector that contains the observed data
 #'   points (2nd parameter)
-#' @param na.rm A logical vector that determines whether the missing
+#' @param na.rm logical vector that determines whether the missing
 #'   values should be removed or not.
 #'
 #' @return mean absolute percent error (RMSE) as a numeric vector. The default
@@ -32,18 +34,22 @@
 #'
 #'
 #' @references
-#' Cort J. Willmott and Kenji Matsuura, "Advantages of the mean absolute error (MAE) over the root mean square error (RMSE) in assessing average model performance", \emph{Climate Research}, Vol. 30: 79-82, 2005, \url{http://climate.geog.udel.edu/~climate/publication_html/Pdf/WM_CR_05.pdf}.
+#' Cort J. Willmott and Kenji Matsuura, "Advantages of the mean-absolute error (MAE) over the root mean square error (RMSE) in assessing average model performance", \emph{Climate Research}, Vol. 30: 79-82, 2005, \url{http://climate.geog.udel.edu/~climate/publication_html/Pdf/WM_CR_05.pdf}.
 #'
 #' @encoding UTF-8
 #'
 #'
 #'
 #'
-#' @family statistical error functions
+#'
 #' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
-#'  mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
-#'  for index of agreement (dr), and \code{\link{vnse}} for
+#'  mean-absolute error (MAE), \code{\link{madstat}} for mean-absolute deviation (MAD), \code{\link{dr}}
+#'  for "index of agreement (dr)", and \code{\link{vnse}} for
 #'  Nash-Sutcliffe model efficiency (NSE).
+#'
+#'
+#'
+#'
 #'
 #'
 #' @examples

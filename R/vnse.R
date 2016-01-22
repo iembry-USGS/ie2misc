@@ -7,10 +7,14 @@
 #'
 #' 	\deqn{E = 1 - \frac{\sum \limits_{i=1}^n{\left(P_i - O_i\right)^2}}{\sum \limits_{i=1}^n{\left(O_i - \bar{O}\right)^2}}}
 #'
-#'	where \emph{n} is the number of observations,
-#'	where \emph{P} represents the "model estimates or predictions", and
-#'	where \emph{O} represents the "pairwise-matched observations that are
-#'	  judged to be reliable".
+#' \describe{
+#'	\item{\emph{E}}{"Nash and Sutcliffe’s coefficient of efficiency (E)"}
+#'	\item{\emph{n}}{the number of observations}
+#'	\item{\emph{P}}{the "model estimates or predictions"}
+#'	\item{\emph{O}}{the "pairwise-matched observations that are judged to
+#'   be reliable"}
+#'	\item{\emph{\eqn{\bar{O}}}}{the "true" mean of the observations}
+#' }
 #'
 #' 	Note: Both P and O should have the same units.
 #'
@@ -19,11 +23,11 @@
 #'   Willmott reference.
 #'
 #'
-#' @param predicted A numeric vector that contains the model predicted
+#' @param predicted numeric vector that contains the model predicted
 #'   data points (1st parameter)
-#' @param observed A numeric vector that contains the observed data
+#' @param observed numeric vector that contains the observed data
 #'   points (2nd parameter)
-#' @param na.rm A logical vector that determines whether the missing
+#' @param na.rm logical vector that determines whether the missing
 #'   values should be removed or not.
 #'
 #' @return Nash-Sutcliffe model efficiency (NSE) as a numeric vector. The
@@ -43,10 +47,15 @@
 #'
 #'
 #'
-#' @family statistical error functions
+#'
 #' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
-#'  mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{dr}}
-#'  for index of agreement (dr), and \code{\link{rmse}} for root mean square error (RMSE).
+#'  mean-absolute error (MAE), \code{\link{madstat}} for mean-absolute deviation (MAD), \code{\link{dr}}
+#'  for "index of agreement (dr)", and \code{\link{rmse}} for root mean square error (RMSE).
+#'
+#'
+#'
+#'
+#'
 #'
 #'
 #'

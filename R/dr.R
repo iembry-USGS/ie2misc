@@ -1,6 +1,6 @@
 ﻿#' Index of agreement (dr)
 #'
-#' This function computes the index of agreement (dr).
+#' This function computes the "index of agreement (dr)".
 #'
 #' dr is expressed as
 #'
@@ -8,24 +8,28 @@
 #'
 #' \deqn{d_{r} = \frac{{c \sum \limits_{i=1}^n{\left|O_i - \bar{O}\right|}}}{\sum \limits_{i=1}^n{\left|P_i - O_i\right|}} - 1, \: when \: \sum \limits_{i=1}^n{\left|P_i - O_i\right|} > c \: \sum \limits_{i=1}^n{\left|O_i - \bar{O}\right|}}
 #'
-#'	where \emph{n} is the number of observations,
-#'	where \emph{P} represents the "model estimates or predictions", and
-#'	where \emph{O} represents the "pairwise-matched observations that are judged to
-#'	be reliable".
+#' \describe{
+#'	\item{\emph{\eqn{d_{r}}}}{the "index of agreement (dr)"}
+#'	\item{\emph{n}}{the number of observations}
+#'	\item{\emph{P}}{the "model estimates or predictions"}
+#'	\item{\emph{O}}{the "pairwise-matched observations that are judged to
+#'   be reliable"}
+#'	\item{\emph{\eqn{\bar{O}}}}{the "true" mean of the observations}
+#' }
 #'
 #' 	Note: Both P and O should have the same units.
 #'
-#'	The index of agreement (dr) is fully discussed in the Willmott reference.
+#'	The "index of agreement (dr)" is fully discussed in the Willmott reference.
 #'
 #'
-#' @param predicted A numeric vector that contains the predicted data
+#' @param predicted numeric vector that contains the predicted data
 #'	points (1st parameter)
-#' @param observed A numeric vector that contains the observed data
+#' @param observed numeric vector that contains the observed data
 #'	points (2nd parameter)
-#' @param na.rm A logical vector that determines whether the missing
+#' @param na.rm logical vector that determines whether the missing
 #'	values should be removed or not.
 #'
-#' @return index of agreement (dr) as a numeric vector. The default choice
+#' @return "index of agreement (dr)" as a numeric vector. The default choice
 #'	is that any NA values will be kept (na.rm = FALSE). This can be
 #'	changed by specifying \code{na.rm = TRUE}, such as \code{dr(pre, obs, na.rm = TRUE)}.
 #'
@@ -44,10 +48,14 @@
 #'
 #'
 #'
-#' @family statistical error functions
+#'
 #' @seealso \code{\link{mape}} for mean absolute percent error (MAPE), \code{\link{mae}} for
-#'  mean absolute error (MAE), \code{\link{madstat}} for mean absolute deviation (MAD), \code{\link{vnse}}
+#'  mean-absolute error (MAE), \code{\link{madstat}} for mean-absolute deviation (MAD), \code{\link{vnse}}
 #'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for root mean square error (RMSE).
+#'
+#'
+#'
+#'
 #'
 #'
 #'

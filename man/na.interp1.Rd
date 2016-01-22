@@ -44,10 +44,8 @@ constant interpolation method with zoo's \code{\link[zoo]{na.approx}} linear
 interpolation method. Here, \code{x = x} rather than
 \code{x = index(object)} in na.approx. Here, \code{y = y} rather than
 \code{y = object} in na.approx. Also, here, \code{xi} is used instead
-of \code{xout} in na.approx.
-}
-\details{
-The following were obtained from both interp1 and na.approx:
+of \code{xout} in na.approx. The Arguments list was obtained from both
+interp1 and na.approx.
 }
 \examples{
 library(ie2misc)

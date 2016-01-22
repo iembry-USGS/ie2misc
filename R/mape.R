@@ -6,9 +6,12 @@
 #'
 #' 	\deqn{\frac{1}{n} \sum \limits_{i=1}^n{ 100 \frac{\left| X_i - Y_i \right|} {X_i}}}
 #'
-#' 	where \emph{n} is the number of observations,
-#' 	where \emph{X} represents the observations, and
-#' 	where \emph{Y} represents the predictions.
+#' \describe{
+#'	\item{\emph{n}}{the number of observations}
+#'	\item{\emph{X}}{the observations}
+#'	\item{\emph{Y}}{the predictions}
+#' }
+#'
 #'
 #' 	Below are some points to remember about MAPE from the Ji reference:
 #' \enumerate{
@@ -22,11 +25,11 @@
 #'}
 #'
 #'
-#' @param predicted A numeric vector that contains the predicted data
+#' @param predicted numeric vector that contains the predicted data
 #'        points (1st parameter)
-#' @param observed A numeric vector that contains the observed data
+#' @param observed numeric vector that contains the observed data
 #'        points (2nd parameter)
-#' @param na.rm A logical vector that determines whether the missing
+#' @param na.rm logical vector that determines whether the missing
 #'        values should be removed or not.
 #'
 #' @return mean absolute percent error (MAPE) as a numeric vector. The default
@@ -47,11 +50,15 @@
 #'
 #'
 #'
-#' @family statistical error functions
-#' @seealso \code{\link{mae}} for mean absolute error (MAE), \code{\link{madstat}} for
-#'  mean absolute deviation (MAD), \code{\link{dr}} for index of agreement (dr), \code{\link{vnse}}
+#'
+#' @seealso \code{\link{mae}} for mean-absolute error (MAE), \code{\link{madstat}} for
+#'  mean-absolute deviation (MAD), \code{\link{dr}} for "index of agreement (dr)", \code{\link{vnse}}
 #'  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
 #'  root mean square error (RMSE).
+#'
+#'
+#'
+#'
 #'
 #'
 #'
