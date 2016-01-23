@@ -90,7 +90,8 @@
 #' @export
 madstat <- function (observed, na.rm = FALSE) {
 
-# The moments::kurtosis code has been helpful with regards to the treatment of na.rm
+# The moments::kurtosis code has been helpful with regards to the treatment of
+# na.rm & the use of apply functions for different R objects
 
 if (is.matrix(observed))
 
