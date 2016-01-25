@@ -15,7 +15,7 @@ This software is provided "AS IS."
 
 ```R
 # Examples
-library(iemisc2)
+library(ie2misc)
 require(stats)
 
 set.seed(100) # makes the example reproducible

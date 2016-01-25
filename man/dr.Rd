@@ -36,7 +36,7 @@ dr is expressed as
 \deqn{d_{r} = \frac{{c \sum \limits_{i=1}^n{\left|O_i - \bar{O}\right|}}}{\sum \limits_{i=1}^n{\left|P_i - O_i\right|}} - 1, \: when \: \sum \limits_{i=1}^n{\left|P_i - O_i\right|} > c \: \sum \limits_{i=1}^n{\left|O_i - \bar{O}\right|}}
 
 \describe{
-\item{\emph{\eqn{d_{r}}}}{the "index of agreement (dr)"}
+\item{\emph{\eqn{d_r}}}{the "index of agreement (dr)"}
 \item{\emph{n}}{the number of observations}
 \item{\emph{P}}{the "model estimates or predictions"}
 \item{\emph{O}}{the "pairwise-matched observations that are judged to
