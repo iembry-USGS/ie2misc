@@ -18,12 +18,29 @@ This software is provided "AS IS."
 library(ie2misc)
 require(stats)
 
-set.seed(100) # makes the example reproducible
-obs1 <- rnorm(100) # observed
+set.seed(1003) # makes the example reproducible
 
-## Using the default value of na.rm = TRUE
+obs1 <- rnorm(1003) # observed
+
+# Calculate the mean-absolute deviation (MAD)
+# Using the default value of na.rm = FALSE
 # using a matrix of the numeric vector obs1
 mat1 <- matrix(data = obs1, nrow = length(obs1), ncol = 1, byrow = FALSE,
 dimnames = list(c(rep("", length(obs1))), "Observed"))
+
 madstat(mat1)
+
+
+# Compute the index of agreement (dr)
+set.seed(300) # makes the example reproducible
+obs <- rnorm(300) # observed
+pre <- rnorm(300) # predicted
+
+# Using the default value of na.rm = FALSE
+# using a matrix of the numeric vectors pre and obs
+mat <- matrix(data = c(obs, pre), nrow = length(pre), ncol = 2,
+byrow = FALSE, dimnames = list(c(rep("", length(pre))),
+c("Predicted", "Observed")))
+
+dr(mat[, 2], mat[, 1])
 ```
