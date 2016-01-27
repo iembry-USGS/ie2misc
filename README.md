@@ -1,6 +1,6 @@
 ﻿# ie2misc
 
-R package that contains Irucka Embry's miscellaneous USGS functions (processing .exp and .psf files, statistical error functions, "+" dyadic operator for use with NA, linear interpolation with NA, creating ADAPS and QW spreadsheet files, etc.). Irucka created these functions while a Cherokee Nation Technology Solutions (CNTS) United States Geological Survey (USGS) Contractor and/or USGS employee.
+R package that contains Irucka Embry's miscellaneous USGS functions (processing .exp and .psf files, statistical error functions, "+" dyadic operator for use with NA, creating ADAPS and QW spreadsheet files, etc.). Irucka created these functions while a Cherokee Nation Technology Solutions (CNTS) United States Geological Survey (USGS) Contractor and/or USGS employee.
 
 
 # Disclaimer
@@ -12,9 +12,9 @@ Although this software program has been used by the U.S. Geological Survey (USGS
 This software is provided "AS IS."
 
 
+# Examples
 
 ```R
-# Examples
 library(ie2misc)
 require(stats)
 
