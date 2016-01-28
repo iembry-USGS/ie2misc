@@ -9,5 +9,5 @@
 #'
 #' @docType package
 #' @name ie2misc
-#' @import stringi data.table openxlsx tcltk gWidgets2 gWidgets2tcltk qdap stats utils tools reader zoo
+#' @import stringi data.table openxlsx tcltk gWidgets2 gWidgets2tcltk qdap stats utils tools reader
 NULL
