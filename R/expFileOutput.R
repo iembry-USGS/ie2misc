@@ -1,4 +1,4 @@
-﻿#' expFileOutput and expFileOutputBATCH
+#' expFileOutput and expFileOutputBATCH
 #'
 #' expFileOutput and expFileOutputBATCH process raw .exp files.
 #'

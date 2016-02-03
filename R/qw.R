@@ -1,4 +1,4 @@
-﻿#' qw and qwBATCH
+#' qw and qwBATCH
 #'
 #' qw and qwBATCH process raw QW files.
 #'

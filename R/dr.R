@@ -1,4 +1,4 @@
-﻿#' Index of agreement (dr)
+#' Index of agreement (dr)
 #'
 #' This function computes the "index of agreement (dr)".
 #'

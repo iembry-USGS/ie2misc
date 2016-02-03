@@ -1,4 +1,4 @@
-﻿#' Mean-absolute error (MAE)
+#' Mean-absolute error (MAE)
 #'
 #' This function computes the mean-absolute error (MAE).
 #'

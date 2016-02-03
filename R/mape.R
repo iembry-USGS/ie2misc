@@ -1,4 +1,4 @@
-﻿#' Mean absolute percent error (MAPE)
+#' Mean absolute percent error (MAPE)
 #'
 #' This function computes the mean absolute percent error (MAPE).
 #'

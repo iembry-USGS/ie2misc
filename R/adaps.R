@@ -1,4 +1,4 @@
-﻿#' adaps and adapsBATCH
+#' adaps and adapsBATCH
 #'
 #' adaps and adapsBATCH process raw ADAPS .rdb files.
 #'

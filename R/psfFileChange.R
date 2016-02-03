@@ -1,4 +1,4 @@
-﻿#' psfFileChange and psfFileChangeBATCH
+#' psfFileChange and psfFileChangeBATCH
 #'
 #' psfFileChange and psfFileChangeBATCH process raw .psf files.
 #'

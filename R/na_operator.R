@@ -1,4 +1,4 @@
-﻿#' \%+na\%
+#' \%+na\%
 #'
 #' This function "defines a dyadic operator that will behave differently than
 #' 	the "+" operator with regards to missing values". (Quote by 42- in Source

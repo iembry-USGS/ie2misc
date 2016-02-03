@@ -1,4 +1,4 @@
-﻿#' ie2misc: Irucka Embry's miscellaneous USGS functions
+#' ie2misc: Irucka Embry's miscellaneous USGS functions
 #'
 #' ie2misc provides many functions that will be useful to people within the
 #'  USGS, while other functions will be useful for others. Functions are

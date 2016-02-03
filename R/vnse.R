@@ -1,4 +1,4 @@
-﻿#' Nash-Sutcliffe model efficiency (NSE)
+#' Nash-Sutcliffe model efficiency (NSE)
 #'
 #' This function computes the Nash-Sutcliffe model efficiency (NSE) or
 #' 	"Nash and Sutcliffe’s coefficient of efficiency (E)".

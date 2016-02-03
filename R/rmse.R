@@ -1,4 +1,4 @@
-﻿#' Root mean square error (RMSE)
+#' Root mean square error (RMSE)
 #'
 #' This function computes the root mean square error (RMSE).
 #'

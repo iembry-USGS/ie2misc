@@ -1,4 +1,4 @@
-﻿#' Mean-absolute deviation (MAD)
+#' Mean-absolute deviation (MAD)
 #'
 #' This function computes the mean-absolute deviation (MAD) -- "the average of
 #'   the magnitudes of the errors or deviations."
