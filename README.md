@@ -14,8 +14,16 @@ This software is provided "AS IS."
 
 # Installation
 
+The following installation method will work when the package is released to CRAN.
 ```R
 install.packages("ie2misc")
+```
+
+For right now, you can do the following:
+
+```R
+library(devtools)
+install_github("iembry-USGS/ie2misc")
 ```
 
 
