@@ -20,7 +20,7 @@
 #'      the measurement",
 #'    \item MAPE is "meaningful only if all \eqn{X_i} values are positive",
 #'    \item MAPE is "unstable when \eqn{X_i} values are near zero", and
-#'    \item "If X and Y are interchanged, the the MAPE will result in a
+#'    \item "If X and Y are interchanged, the MAPE will result in a
 #'      different value."
 #'}
 #'
