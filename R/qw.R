@@ -106,7 +106,7 @@ NULL
 
 #' @export
 #' @rdname qw
-qw <- function (file = tk_choose.files(default = "", caption = "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi = TRUE, filters = matrix(c("QW file", "*"), 1, 2, byrow = TRUE)), interactive = TRUE, overwrite = overwrite) {
+qw <- function (file = tk_choose.files(default = "", caption = "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi = TRUE, filters = matrix(c("QW file", "*"), 1, 2, byrow = TRUE)), interactive = TRUE, overwrite = TRUE) {
 
 overwrite <- overwrite
 
@@ -705,7 +705,7 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
 
 #' @export
 #' @rdname qw
-qwBATCH <- function (path = tk_choose.dir(caption = "Select directory with the QW files"), pattern = "qwdata$", overwrite = overwrite) {
+qwBATCH <- function (path = tk_choose.dir(caption = "Select directory with the QW files"), pattern = "qwdata$", overwrite = TRUE) {
 
 overwrite <- overwrite
 

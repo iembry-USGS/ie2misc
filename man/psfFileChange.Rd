@@ -44,18 +44,26 @@ information. The user will be asked where to find the .psf files
 Revised .psf text file(s)
 }
 \description{
-psfFileChange and psfFileChangeBATCH process raw .psf files.
+The .psf file is a script file that records the specifications used to run
+the USGS PeakFQ program (\url{http://water.usgs.gov/software/PeakFQ/}) for
+a station. psfFileChange and psfFileChangeBATCH modify the original .psf
+settings.
 }
 \details{
-psfFileChange function searches for a character vector of patterns (SkewSE,
+psfFileChange searches for a character vector of patterns (SkewSE,
   GenSkew, and SkewOpt) in single or multiple .psf file(s) to replace. If
   the patterns are missing, then the patterns are added to the file(s).
   This is done for a single file or multiple files that the user selects.
+  Although these changes are currently pre-determined, future versions may
+  allow the user to change particular settings (for example, how
+  outliers are handled).
 
-psfFileChangeBATCH function searches for a character vector of patterns
+psfFileChangeBATCH searches for a character vector of patterns
   (SkewSE, GenSkew, and SkewOpt) in a directory of .psf files to replace. If
   the patterns are missing, then the patterns are added to the files. This
-  is done in a BATCH mode (whole directory of .psf files).
+  is done in a BATCH mode (whole directory of .psf files). Although these
+  changes are currently pre-determined, future versions may allow the
+  user to change particular settings (for example, how outliers are handled).
 }
 \examples{
 \dontrun{

@@ -22,10 +22,10 @@
 adaps(file = tk_choose.files(default = "", caption =
   "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi =
   TRUE, filters = matrix(c("ADAPS file", ".rdb", "ADAPS file", ".RDB"), 4, 2,
-  byrow = TRUE)), interactive = TRUE, overwrite = overwrite)
+  byrow = TRUE)), interactive = TRUE, overwrite = TRUE)
 
 adapsBATCH(path = tk_choose.dir(caption =
-  "Select directory with the ADAPS .rdb files"), overwrite = overwrite)
+  "Select directory with the ADAPS .rdb files"), overwrite = TRUE)
 }
 \arguments{
 \item{file}{Input ADAPS .rdb file(s) to be selected through a file dialog.}

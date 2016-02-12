@@ -1,0 +1,23 @@
+﻿# Test environments
+* local Trisquel 7.0/Ubuntu Trusty, R 3.2.3
+* win-builder (devel)
+
+
+# R CMD check results
+There were no ERRORs or WARNINGs.
+
+
+There was 1 NOTE:
+checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Irucka Embry <iembry@usgs.gov>’
+New submission
+
+Possibly mis-spelled words in DESCRIPTION:
+  ADAPS (12:51)
+  CNTS (14:51)
+  Embry's (2:15, 10:37)
+  Irucka (2:8, 10:30, 13:25)
+  QW (12:61)
+  USGS (2:37, 10:59, 15:24, 15:48)
+  psf (11:27)
+

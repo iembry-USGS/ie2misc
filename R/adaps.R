@@ -99,7 +99,7 @@ NULL
 
 #' @export
 #' @rdname adaps
-adaps <- function (file = tk_choose.files(default = "", caption = "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi = TRUE, filters = matrix(c("ADAPS file", ".rdb", "ADAPS file", ".RDB"), 4, 2, byrow = TRUE)), interactive = TRUE, overwrite = overwrite) {
+adaps <- function (file = tk_choose.files(default = "", caption = "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi = TRUE, filters = matrix(c("ADAPS file", ".rdb", "ADAPS file", ".RDB"), 4, 2, byrow = TRUE)), interactive = TRUE, overwrite = TRUE) {
 
 overwrite <- overwrite
 
@@ -329,7 +329,7 @@ if (checkdelim == "\t") {
 
 #' @export
 #' @rdname adaps
-adapsBATCH <- function (path = tk_choose.dir(caption = "Select directory with the ADAPS .rdb files"), overwrite = overwrite) {
+adapsBATCH <- function (path = tk_choose.dir(caption = "Select directory with the ADAPS .rdb files"), overwrite = TRUE) {
 
 overwrite <- overwrite
 

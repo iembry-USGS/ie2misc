@@ -30,10 +30,10 @@
 qw(file = tk_choose.files(default = "", caption =
   "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi =
   TRUE, filters = matrix(c("QW file", "*"), 1, 2, byrow = TRUE)),
-  interactive = TRUE, overwrite = overwrite)
+  interactive = TRUE, overwrite = TRUE)
 
 qwBATCH(path = tk_choose.dir(caption = "Select directory with the QW files"),
-  pattern = "qwdata$", overwrite = overwrite)
+  pattern = "qwdata$", overwrite = TRUE)
 }
 \arguments{
 \item{file}{Input QW file(s) to be selected through a file dialog.}
