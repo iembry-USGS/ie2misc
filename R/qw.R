@@ -42,9 +42,7 @@
 #'	insensitive "qwdata"). This pattern can be changed by
 #'   \code{qwBATCH(pattern = "pattern")}.
 #'
-#' @return QW .xlsx file(s) where sheet1 is named after the original filename
-#'   and the exported format is suitable only for viewing in a spreadsheet
-#'   application.
+#' @return QW .xlsx file(s) where sheet1 is named after the original filename.
 #'
 #'
 #'
@@ -268,14 +266,14 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
 # alters the column order
 
 # Source 9 and 10 begin
-  rddatatmp[[3]] <- strptime(rddatatmp[[3]], "%Y-%m-%d %T")
+  #rddatatmp[[3]] <- strptime(rddatatmp[[3]], "%Y-%m-%d %T")
 # changes from POSIXct to character for the datetime
-  rddatatmp[[3]] <- format(rddatatmp[[3]], "%d-%b-%Y %T")
+  #rddatatmp[[3]] <- format(rddatatmp[[3]], "%d-%b-%Y %T")
 # corrects the format
 
-  rddatatmp1[[3]] <- strptime(rddatatmp1[[3]], "%Y-%m-%d %T")
+  #rddatatmp1[[3]] <- strptime(rddatatmp1[[3]], "%Y-%m-%d %T")
 # changes from POSIXct to character for the datetime
-  rddatatmp1[[3]] <- format(rddatatmp1[[3]], "%d-%b-%Y %T")
+  #rddatatmp1[[3]] <- format(rddatatmp1[[3]], "%d-%b-%Y %T")
 # corrects the format
 # Source 9 and 10 end
 
@@ -285,27 +283,33 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
   rddatatmp2 <- rddatatmp2[idx.comments]
   rddatatmp2 <- stri_replace_all_fixed(rddatatmp2, "#", "")
 
+
+Sys.setenv(TZ = "Etc/GMT")
+
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "QW Data TZ Corrected")
 # adds the worksheet with the name of QW Data TZ Corrected
-  writeData(wb, "QW Data TZ Corrected", rddatatmp)
+  writeDataTable(wb, "QW Data TZ Corrected", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1:ncol(rddatatmp), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
-  writeData(wb, "QW Data", rddatatmp1)
+  writeDataTable(wb, "QW Data", rddatatmp1)
 # writes the data to the workbook
   setColWidths(wb, sheet = 2, cols = 1:ncol(rddatatmp1), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "meta")
 # adds the worksheet with the name of meta
-  writeData(wb, "meta", rddatatmp2)
+  writeDataTable(wb, "meta", rddatatmp2)
 # writes the data to the workbook
   filesave1 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
   saveWorkbook(wb, filesave1, overwrite = overwrite)
+
+ Sys.unsetenv("TZ")
+
 }
 }
 }
@@ -488,27 +492,33 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
   rddatatmp2 <- rddatatmp2[idx.comments]
   rddatatmp2 <- stri_replace_all_fixed(rddatatmp2, "#", "")
 
+
+ Sys.setenv(TZ = "Etc/GMT")
+
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "QW Data TZ Corrected")
 # adds the worksheet with the name of QW Data TZ Corrected
-  writeData(wb, "QW Data TZ Corrected", rddatatmp)
+  writeDataTable(wb, "QW Data TZ Corrected", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1:ncol(rddatatmp), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
-  writeData(wb, "QW Data", rddatatmp1)
+  writeDataTable(wb, "QW Data", rddatatmp1)
 # writes the data to the workbook
   setColWidths(wb, sheet = 2, cols = 1:ncol(rddatatmp1), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "meta")
 # adds the worksheet with the name of meta
-  writeData(wb, "meta", rddatatmp2)
+  writeDataTable(wb, "meta", rddatatmp2)
 # writes the data to the workbook
   filesave2 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
   saveWorkbook(wb, filesave2, overwrite = overwrite)
+
+ Sys.unsetenv("TZ")
+
 }
 }
 }
@@ -672,23 +682,26 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
   rddatatmp2 <- rddatatmp2[idx.comments]
   rddatatmp2 <- stri_replace_all_fixed(rddatatmp2, "#", "")
 
+
+  Sys.setenv(TZ = "Etc/GMT")
+
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "QW Data TZ Corrected")
 # adds the worksheet with the name of QW Data TZ Corrected
-  writeData(wb, "QW Data TZ Corrected", rddatatmp)
+  writeDataTable(wb, "QW Data TZ Corrected", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1:ncol(rddatatmp), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
-  writeData(wb, "QW Data", rddatatmp1)
+  writeDataTable(wb, "QW Data", rddatatmp1)
 # writes the data to the workbook
   setColWidths(wb, sheet = 2, cols = 1:ncol(rddatatmp1), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "meta")
 # adds the worksheet with the name of meta
-  writeData(wb, "meta", rddatatmp2)
+  writeDataTable(wb, "meta", rddatatmp2)
 # writes the data to the workbook
 
 # Source 6 and 9 begins
@@ -697,6 +710,9 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
   saveWorkbook(wb, paste0(filesave3a, ".xlsx"), overwrite = overwrite)
 # saves the workbook as original file name without the extension + .xlsx
 # Source 6 and 9 ends
+
+ Sys.unsetenv("TZ")
+
 }
 }
 }
@@ -902,23 +918,26 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
   rddatatmp2 <- rddatatmp2[idx.comments]
   rddatatmp2 <- stri_replace_all_fixed(rddatatmp2, "#", "")
 
+
+ Sys.setenv(TZ = "Etc/GMT")
+
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "QW Data TZ Corrected")
 # adds the worksheet with the name of QW Data TZ Corrected
-  writeData(wb, "QW Data TZ Corrected", rddatatmp)
+  writeDataTable(wb, "QW Data TZ Corrected", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1:ncol(rddatatmp), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
-  writeData(wb, "QW Data", rddatatmp1)
+  writeDataTable(wb, "QW Data", rddatatmp1)
 # writes the data to the workbook
   setColWidths(wb, sheet = 2, cols = 1:ncol(rddatatmp1), widths = "auto")
 # sets the column widths to auto for sheet 1
   addWorksheet(wb, "meta")
 # adds the worksheet with the name of meta
-  writeData(wb, "meta", rddatatmp2)
+  writeDataTable(wb, "meta", rddatatmp2)
 # writes the data to the workbook
 
 # Source 15 and 16 begins
@@ -927,6 +946,9 @@ if (all(grepl("EST|EDT", rddatatmp$sample_start_time_datum_cd))) {
   saveWorkbook(wb, paste0(filesave1a, ".xlsx"), overwrite = overwrite)
 # saves the workbook as original file name without the extension + .xlsx
 # Source 15 and 16 ends
+
+ Sys.unsetenv("TZ")
+
 }
 }
 }

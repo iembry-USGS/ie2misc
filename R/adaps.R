@@ -44,8 +44,7 @@
 #'   files & then the user will be asked where to save the ADAPS .xlsx files.
 #'
 #' @return ADAPS .xlsx file(s) where sheet1 is named after the original
-#'   filename and the exported format is suitable only for viewing in a
-#'   spreadsheet application.
+#'   filename.
 #'
 #'
 #'
@@ -153,17 +152,19 @@ if (checkdelim == "\t") {
 
   rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%m/%d/%Y %T", tz = "GMT")
 # Source 7 and 8 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
-  rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %T")
+  #rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %T")
 # changes from POSIXct to character for the DateTime
-  rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
+  #rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
 
+
+  Sys.setenv(TZ = "Etc/GMT")
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")
 # adds the worksheet with the name of ADAPS Data
-  writeData(wb, "ADAPS Data", rddatatmp)
+  writeDataTable(wb, "ADAPS Data", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
@@ -171,6 +172,9 @@ if (checkdelim == "\t") {
   filesave1 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
   saveWorkbook(wb, filesave1, overwrite = overwrite)
+
+  Sys.unsetenv("TZ")
+
 }
 }
 }
@@ -239,12 +243,14 @@ if (checkdelim == "\t") {
   rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
 
 
+  Sys.setenv(TZ = "Etc/GMT")
+
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")
 # adds the worksheet with the name of ADAPS Data
-  writeData(wb, "ADAPS Data", rddatatmp)
+  writeDataTable(wb, "ADAPS Data", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
@@ -252,6 +258,9 @@ if (checkdelim == "\t") {
   filesave2 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
   saveWorkbook(wb, filesave2, overwrite = overwrite)
+
+  Sys.unsetenv("TZ")
+
 }
 }
 }
@@ -304,13 +313,14 @@ if (checkdelim == "\t") {
 # changes from POSIXct to character for the DateTime
   rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
 
+ Sys.setenv(TZ = "Etc/GMT")
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")
 # adds the worksheet with the name of ADAPS Data
-  writeData(wb, "ADAPS Data", rddatatmp)
+  writeDataTable(wb, "ADAPS Data", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
@@ -321,6 +331,9 @@ if (checkdelim == "\t") {
   saveWorkbook(wb, paste0(filesave3a, ".xlsx"), overwrite = overwrite)
 # saves the workbook as original file name without the extension + .xlsx
 # Source 6 and 9 ends
+
+ Sys.unsetenv("TZ")
+
 }
 }
 }
@@ -416,12 +429,14 @@ if (checkdelim == "\t") {
 # Source 5 and 6 ends
 
 
+ Sys.setenv(TZ = "Etc/GMT")
+
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
   addWorksheet(wb, "ADAPS Data")
 # adds the worksheet with the name of ADAPS Data
-  writeData(wb, "ADAPS Data", rddatatmp)
+  writeDataTable(wb, "ADAPS Data", rddatatmp)
 # writes the data to the workbook
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
@@ -432,6 +447,9 @@ if (checkdelim == "\t") {
   saveWorkbook(wb, paste0(filesave1a, ".xlsx"), overwrite = overwrite)
 # saves the workbook as original file name without the extension + .xlsx
 # Source 4 and 7 ends
+
+ Sys.unsetenv("TZ")
+
 }
 }
 }
