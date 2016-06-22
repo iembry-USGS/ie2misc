@@ -43,7 +43,7 @@
 #'
 #'
 #' @references
-#' Lei Ji and Kevin Gallo, "An Agreement Coefficient for Image Comparison", \emph{Photogrammetric Engineering & Remote Sensing}, Vol. 72, No. 7, July 2006, p. 823-8335, \url{http://www.asprs.org/a/publications/pers/2006journal/july/2006_jul_823-833.pdf}.
+#' Lei Ji and Kevin Gallo, "An Agreement Coefficient for Image Comparison", \emph{Photogrammetric Engineering & Remote Sensing}, Vol. 72, No. 7, July 2006, p. 823-8335, \url{http://www.ingentaconnect.com/content/asprs/pers/2006/00000072/00000007/art00006}.
 #'
 #' @encoding UTF-8
 #'
