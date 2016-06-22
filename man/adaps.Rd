@@ -45,8 +45,7 @@ files & then the user will be asked where to save the ADAPS .xlsx files.}
 }
 \value{
 ADAPS .xlsx file(s) where sheet1 is named after the original
-  filename and the exported format is suitable only for viewing in a
-  spreadsheet application.
+  filename.
 }
 \description{
 adaps and adapsBATCH process raw ADAPS .rdb files.

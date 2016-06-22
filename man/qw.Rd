@@ -56,9 +56,7 @@ insensitive "qwdata"). This pattern can be changed by
   \code{qwBATCH(pattern = "pattern")}.}
 }
 \value{
-QW .xlsx file(s) where sheet1 is named after the original filename
-  and the exported format is suitable only for viewing in a spreadsheet
-  application.
+QW .xlsx file(s) where sheet1 is named after the original filename.
 }
 \description{
 qw and qwBATCH process raw QW files.
