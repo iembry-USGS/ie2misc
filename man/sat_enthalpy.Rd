@@ -30,6 +30,8 @@ sat_enthalpy2(file = NULL, sheet = 1, elevation = NULL, tbegin = NULL,
 \item{sheet}{Sheet number or sheet name for the input file (default is
 sheet 1)}
 
+\item{overwrite}{If \code{TRUE}, overwrite any existing spreadsheet.}
+
 \item{output}{The output format of the resulting data.table
 (console, .csv, or .xlsx)}
 
@@ -97,7 +99,7 @@ package = "ie2misc"))
 
 
 # Examples to show you different use cases
-library(ie2misc)
+
 sat_enthalpy(output = "csv")
 # The sheet number is 1 (default) and the output is csv
 
@@ -107,6 +109,8 @@ package = "ie2misc"), output = "xlsx")
 # The sheet number is 1 (default) and the output is xlsx
 }
 
+
+library(ie2misc)
 sat_enthalpy2(system.file("extdata", "Saturated_Enthalpy_Example_Input.csv",
 package = "ie2misc"), output = "console")
 # The sheet number is 1 (default) and the output is the console

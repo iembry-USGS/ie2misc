@@ -47,6 +47,7 @@
 #'        degrees F
 #' @param output The output format of the resulting data.table
 #'        (console, .csv, or .xlsx)
+#' @param overwrite If \code{TRUE}, overwrite any existing spreadsheet.
 #'
 #' @return data.table with the output parameters displayed on the console or as
 #'        a spreadsheet
@@ -90,7 +91,7 @@
 #'
 #'
 #' # Examples to show you different use cases
-#' library(ie2misc)
+#'
 #' sat_enthalpy(output = "csv")
 #' # The sheet number is 1 (default) and the output is csv
 #'
@@ -100,6 +101,8 @@
 #' # The sheet number is 1 (default) and the output is xlsx
 #' }
 #'
+#'
+#' library(ie2misc)
 #' sat_enthalpy2(system.file("extdata", "Saturated_Enthalpy_Example_Input.csv",
 #' package = "ie2misc"), output = "console")
 #' # The sheet number is 1 (default) and the output is the console
