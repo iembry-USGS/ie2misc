@@ -4,7 +4,7 @@ Version: 1.0.0
 Author: Irucka Embry [aut, cre] and Anne Hoos [ctb]
 Maintainer: Irucka Embry <iembry@usgs.gov>
 Depends: R (>= 3.0.0), tcltk, data.table (>= 1.9.4), stats, utils, tools
-Imports: openxlsx, gWidgets2, gWidgets2tcltk, stringi, qdap, reader
+Imports: readxl, openxlsx, gWidgets2, gWidgets2tcltk, stringi, qdap, reader
 Suggests: iemisc, iemiscdata, Rcpp (>= 0.11.5), pracma
 Description: A collection of Irucka Embry's miscellaneous USGS functions
     (processing .exp and .psf files, statistical error functions,
