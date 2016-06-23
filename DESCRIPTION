@@ -5,12 +5,12 @@ Author: Irucka Embry [aut, cre] and Anne Hoos [ctb]
 Maintainer: Irucka Embry <iembry@usgs.gov>
 Depends: R (>= 3.0.0), tcltk, data.table (>= 1.9.4), stats, utils, tools
 Imports: readxl, openxlsx, gWidgets2, gWidgets2tcltk, stringi, qdap, reader
-Suggests: iemisc, iemiscdata, Rcpp (>= 0.11.5), pracma
+Suggests: iemisc, iemiscdata, ie2miscdata, Rcpp (>= 0.11.5), pracma
 Description: A collection of Irucka Embry's miscellaneous USGS functions
     (processing .exp and .psf files, statistical error functions,
     "+" dyadic operator for use with NA, creating ADAPS and QW
-    spreadsheet files). Irucka created these functions
-    while a Cherokee Nation Technology Solutions (CNTS) United States
+    spreadsheet files, calculating saturated enthalpy). Irucka created these
+    functions while a Cherokee Nation Technology Solutions (CNTS) United States
     Geological Survey (USGS) Contractor and/or USGS employee.
 URL: https://github.com/iembry-USGS/ie2misc
 BugReports: https://github.com/iembry-USGS/ie2misc/issues

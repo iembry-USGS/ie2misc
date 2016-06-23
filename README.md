@@ -1,6 +1,6 @@
 # ie2misc
 
-R package that contains Irucka Embry's miscellaneous USGS functions (processing .exp and .psf files, statistical error functions, "+" dyadic operator for use with NA, creating ADAPS and QW spreadsheet files, etc.). Irucka created these functions while a Cherokee Nation Technology Solutions (CNTS) United States Geological Survey (USGS) Contractor and/or USGS employee.
+R package that contains Irucka Embry's miscellaneous USGS functions (processing .exp and .psf files, statistical error functions, "+" dyadic operator for use with NA, creating ADAPS and QW spreadsheet files, calculating saturated enthalpy, etc.). Irucka created these functions while a Cherokee Nation Technology Solutions (CNTS) United States Geological Survey (USGS) Contractor and/or USGS employee.
 
 
 # Disclaimer
@@ -22,7 +22,6 @@ install.packages("ie2misc")
 # Examples
 ```R
 library(ie2misc)
-require(stats)
 
 set.seed(1003) # makes the example reproducible
 
@@ -49,4 +48,11 @@ byrow = FALSE, dimnames = list(c(rep("", length(pre))),
 c("Predicted", "Observed")))
 
 dr(mat[, 2], mat[, 1])
+
+
+# Find the saturated enthalpy
+sat_enthalpy2(elevation = 120, tbegin = 32, tend = 100, tincrement = 0.1,
+output  = "csv")
+# elevation = 120 feet, tbegin = 32 degrees F, tend = 100 degrees F,
+# tincrement = 0.1 degrees F
 ```
