@@ -83,7 +83,10 @@
 #' \dontrun{
 #' library(ie2misc)
 #' # Examples to change (an) QW file(s) interactively and non-interactively
-#' qw(system.file("extdata", "spring_creek_partial.rdb", package = "ie2misc"))
+#' qw2("http://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22")
+#' # USGS 03584500 ELK RIVER NEAR PROSPECT, TN
+#' # Discharge, cubic feet per second (Mean)
+#'
 #'
 #'
 #' qw() # default where interactive = TRUE
@@ -724,7 +727,7 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 }
 }
 
-} else if (length(file) != 1) {
+} else {
 
 for (i in 1:length(file)) {
 
@@ -1296,7 +1299,7 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 ## Source 9 and 10 end
 
 
-  rddatatmp2 <- readLines(file)
+  rddatatmp2 <- readLines(file[i])
 # reads the large table
   idx.comments <- grep("^[#]", rddatatmp2)
   rddatatmp2 <- rddatatmp2[idx.comments]
@@ -1321,10 +1324,10 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of meta
   writeData(wb, paste(site_no, "meta", sep = " "), rddatatmp2)
 # writes the data to the workbook
-  filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
+  filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Source 3 & 4 / GUI file dialog to save the spreadsheet
 # Source 12 & 13 / original file name minus the extension and path in uppercase
-  saveWorkbook(wb, filesave1, overwrite = overwrite)
+  saveWorkbook(wb, filesave2, overwrite = overwrite)
 
 }
 }
@@ -1884,7 +1887,7 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 ## Source 9 and 10 end
 
 
-  rddatatmp2 <- readLines(file)
+  rddatatmp2 <- readLines(file[i])
 # reads the large table
   idx.comments <- grep("^[#]", rddatatmp2)
   rddatatmp2 <- rddatatmp2[idx.comments]
@@ -2515,7 +2518,7 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 ## Source 9 and 10 end
 
 
-  rddatatmp2 <- readLines(file)
+  rddatatmp2 <- readLines(file[i])
 # reads the large table
   idx.comments <- grep("^[#]", rddatatmp2)
   rddatatmp2 <- rddatatmp2[idx.comments]
@@ -3154,10 +3157,10 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of meta
   writeData(wb, paste(site_no, "meta", sep = " "), rddatatmp2)
 # writes the data to the workbook
-  filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
+  filesave5 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Source 3 & 4 / GUI file dialog to save the spreadsheet
 # Source 12 & 13 / original file name minus the extension and path in uppercase
-  saveWorkbook(wb, filesave1, overwrite = overwrite)
+  saveWorkbook(wb, filesave5, overwrite = overwrite)
 
 
 }

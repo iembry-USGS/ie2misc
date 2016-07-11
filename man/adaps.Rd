@@ -14,13 +14,10 @@
    \item James Wettenhall & Philippe Grosjean, File Open/Save dialogs in R tcltk, December 01, 2015. See \url{http://www.sciviews.org/recipes/tcltk/TclTk-file-open-save-dialogs/}.
    \item r - read csv files and perform function, then bind together - Stack Overflow answered by bjoseph on Jan 8 2015. See \url{http://stackoverflow.com/questions/27846715/read-csv-files-and-perform-function-then-bind-together}.
    \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
-   \item r - Import date-time at a specified timezone, disregard daylights savings time - Stack Overflow answered by James on Nov 4 2011. See \url{http://stackoverflow.com/questions/8004050/import-date-time-at-a-specified-timezone-disregard-daylights-savings-time}.
-   \item CST Central Time > What's current time in Central Time Zone now? (USA & Canada). See \url{http://wwp.greenwichmeantime.com/time-zone/usa/central-time/}.
    \item r - Regex return file name, remove path and file extension - Stack Overflow answered and edited by Ananda Mahto on Feb 25 2013. See \url{http://stackoverflow.com/questions/15073753/regex-return-file-name-remove-path-and-file-extension/15073919}.
    \item R help - How to change the default Date format for write.csv function? answered by William Dunlap on Dec 28, 2009. See \url{http://r.789695.n4.nabble.com/How-to-change-the-default-Date-format-for-write-csv-function-td989826.html}.
    \item inside-R: strptime {base}. See \url{http://www.inside-r.org/r-doc/base/strftime}.
    \item convert date and time string to POSIX in R - Stack Overflow commented by cryo111 on Sep 18 2013. See \url{http://stackoverflow.com/questions/18874400/convert-date-and-time-string-to-posix-in-r/18874863}.
-   \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
 }
 }
 \usage{
@@ -68,7 +65,7 @@ adaps function opens single or multiple raw ADAPS .rdb file(s) to modify the
   single file or multiple files that the user selects with a file dialog.
 
 adaps2 function opens a single raw ADAPS .rdb file to modify the format and
-  then exports the file(s) in .xlsx format. This is done for a single file
+  then exports the file in .xlsx format. This is done for a single file
   that the user selects without a file dialog.
 
 adapsBATCH function opens raw ADAPS .rdb files, from a directory, to modify
