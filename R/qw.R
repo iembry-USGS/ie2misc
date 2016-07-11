@@ -1324,7 +1324,7 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of meta
   writeData(wb, paste(site_no, "meta", sep = " "), rddatatmp2)
 # writes the data to the workbook
-  filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
+  filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file[i]))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Source 3 & 4 / GUI file dialog to save the spreadsheet
 # Source 12 & 13 / original file name minus the extension and path in uppercase
   saveWorkbook(wb, filesave2, overwrite = overwrite)
