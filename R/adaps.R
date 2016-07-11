@@ -11,7 +11,7 @@
 #'   single file or multiple files that the user selects with a file dialog.
 #'
 #' adaps2 function opens a single raw ADAPS .rdb file to modify the format and
-#'   then exports the file(s) in .xlsx format. This is done for a single file
+#'   then exports the file in .xlsx format. This is done for a single file
 #'   that the user selects without a file dialog.
 #'
 #' adapsBATCH function opens raw ADAPS .rdb files, from a directory, to modify
@@ -67,13 +67,10 @@
 #'    \item James Wettenhall & Philippe Grosjean, File Open/Save dialogs in R tcltk, December 01, 2015. See \url{http://www.sciviews.org/recipes/tcltk/TclTk-file-open-save-dialogs/}.
 #'    \item r - read csv files and perform function, then bind together - Stack Overflow answered by bjoseph on Jan 8 2015. See \url{http://stackoverflow.com/questions/27846715/read-csv-files-and-perform-function-then-bind-together}.
 #'    \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
-#'    \item r - Import date-time at a specified timezone, disregard daylights savings time - Stack Overflow answered by James on Nov 4 2011. See \url{http://stackoverflow.com/questions/8004050/import-date-time-at-a-specified-timezone-disregard-daylights-savings-time}.
-#'    \item CST Central Time > What's current time in Central Time Zone now? (USA & Canada). See \url{http://wwp.greenwichmeantime.com/time-zone/usa/central-time/}.
 #'    \item r - Regex return file name, remove path and file extension - Stack Overflow answered and edited by Ananda Mahto on Feb 25 2013. See \url{http://stackoverflow.com/questions/15073753/regex-return-file-name-remove-path-and-file-extension/15073919}.
 #'    \item R help - How to change the default Date format for write.csv function? answered by William Dunlap on Dec 28, 2009. See \url{http://r.789695.n4.nabble.com/How-to-change-the-default-Date-format-for-write-csv-function-td989826.html}.
 #'    \item inside-R: strptime {base}. See \url{http://www.inside-r.org/r-doc/base/strftime}.
 #'    \item convert date and time string to POSIX in R - Stack Overflow commented by cryo111 on Sep 18 2013. See \url{http://stackoverflow.com/questions/18874400/convert-date-and-time-string-to-posix-in-r/18874863}.
-#'    \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
 #' }
 #'
 #' @encoding UTF-8
@@ -158,7 +155,7 @@ if (confirm == FALSE) {
 if (file.info(file)$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Sources 1 & 2 / only process non-empty files and provide a stop warning if the input
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input
 
 } else {
 
@@ -184,9 +181,9 @@ if (checkdelim == "\t") {
 }
 
   rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
-# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+# Source 8 and 9 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
-    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 10 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
@@ -199,8 +196,8 @@ if (checkdelim == "\t") {
 # column width of 22 units for column 1
 
   filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
-# Sources 3 & 4 / GUI file dialog to save the spreadsheet
-# Sources 9 & 13 / original file name minus the extension and path in uppercase
+# Source 3 & 4 / GUI file dialog to save the spreadsheet
+# Source 6 & 7 / original file name minus the extension and path in uppercase
   saveWorkbook(wb, filesave1, overwrite = overwrite)
 
 }
@@ -230,7 +227,7 @@ if (confirm == FALSE) {
 if (file.info(file[i])$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Sources 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
 
 } else {
 
@@ -266,9 +263,9 @@ if (checkdelim == "\t") {
 }
 
   rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
-# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+# Source 8 and 9 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
-    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 10 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
 
 # creation of the raw ADAPS data spreadsheet
@@ -282,8 +279,8 @@ if (checkdelim == "\t") {
 # column width of 22 units for column 1
 
   filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file[i]))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
-# Sources 3 & 4 / GUI file dialog to save the spreadsheet
-# Sources 9 & 13 / original file name minus the extension and path in uppercase
+# Source 3 & 4 / GUI file dialog to save the spreadsheet
+# Source 6 & 7 / original file name minus the extension and path in uppercase
   saveWorkbook(wb, filesave2, overwrite = overwrite)
 
 }
@@ -333,9 +330,9 @@ if (checkdelim == "\t") {
 }
 
   rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
-# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+# Source 8 and 9 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
-    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 10 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
 
 # creation of the raw ADAPS data spreadsheet
@@ -403,7 +400,7 @@ if (!nchar(file[i])) {
 if (file.info(file[i])$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Sources 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
 
 } else {
 
@@ -441,9 +438,9 @@ if (checkdelim == "\t") {
 }
 
   rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
-# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+# Source 8 and 9 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
-    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 10 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
 
 # creation of the raw ADAPS data spreadsheet
@@ -498,7 +495,7 @@ if (confirm == FALSE) {
 if (file.info(file)$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Sources 1 & 2 / only process non-empty files and provide a stop warning if the input
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input
 
 } else {
 
@@ -524,9 +521,9 @@ if (checkdelim == "\t") {
 }
 
   rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
-# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+# Source 8 and 9 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
-    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 10 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
 
 # creation of the raw ADAPS data spreadsheet
@@ -540,8 +537,8 @@ if (checkdelim == "\t") {
 # column width of 22 units for column 1
 
   filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
-# Sources 3 & 4 / GUI file dialog to save the spreadsheet
-# Sources 9 & 13 / original file name minus the extension and path in uppercase
+# Source 3 & 4 / GUI file dialog to save the spreadsheet
+# Source 6 & 7 / original file name minus the extension and path in uppercase
   saveWorkbook(wb, filesave1, overwrite = overwrite)
 
 }
