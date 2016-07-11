@@ -709,8 +709,8 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of QW Data TZ Corrected
   writeDataTable(wb, "QW Data TZ Corrected", RDdatatmp)
 # writes the data to the workbook
-  setColWidths(wb, sheet = 1, cols = 1, widths = 22)
-# column width of 22 units for column 1
+  setColWidths(wb, sheet = 1, cols = 1:ncol(RDdatatmp) , widths = 22)
+# column width of 22 units for all columns
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
   writeDataTable(wb, "QW Data", rddatatmp1)
@@ -1318,8 +1318,8 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of QW Data TZ Corrected
   writeDataTable(wb, "QW Data TZ Corrected", RDdatatmp)
 # writes the data to the workbook
-  setColWidths(wb, sheet = 1, cols = 1, widths = 22)
-# column width of 22 units for column 1
+  setColWidths(wb, sheet = 1, cols = 1:ncol(RDdatatmp) , widths = 22)
+# column width of 22 units for all columns
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
   writeDataTable(wb, "QW Data", rddatatmp1)
@@ -1908,8 +1908,8 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of QW Data TZ Corrected
   writeDataTable(wb, "QW Data TZ Corrected", RDdatatmp)
 # writes the data to the workbook
-  setColWidths(wb, sheet = 1, cols = 1, widths = 22)
-# column width of 22 units for column 1
+  setColWidths(wb, sheet = 1, cols = 1:ncol(RDdatatmp) , widths = 22)
+# column width of 22 units for all columns
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
   writeDataTable(wb, "QW Data", rddatatmp1)
@@ -2542,8 +2542,8 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of QW Data TZ Corrected
   writeDataTable(wb, "QW Data TZ Corrected", RDdatatmp)
 # writes the data to the workbook
-  setColWidths(wb, sheet = 1, cols = 1, widths = 22)
-# column width of 22 units for column 1
+  setColWidths(wb, sheet = 1, cols = 1:ncol(RDdatatmp) , widths = 22)
+# column width of 22 units for all columns
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
   writeDataTable(wb, "QW Data", rddatatmp1)
@@ -3161,8 +3161,8 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
 # adds the worksheet with the name of QW Data TZ Corrected
   writeDataTable(wb, "QW Data TZ Corrected", RDdatatmp)
 # writes the data to the workbook
-  setColWidths(wb, sheet = 1, cols = 1, widths = 22)
-# column width of 22 units for column 1
+  setColWidths(wb, sheet = 1, cols = 1:ncol(RDdatatmp) , widths = 22)
+# column width of 22 units for all columns
   addWorksheet(wb, "QW Data")
 # adds the worksheet with the name of QW Data
   writeDataTable(wb, "QW Data", rddatatmp1)
