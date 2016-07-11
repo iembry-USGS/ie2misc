@@ -223,6 +223,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (ymdHM_check) {
@@ -292,6 +293,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (dmyHM_check) {
@@ -361,6 +363,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (mdyHM_check) {
@@ -829,6 +832,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (ymdHM_check) {
@@ -898,6 +902,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (dmyHM_check) {
@@ -967,6 +972,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (mdyHM_check) {
@@ -1417,6 +1423,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (ymdHM_check) {
@@ -1486,6 +1493,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (dmyHM_check) {
@@ -1555,6 +1563,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (mdyHM_check) {
@@ -2048,6 +2057,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (ymdHM_check) {
@@ -2117,6 +2127,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (dmyHM_check) {
@@ -2186,6 +2197,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (mdyHM_check) {
@@ -2662,6 +2674,8 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (ymdHM_check) {
@@ -2731,6 +2745,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (dmyHM_check) {
@@ -2800,6 +2815,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
+  setnames(rddatatmp, 1, "DateTime")
 
 
 } else if (mdyHM_check) {
