@@ -118,7 +118,7 @@
 #'
 #'
 #' @import stringi
-#' @import lubridate
+#' @importFrom lubridate mdy_hms
 #' @import reader
 #' @import tools
 #' @import tcltk
