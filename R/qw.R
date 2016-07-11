@@ -223,7 +223,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (ymdHM_check) {
@@ -293,7 +293,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (dmyHM_check) {
@@ -363,7 +363,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (mdyHM_check) {
@@ -425,35 +425,8 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 } else if (!is.na(timecol)) {
 
-if (ymd_check) {
 
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-} else if (ymdHM_check) {
+if (ymdHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
@@ -509,34 +482,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
   setnames(rddatatmp, 1, "DateTime")
 
 
-  } else if (dmy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
 } else if (dmyHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
@@ -573,34 +518,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 # obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-  } else if (mdy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
   rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
@@ -832,7 +749,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (ymdHM_check) {
@@ -902,7 +819,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (dmyHM_check) {
@@ -972,7 +889,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (mdyHM_check) {
@@ -1034,35 +951,8 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 } else if (!is.na(timecol)) {
 
-if (ymd_check) {
 
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-} else if (ymdHM_check) {
+if (ymdHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
@@ -1118,34 +1008,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
   setnames(rddatatmp, 1, "DateTime")
 
 
-  } else if (dmy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
 } else if (dmyHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
@@ -1182,34 +1044,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 # obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-  } else if (mdy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
   rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
@@ -1423,7 +1257,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (ymdHM_check) {
@@ -1493,7 +1327,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (dmyHM_check) {
@@ -1563,7 +1397,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (mdyHM_check) {
@@ -1625,35 +1459,8 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 } else if (!is.na(timecol)) {
 
-if (ymd_check) {
 
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-} else if (ymdHM_check) {
+if (ymdHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
@@ -1709,34 +1516,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
   setnames(rddatatmp, 1, "DateTime")
 
 
-  } else if (dmy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
 } else if (dmyHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
@@ -1773,34 +1552,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 # obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-  } else if (mdy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
   rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
@@ -2057,7 +1808,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (ymdHM_check) {
@@ -2127,7 +1878,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (dmyHM_check) {
@@ -2197,7 +1948,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (mdyHM_check) {
@@ -2259,35 +2010,8 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 } else if (!is.na(timecol)) {
 
-if (ymd_check) {
 
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-} else if (ymdHM_check) {
+if (ymdHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
@@ -2343,34 +2067,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
   setnames(rddatatmp, 1, "DateTime")
 
 
-  } else if (dmy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
 } else if (dmyHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
@@ -2407,34 +2103,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 # obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-  } else if (mdy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
   rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
@@ -2674,8 +2342,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (ymdHM_check) {
@@ -2745,7 +2412,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (dmyHM_check) {
@@ -2815,7 +2482,7 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
   rddatatmp[, datecolname := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
+  setnames(rddatatmp, 1, "Date")
 
 
 } else if (mdyHM_check) {
@@ -2877,35 +2544,8 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 } else if (!is.na(timecol)) {
 
-if (ymd_check) {
 
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-} else if (ymdHM_check) {
+if (ymdHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
@@ -2961,34 +2601,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
   setnames(rddatatmp, 1, "DateTime")
 
 
-  } else if (dmy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
 } else if (dmyHM_check) {
 
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
@@ -3025,34 +2637,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 # obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
-
-  rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-
-  datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
-  rddatatmp[, datetimes := as.numeric(datetime)]
-
-  rddatatmp[, DateTimes_Timezone_Corrected := ifelse (grepl(rddatatmp[, tz_columnname, with = FALSE][[1]], pattern = "EDT|CDT|MDT|PDT|AKDT|HDT|ADT"), {rddatatmp[, datetimes] - 3600}, {rddatatmp[, datetimes]})]
-# Source 8 / if the date-time stamp is DT, then subtract 1 hour (3600 seconds) from the original date time and if not, then return the original date time
-
-  rddatatmp[, DateTimes_Timezone_Corrected2 := as.POSIXct(DateTimes_Timezone_Corrected, origin = "1970-01-01 00:00:00", tzone = "GMT")]
-# convert the numeric date time back to POSIXct with the origin of GMT
-
-  attributes(rddatatmp$DateTimes_Timezone_Corrected2)$tzone <- "GMT" # Source 16
-
-  rddatatmp[, c("datetimes", "DateTimes", "DateTimes_Timezone_Corrected") := NULL, with = FALSE]
-  setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
-  setnames(rddatatmp, 1, "DateTime")
-
-
-  } else if (mdy_check) {
-
-rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
-
-# changing column to POSIXct class
-# obtain the name of the column based on the column number
-  change_class2 <- "DateTimes"
-  for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
   rddatatmp[, c(datecolname, timecolname) := NULL, with = FALSE]
   setcolorder(rddatatmp, c(length(rddatatmp), 1:(length(rddatatmp)-1L)))
