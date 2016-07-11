@@ -292,7 +292,7 @@ if (checkdelim == "\t") {
 }
 }
 
-} else { # Interactive = FALSE
+} else if (interactive == FALSE) {
 
 filesave3 <- tk_choose.dir(caption = "Select directory to save the .xlsx files")
 # user selects directory and save all .xlsx files with given names in the chosen directory
@@ -349,7 +349,7 @@ if (checkdelim == "\t") {
 # column width of 22 units for column 1
 
 # Source 6, 9, and 13 begins
-  filesave3a <- paste0(filesave3, "/", stri_trans_toupper(basename(file_path_sans_ext(file[i]))))
+  filesave3a <- paste0(filesave3, "/", basename(file_path_sans_ext(file[i])))
 # combine the directory name with the basename and remove the file extension
   saveWorkbook(wb, paste0(filesave3a, ".xlsx"), overwrite = overwrite)
 # saves the workbook as original file name without the extension + .xlsx
@@ -528,7 +528,7 @@ if (checkdelim == "\t") {
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
     rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
-    
+
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
