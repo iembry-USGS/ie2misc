@@ -281,7 +281,7 @@ if (checkdelim == "\t") {
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
 
-  filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", basename(file_path_sans_ext(file[i])), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
+  filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
 # Sources 9 & 13 / original file name minus the extension and path in uppercase
   saveWorkbook(wb, filesave2, overwrite = overwrite)
