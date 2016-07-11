@@ -97,7 +97,10 @@ qw, qw2 and qwBATCH functions perform the same processes on the raw QW
 \dontrun{
 library(ie2misc)
 # Examples to change (an) QW file(s) interactively and non-interactively
-qw(system.file("extdata", "spring_creek_partial.rdb", package = "ie2misc"))
+qw2("http://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22")
+# USGS 03584500 ELK RIVER NEAR PROSPECT, TN
+# Discharge, cubic feet per second (Mean)
+
 
 
 qw() # default where interactive = TRUE

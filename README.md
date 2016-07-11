@@ -12,6 +12,10 @@ Although this software program has been used by the U.S. Geological Survey (USGS
 This software is provided "AS IS."
 
 
+The datasets included in the folder extdata may not have received the USGS's Director's approval and thus may still be provisional and subject to revision. The data are included in this package for illustration purposes only. The data are released on the condition that neither the USGS nor the United States Government may be held liable for any damages resulting from its authorized or unauthorized use.
+
+
+
 # Installation
 
 ```R
@@ -55,4 +59,22 @@ sat_enthalpy2(elevation = 120, tbegin = 32, tend = 100, tincrement = 0.1,
 output  = "csv")
 # elevation = 120 feet, tbegin = 32 degrees F, tend = 100 degrees F,
 # tincrement = 0.1 degrees F
+
+
+
+http://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22
+USGS 03584500 ELK RIVER NEAR PROSPECT, TN
+Discharge, cubic feet per second (Mean)
+
+http://waterdata.usgs.gov/nwis/dv?cb_80154=on&format=rdb&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22
+USGS 03584500 ELK RIVER NEAR PROSPECT, TN
+Suspended sediment concentration, milligrams per liter (Mean)
+
+http://waterdata.usgs.gov/nwis/dv?cb_80155=on&format=rdb&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22
+USGS 03584500 ELK RIVER NEAR PROSPECT, TN
+Suspended sediment discharge, tons per day (Mean)
+
+
+
+
 ```
