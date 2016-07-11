@@ -265,7 +265,7 @@ if (checkdelim == "\t") {
 
 }
 
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+  rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
 # Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
     rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
@@ -332,7 +332,7 @@ if (checkdelim == "\t") {
 
 }
 
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+  rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
 # Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
     rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
@@ -440,7 +440,7 @@ if (checkdelim == "\t") {
 
 }
 
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+  rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
 # Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
     rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
@@ -528,6 +528,7 @@ if (checkdelim == "\t") {
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
     rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
+    
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
 # use R package openxlsx to create the .xlsx spreadsheet
