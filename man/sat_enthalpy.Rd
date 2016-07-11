@@ -90,7 +90,7 @@ where W or SH (Specific Humidity) is expressed as
 library(ie2misc)
 
 # Copy and paste the following code into the R console if you
-# wish to see the input file format for the Lake plants.
+# wish to see the input file format.
 openXL(system.file("extdata", "Saturated_Enthalpy_Example_Input.xlsx",
 package = "ie2misc"))
   # opens the workbook using the default spreadsheet application
@@ -104,17 +104,21 @@ sat_enthalpy(output = "csv")
 # The sheet number is 1 (default) and the output is csv
 
 
-sat_enthalpy2(system.file("extdata", "Saturated_Enthalpy_Example_Input.xlsx",
-package = "ie2misc"), output = "xlsx")
+sat_enthalpy2(system.file("extdata", "Saturated_Enthalpy_Example_Input.xlsx"
+, package = "ie2misc"), output = "xlsx")
 # The sheet number is 1 (default) and the output is xlsx
-}
 
 
-library(ie2misc)
 sat_enthalpy2(system.file("extdata", "Saturated_Enthalpy_Example_Input.csv",
 package = "ie2misc"), output = "console")
 # The sheet number is 1 (default) and the output is the console
 
+
+sat_enthalpy2(elevation = 1200, tbegin = 32, tend = 180,
+tincrement = 0.01, output  = "csv")
+# elevation = 1200 feet, tbegin = 32 degrees F, tend = 180 degrees F,
+# tincrement = 0.01 degrees F
+}
 
 
 }

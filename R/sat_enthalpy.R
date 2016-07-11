@@ -60,6 +60,8 @@
 #'    \item How to check file extensions in R - Stack Overflow answered by lebatsnok on May 17 2014. See \url{http://stackoverflow.com/questions/23713284/how-to-check-file-extensions-in-r}.
 #'    \item inside-R: TclInterface {tcltk}. See \url{http://www.inside-r.org/r-doc/tcltk/.Tcl}.
 #'    \item James Wettenhall & Philippe Grosjean, File Open/Save dialogs in R tcltk, December 01, 2015. See \url{http://www.sciviews.org/recipes/tcltk/TclTk-file-open-save-dialogs/}.
+#'    \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
+#'    \item r - Regex return file name, remove path and file extension - Stack Overflow answered and edited by Ananda Mahto on Feb 25 20134. See \url{http://stackoverflow.com/questions/15073753/regex-return-file-name-remove-path-and-file-extension/15073919}.
 #'}
 #'
 #'
@@ -78,8 +80,8 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Example to check the input file format
 #' library(ie2misc)
+#' # Example to check the input file format
 #'
 #' # Copy and paste the following code into the R console if you
 #' # wish to see the input file format.
@@ -89,8 +91,7 @@
 #'
 #'
 #'
-#'
-#' # Examples to show you different use cases
+#' # Examples to show different use cases
 #'
 #' sat_enthalpy(output = "csv")
 #' # The sheet number is 1 (default) and the output is csv
@@ -119,6 +120,7 @@
 #' @import tcltk
 #' @import gWidgets2
 #' @import gWidgets2tcltk
+#' @import utils
 #'
 #' @name sat_enthalpy
 NULL
@@ -191,8 +193,9 @@ return(sat_h_table)
 } else if (output == "csv") {
 
 ## create csv file
-filesave1 <- tclvalue(tkgetSaveFile(title = "Save csv file as", filetypes = "{{Comma-separated value file} .csv}"))
+filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{Comma-separated value file} .csv}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 write.csv(sat_h_table, file = filesave1, row.names = FALSE, na = "")
 
 
@@ -209,8 +212,9 @@ writeDataTable(wb, "Saturated Enthalpy Table", sat_h_table)
 setColWidths(wb, sheet = 1, 1:ncol(sat_h_table), widths = "auto")
 
 
-filesave2 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
+filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 saveWorkbook(wb, filesave2, overwrite = overwrite)
 
 
@@ -256,8 +260,9 @@ return(sat_h_table)
 } else if (output == "csv") {
 
 ## create csv file
-filesave3 <- tclvalue(tkgetSaveFile(title = "Save csv file as", filetypes = "{{Comma-separated value file} .csv}"))
+filesave3 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{Comma-separated value file} .csv}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 write.csv(sat_h_table, file = filesave3, row.names = FALSE, na = "")
 
 
@@ -274,10 +279,10 @@ writeDataTable(wb, "Saturated Enthalpy Table", sat_h_table)
 setColWidths(wb, sheet = 1, 1:ncol(sat_h_table), widths = "auto")
 
 
-filesave4 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
+filesave4 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 saveWorkbook(wb, filesave4, overwrite = overwrite)
-
 
 }
 }
@@ -339,8 +344,9 @@ return(sat_h_table)
 } else if (output == "csv") {
 
 ## create csv file
-filesave5 <- tclvalue(tkgetSaveFile(title = "Save csv file as", filetypes = "{{Comma-separated value file} .csv}"))
+filesave5 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"),, filetypes = "{{Comma-separated value file} .csv}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 write.csv(sat_h_table, file = filesave5, row.names = FALSE, na = "")
 
 
@@ -357,9 +363,11 @@ writeDataTable(wb, "Saturated Enthalpy Table", sat_h_table)
 setColWidths(wb, sheet = 1, 1:ncol(sat_h_table), widths = "auto")
 
 
-filesave6 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
+filesave6 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 saveWorkbook(wb, filesave6, overwrite = overwrite)
+
 
 }
 
@@ -427,8 +435,9 @@ return(sat_h_table)
 } else if (output == "csv") {
 
 ## create csv file
-filesave7 <- tclvalue(tkgetSaveFile(title = "Save csv file as", filetypes = "{{Comma-separated value file} .csv}"))
+filesave7 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{Comma-separated value file} .csv}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 write.csv(sat_h_table, file = filesave7, row.names = FALSE, na = "")
 
 
@@ -445,8 +454,9 @@ writeDataTable(wb, "Saturated Enthalpy Table", sat_h_table)
 setColWidths(wb, sheet = 1, 1:ncol(sat_h_table), widths = "auto")
 
 
-filesave8 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
+filesave8 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 saveWorkbook(wb, filesave8, overwrite = overwrite)
 
 }
@@ -490,8 +500,9 @@ return(sat_h_table)
 } else if (output == "csv") {
 
 ## create csv file
-filesave9 <- tclvalue(tkgetSaveFile(title = "Save csv file as", filetypes = "{{Comma-separated value file} .csv}"))
+filesave9 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{Comma-separated value file} .csv}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 write.csv(sat_h_table, file = filesave9, row.names = FALSE, na = "")
 
 
@@ -508,10 +519,10 @@ writeDataTable(wb, "Saturated Enthalpy Table", sat_h_table)
 setColWidths(wb, sheet = 1, 1:ncol(sat_h_table), widths = "auto")
 
 
-filesave10 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
+filesave10 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 5 & 6 / original file name minus the extension and path in uppercase
 saveWorkbook(wb, filesave10, overwrite = overwrite)
-
 
 }
 }

@@ -1,25 +1,36 @@
-#' adaps and adapsBATCH
+#' adaps, adaps2, and adapsBATCH
 #'
-#' adaps and adapsBATCH process raw ADAPS .rdb files.
+#' adaps, adaps2, and adapsBATCH process raw Automated Data Processing System
+#'   (ADAPS) .rdb files from the U.S. Geological Survey (USGS) National Water
+#'   Information System (NWIS). For these functions, it is only for continuous
+#'   ADAPS data of the following parameters: discharge (00060), FNU turbidity
+#'   (63680), and NTRU turbidity (63676 from 63680).
 #'
 #' adaps function opens single or multiple raw ADAPS .rdb file(s) to modify the
 #'   format and then exports the file(s) in .xlsx format. This is done for a
-#'   single file or multiple files that the user selects.
+#'   single file or multiple files that the user selects with a file dialog.
 #'
+#' adaps2 function opens a single raw ADAPS .rdb file to modify the format and
+#'   then exports the file(s) in .xlsx format. This is done for a single file
+#'   that the user selects without a file dialog.
 #'
 #' adapsBATCH function opens raw ADAPS .rdb files, from a directory, to modify
 #'   the format and then exports the files in .xlsx format. This is done in a
-#'   BATCH mode (whole directory of ADAPS .rdb files).
+#'   BATCH mode (whole directory of ADAPS .rdb files) using a directory dialog.
 #'
-#' Both adaps and adapsBATCH functions perform the same processes on the raw
-#'   ADAPS .rdb files: 1) Read in the file and remove the 1st 4 or 5 lines
+#' adaps, adaps2, and adapsBATCH functions perform the same processes on the
+#'   raw ADAPS .rdb files: 1) Read in the file and remove the 1st 4 or 5 lines
 #'   depending on whether NTRU data are present or not, 2) create 4 or 5
-#'   columns (depending on NTRU data are present or not) based on the
+#'   columns (depending on whether NTRU data are present or not) based on the
 #'   1st 4 or 5 lines, and 3) export the modified file in .xlsx format.
 #'
-#' The following lines are representative of the .rdb format used in these
-#'   functions. Note: ntru may not be present. If so, then there will only be 3
-#'   cases of 16N in the last row.
+#'
+#'
+#'
+#' The following lines are representative of the .rdb format used in the files
+#'   that these functions can operate on. Note: ntru may not be present. If so,
+#'   then there will only be 3 cases of 16N in the last row. The last row will
+#'   be removed in the final spreadsheet.
 #'
 #' \tabular{ccccc}{
 #'   DATETIME \tab ght\cr
@@ -32,19 +43,19 @@
 #'
 #'
 #' @param file Input ADAPS .rdb file(s) to be selected through a file dialog.
-#' @param interactive If interactive is \code{TRUE}, then the user will select the
-#'   filenames(s) to use for saving with the file dialog. In order to select
-#'   more than one file, the user must hold down the Ctrl (Control) button
-#'   while mouse clicking the chosen files. If interactive is \code{FALSE}, then
-#'   the user will select the directory, via the directory dialog, to use
+#' @param file Input ADAPS .rdb file.
+#' @param interactive If interactive is \code{TRUE}, then the user will select
+#' the filenames(s) to use for saving with the file dialog. In order to
+#' select more than one file, the user must hold down the Ctrl (Control)
+#' button while mouse clicking the chosen files. If interactive is \code{FALSE},
+#' then the user will select the directory, via the directory dialog, to use
 #'   for saving and the original filenames will be used.
 #' @param overwrite If \code{TRUE}, overwrite any existing spreadsheet.
 #' @param path Directory path of ADAPS .rdb files to be selected through a
 #'   directory dialog. The user will be asked where to find the ADAPS .rdb
 #'   files & then the user will be asked where to save the ADAPS .xlsx files.
 #'
-#' @return ADAPS .xlsx file(s) where sheet1 is named after the original
-#'   filename.
+#' @return ADAPS .xlsx file(s)
 #'
 #'
 #'
@@ -59,6 +70,10 @@
 #'    \item r - Import date-time at a specified timezone, disregard daylights savings time - Stack Overflow answered by James on Nov 4 2011. See \url{http://stackoverflow.com/questions/8004050/import-date-time-at-a-specified-timezone-disregard-daylights-savings-time}.
 #'    \item CST Central Time > What's current time in Central Time Zone now? (USA & Canada). See \url{http://wwp.greenwichmeantime.com/time-zone/usa/central-time/}.
 #'    \item r - Regex return file name, remove path and file extension - Stack Overflow answered and edited by Ananda Mahto on Feb 25 2013. See \url{http://stackoverflow.com/questions/15073753/regex-return-file-name-remove-path-and-file-extension/15073919}.
+#'    \item R help - How to change the default Date format for write.csv function? answered by William Dunlap on Dec 28, 2009. See \url{http://r.789695.n4.nabble.com/How-to-change-the-default-Date-format-for-write-csv-function-td989826.html}.
+#'    \item inside-R: strptime {base}. See \url{http://www.inside-r.org/r-doc/base/strftime}.
+#'    \item convert date and time string to POSIX in R - Stack Overflow commented by cryo111 on Sep 18 2013. See \url{http://stackoverflow.com/questions/18874400/convert-date-and-time-string-to-posix-in-r/18874863}.
+#'    \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
 #' }
 #'
 #' @encoding UTF-8
@@ -70,8 +85,24 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Examples to change (an) ADAPS .rdb file(s) interactively and non-interactively
 #' library(ie2misc)
+#' # Example to check the input file format
+#' # Copy and paste the following code into the R console if you
+#' # wish to see the ADAPS .rdb input file format.
+#' # Note the number of lines and the row headings.
+#' file.show(system.file("extdata", "spring_creek_partial.rdb",
+#'   package = "ie2misc"), title = paste("spring_creek_partial.rdb"))
+#' # opens the .rdb file using the default text editor
+#'
+#'
+#'
+#'
+#' # Examples to change (an) ADAPS .rdb file(s) interactively and
+#' # non-interactively
+#' adaps2(system.file("extdata", "spring_creek_partial.rdb",
+#' package = "ie2misc"))
+#'
+#'
 #' adaps() # default where interactive = TRUE
 #' # Follow the file dialog instructions
 #'
@@ -85,7 +116,9 @@
 #' # Follow the file dialog instructions
 #' }
 #'
+#'
 #' @import stringi
+#' @import lubridate
 #' @import reader
 #' @import tools
 #' @import tcltk
@@ -134,7 +167,7 @@ if (file.info(file)$size == 0) {
 # read in file to obtain the delimiter
 
 # determine the number of lines to skip
-  skip <- grep("19D", readLines(file))
+  skip <- grep("[0-9][a-z]", readLines(file), ignore.case = TRUE)
 # read to find the number of lines to skip
 
 # reads ADAPS .rdb file as a table by skipping the first n lines (based on skip) after a check is made whether the file is tab ("\t") or comma separated (",")
@@ -150,14 +183,10 @@ if (checkdelim == "\t") {
 
 }
 
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%m/%d/%Y %T", tz = "GMT")
-# Source 7 and 8 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
-  #rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %T")
-# changes from POSIXct to character for the DateTime
-  #rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
-
-
-  Sys.setenv(TZ = "Etc/GMT")
+  rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
+# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+    rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
@@ -169,15 +198,15 @@ if (checkdelim == "\t") {
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
 
-  filesave1 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
+  filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 9 & 13 / original file name minus the extension and path in uppercase
   saveWorkbook(wb, filesave1, overwrite = overwrite)
 
-  Sys.unsetenv("TZ")
+}
+}
+}
 
-}
-}
-}
 } else {
 
 for (i in 1:length(file)) { # Source 5
@@ -212,7 +241,7 @@ if (file.info(file[i])$size == 0) {
   checkdelim <- assign(file[i], get(file[i]))
 
 # determine the number of lines to skip
-  assign(file[i], grep("19D", readLines(file[i])))
+  assign(file[i], grep("[0-9][a-z]", readLines(file[i]), ignore.case = TRUE))
 # read to find the number of lines to skip
   skip <- assign(file[i], get(file[i]))
 # Source 5 ends
@@ -236,14 +265,11 @@ if (checkdelim == "\t") {
 
 }
 
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%m/%d/%Y %T", tz = "GMT")
-# Source 7 and 8 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
-  rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %T")
-# changes from POSIXct to character for the DateTime
-  rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
+  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+    rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
-
-  Sys.setenv(TZ = "Etc/GMT")
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
@@ -255,11 +281,10 @@ if (checkdelim == "\t") {
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
 
-  filesave2 <- tclvalue(tkgetSaveFile(title = "Save file as", filetypes = "{{MS Excel file} .xlsx}"))
+  filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file[i]))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 9 & 13 / original file name minus the extension and path in uppercase
   saveWorkbook(wb, filesave2, overwrite = overwrite)
-
-  Sys.unsetenv("TZ")
 
 }
 }
@@ -283,7 +308,7 @@ for (i in 1:length(file)) {
 
 # determine the number of lines to skip
 # Source 5 begins
-  assign(file[i], grep("19D", readLines(file[i])))
+  assign(file[i], grep("[0-9][a-z]", readLines(file[i]), ignore.case = TRUE))
 # read to find the number of lines to skip
   skip <- assign(file[i], get(file[i]))
 # Source 5 ends
@@ -307,13 +332,11 @@ if (checkdelim == "\t") {
 
 }
 
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%m/%d/%Y %T", tz = "GMT")
-# Source 7 and 8 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
-  rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %T")
-# changes from POSIXct to character for the DateTime
-  rddatatmp[[1]] <- format(rddatatmp[[1]], "%m/%d/%Y %T")
+  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+    rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
- Sys.setenv(TZ = "Etc/GMT")
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
@@ -325,14 +348,12 @@ if (checkdelim == "\t") {
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
 
-# Source 6 and 9 begins
-  filesave3a <- paste0(filesave3, "/", basename(file_path_sans_ext(file[i])))
+# Source 6, 9, and 13 begins
+  filesave3a <- paste0(filesave3, "/", stri_trans_toupper(basename(file_path_sans_ext(file[i]))))
 # combine the directory name with the basename and remove the file extension
   saveWorkbook(wb, paste0(filesave3a, ".xlsx"), overwrite = overwrite)
 # saves the workbook as original file name without the extension + .xlsx
-# Source 6 and 9 ends
-
- Sys.unsetenv("TZ")
+# Source 6, 9, and 13 ends
 
 }
 }
@@ -358,10 +379,10 @@ if (confirm == FALSE) {
 file <- list.files(path, pattern = "rdb|RDB$", full.names = TRUE)
 file <- file[stri_detect_fixed(file, ".rdb", case_insensitive = TRUE)]
 
-filesave1 <- tk_choose.dir(caption = "Select directory to save the batch set of .xlsx files")
+dirsave <- tk_choose.dir(caption = "Select directory to save the batch set of .xlsx files")
 # user selects directory and save all .xlsx files with given names in the chosen directory
 
-confirm <- gconfirm(toolkit = guiToolkit("tcltk"), msg = paste0("Do you want to select", " ", filesave1, " as the directory to save the batch set of files?"), title = "Confirm", icon = "question")
+confirm <- gconfirm(toolkit = guiToolkit("tcltk"), msg = paste0("Do you want to select", " ", dirsave, " as the directory to save the batch set of files?"), title = "Confirm", icon = "question")
 
 if (confirm == FALSE) {
 
@@ -395,7 +416,7 @@ if (file.info(file[i])$size == 0) {
 
 # determine the number of lines to skip
 # Source 3 begins
-  assign(file[i], grep("19D", readLines(file[i])))
+  assign(file[i], grep("[0-9][a-z]", readLines(file[i]), ignore.case = TRUE))
 # read to find the number of lines to skip
   skip <- assign(file[i], get(file[i]))
 # Source 3 ends
@@ -419,17 +440,11 @@ if (checkdelim == "\t") {
 
 }
 
-# Source 5 and 6 begins
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%m/%d/%Y %T", tz = "GMT")
-# Source 7 and 8 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
-  rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %T")
-# changes from POSIXct to character for the DateTime
-  rddatatmp[[1]] <- format(rddatatmp[[1]], "%d-%b-%Y %T")
-# corrects the format
-# Source 5 and 6 ends
+  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+    rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
 
-
- Sys.setenv(TZ = "Etc/GMT")
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()
@@ -441,17 +456,77 @@ if (checkdelim == "\t") {
   setColWidths(wb, sheet = 1, cols = 1, widths = 22)
 # column width of 22 units for column 1
 
-# Source 4 and 7 begins
-  filesave1a <- paste0(filesave1, "/", basename(file_path_sans_ext(file[i])))
+# Source 6, 9, and 13 begins
+  dirsave1 <- paste0(dirsave, "/", basename(file_path_sans_ext(file[i])))
 # combine the directory name with the basename and remove the file extension
-  saveWorkbook(wb, paste0(filesave1a, ".xlsx"), overwrite = overwrite)
+  saveWorkbook(wb, paste0(dirsave1, ".xlsx"), overwrite = overwrite)
 # saves the workbook as original file name without the extension + .xlsx
-# Source 4 and 7 ends
-
- Sys.unsetenv("TZ")
+# Source 6, 9, and 13 ends
 
 }
 }
+}
+}
+}
+}
+
+
+
+
+#' @export
+#' @rdname adaps
+adaps2 <- function (file, overwrite = TRUE) {
+
+overwrite <- overwrite
+
+if (!nchar(file)) {
+
+  stop("You did not choose a file. Please try again with a different file.")
+# Source 2 / provide a stop warning if no file was selected
+
+} else {
+
+confirm <- gconfirm(toolkit = guiToolkit("tcltk"), msg = paste0("Do you want to select", " ", file, "?"), title = "Confirm", icon = "question")
+
+if (confirm == FALSE) {
+
+  stop("Please try again with a different file.")
+# Source 2 / provide a stop warning if the user wants to change the file
+
+} else {
+
+if (file.info(file)$size == 0) {
+
+  stop("Your file is empty. Please try again with a different file.")
+# Sources 1 & 2 / only process non-empty files and provide a stop warning if the input
+
+} else {
+
+# read in file as a table and save as rddatatmp
+  rddatatmp <- fread(file)
+
+
+  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+# Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
+    rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
+    rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
+
+
+# creation of the raw ADAPS data spreadsheet
+  wb <- createWorkbook()
+# use R package openxlsx to create the .xlsx spreadsheet
+  addWorksheet(wb, "ADAPS Data")
+# adds the worksheet with the name of ADAPS Data
+  writeDataTable(wb, "ADAPS Data", rddatatmp)
+# writes the data to the workbook
+  setColWidths(wb, sheet = 1, cols = 1, widths = 22)
+# column width of 22 units for column 1
+
+  filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
+# Sources 3 & 4 / GUI file dialog to save the spreadsheet
+# Sources 9 & 13 / original file name minus the extension and path in uppercase
+  saveWorkbook(wb, filesave1, overwrite = overwrite)
+
 }
 }
 }
