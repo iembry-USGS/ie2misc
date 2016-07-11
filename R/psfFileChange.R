@@ -161,7 +161,7 @@ rddatatmplocate2 <- stri_detect_fixed(rddatatmp, "GenSkew")
 ifelse ("TRUE" %in% rddatatmplocate2 == FALSE, {rddatatmp[length(rddatatmp) + 1L] <- "GenSkew 0.0104293904"}, rddatatmp <- rddatatmp)
 # Source 5 / # if the pattern was not found, then add 1 line to the rddatatmp and write out this pattern
 
-filesave1 <- tclvalue(tkgetSaveFile(title = "Save revised .psf file as", filetypes = "{{Text file} .psf}"))
+filesave1 <- tclvalue(tkgetSaveFile(title = paste0("Save revised", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{Text file} .psf}"))
 # Sources 3 & 4 / GUI file dialog to save the file
 writeLines(rddatatmp, filesave1)
 # Write the lines contained in rddatatmp as a string of characters line by line and end with the .psf file extension
@@ -214,7 +214,7 @@ if (file.info(file[i])$size == 0) {
   ifelse ("TRUE" %in% rddatatmplocate2 == FALSE, {rddatatmp[length(rddatatmp) + 1L] <- "GenSkew 0.0104293904"}, rddatatmp <- rddatatmp)
 # Source 5 / # if the pattern was not found, then add 1 line to the rddatatmp and write out this pattern
 
-  filesave2 <- tclvalue(tkgetSaveFile(title = "Save revised .psf file as", filetypes = "{{Text file} .psf}"))
+  filesave2 <- tclvalue(tkgetSaveFile(title = paste0("Save revised", " ", stri_trans_toupper(basename(file_path_sans_ext(file[i]))), " ", "file as"), filetypes = "{{Text file} .psf}"))
 # Sources 3 & 4 / GUI file dialog to save the file
   writeLines(rddatatmp, filesave2)
 # Write the lines contained in rddatatmp as a string of characters line by line and end with the .psf file extension
@@ -250,7 +250,7 @@ for (i in 1:length(file)) {
   ifelse ("TRUE" %in% rddatatmplocate2 == FALSE, {rddatatmp[length(rddatatmp) + 1L] <- "GenSkew 0.0104293904"}, rddatatmp <- rddatatmp)
 # Source 5 / # if the pattern was not found, then add 1 line to the rddatatmp and write out this pattern
 
-  filesave3a <- paste0(filesave3, "/", basename(file[i]))
+  filesave3a <- paste0(filesave3, "/", "revised_", basename(file[i]))
 # combine the directory name with the basename
   writeLines(rddatatmp, con = filesave3a)
 # Write the lines contained in rddatatmp as a string of characters line by line and end with the .psf file extension
@@ -282,10 +282,10 @@ file <- list.files(path, pattern = "psf|PSF$", full.names = TRUE)
 file <- file[stri_detect_fixed(file, ".psf", case_insensitive = TRUE)]
 
 
-filesave1 <- tk_choose.dir(caption = "Select directory to save the batch set of .psf files")
+filesave4 <- tk_choose.dir(caption = "Select directory to save the batch set of .psf files")
 # user selects directory and save all .psf files with given names in the chosen directory
 
-confirm <- gconfirm(toolkit = guiToolkit("tcltk"), msg = paste0("Do you want to select", " ", filesave1, " as the directory to save the batch set of files?"), title = "Confirm", icon = "question")
+confirm <- gconfirm(toolkit = guiToolkit("tcltk"), msg = paste0("Do you want to select", " ", filesave4, " as the directory to save the batch set of files?"), title = "Confirm", icon = "question")
 
 if (confirm == FALSE) {
 
@@ -330,9 +330,9 @@ if (file.info(file[i])$size == 0) {
   ifelse ("TRUE" %in% rddatatmplocate2 == FALSE, {rddatatmp[length(rddatatmp) + 1L] <- "GenSkew 0.0104293904"}, rddatatmp <- rddatatmp)
 # Source 5 / if the pattern was not found, then add 1 line to the rddatatmp and write out this pattern
 
-  filesave1a <- paste0(filesave1, "/", basename(file[i]))
+  filesave4a <- paste0(filesave4, "/", "revised_", basename(file[i]))
 # combine the directory name with the basename
-  writeLines(rddatatmp, con = filesave1a)
+  writeLines(rddatatmp, con = filesave4a)
 # Write the lines contained in rddatatmp as a string of characters line by line and end with the .psf file extension
 }
 }

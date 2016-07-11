@@ -85,6 +85,7 @@
 #'
 #' # Copy and paste the following code into the R console if you
 #' # wish to see the input file format.
+#' library(openxlsx)
 #' openXL(system.file("extdata", "Saturated_Enthalpy_Example_Input.xlsx",
 #' package = "ie2misc"))
 #'   # opens the workbook using the default spreadsheet application
@@ -114,6 +115,7 @@
 #' }
 #'
 #'
+#' @import stringi
 #' @import data.table
 #' @import readxl
 #' @import openxlsx
@@ -344,7 +346,7 @@ return(sat_h_table)
 } else if (output == "csv") {
 
 ## create csv file
-filesave5 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"),, filetypes = "{{Comma-separated value file} .csv}"))
+filesave5 <- tclvalue(tkgetSaveFile(title = paste0("Save file as"), filetypes = "{{Comma-separated value file} .csv}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
 # Sources 5 & 6 / original file name minus the extension and path in uppercase
 write.csv(sat_h_table, file = filesave5, row.names = FALSE, na = "")
@@ -363,7 +365,7 @@ writeDataTable(wb, "Saturated Enthalpy Table", sat_h_table)
 setColWidths(wb, sheet = 1, 1:ncol(sat_h_table), widths = "auto")
 
 
-filesave6 <- tclvalue(tkgetSaveFile(title = paste0("Save", " ", stri_trans_toupper(basename(file_path_sans_ext(file))), " ", "file as"), filetypes = "{{MS Excel file} .xlsx}"))
+filesave6 <- tclvalue(tkgetSaveFile(title = paste0("Save file as"), filetypes = "{{MS Excel file} .xlsx}"))
 # Sources 3 & 4 / GUI file dialog to save the spreadsheet
 # Sources 5 & 6 / original file name minus the extension and path in uppercase
 saveWorkbook(wb, filesave6, overwrite = overwrite)
