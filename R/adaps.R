@@ -502,15 +502,31 @@ if (file.info(file)$size == 0) {
 
 } else {
 
+# check the delimiter of the file
+  checkdelim <- get.delim(file, skip = 5L)
+# read in file to obtain the delimiter
+
+# determine the number of lines to skip
+  skip <- grep("[0-9][a-z]", readLines(file), ignore.case = TRUE)
+# read to find the number of lines to skip
+
+# reads ADAPS .rdb file as a table by skipping the first n lines (based on skip) after a check is made whether the file is tab ("\t") or comma separated (",")
+if (checkdelim == "\t") {
+
 # read in file as a table and save as rddatatmp
-  rddatatmp <- fread(file)
+  rddatatmp <- read.table(file, skip = skip, col.names = c("DateTime", "ght", "Q", "fnu", "NTRU"), colClasses = c("character", "numeric", "numeric", "numeric", "numeric"), fill = TRUE, stringsAsFactors = FALSE, sep = "\t")
 
+} else {
 
-  rddatatmp[[1]] <- as.POSIXct(rddatatmp[[1]], format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+# read in file as a table and save as rddatatmp
+  rddatatmp <- read.table(file, skip = skip, col.names = c("DateTime", "ght", "Q", "fnu", "NTRU"), colClasses = c("character", "numeric", "numeric", "numeric", "numeric"), fill = TRUE, stringsAsFactors = FALSE, sep = ",")
+
+}
+
+  rddatatmp[[1]] <- mdy_hms(rddatatmp[[1]], quiet = TRUE, tz = "GMT")
 # Source 10 and 11 / transforms the character vector into a POSIXct object with the GMT time zone so the existing timezone should not change
     rddatatmp[[1]] <- strptime(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # changes from POSIXct to character for the DateTime
     rddatatmp[[1]] <- format(rddatatmp[[1]], "%Y-%m-%d %H:%M:%S") # Source 12 / changes the DateTime format to numeric month/numeric date/four digit year with HMS
-
 
 # creation of the raw ADAPS data spreadsheet
   wb <- createWorkbook()

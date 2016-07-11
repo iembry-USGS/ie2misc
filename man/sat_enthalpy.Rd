@@ -11,6 +11,8 @@
    \item How to check file extensions in R - Stack Overflow answered by lebatsnok on May 17 2014. See \url{http://stackoverflow.com/questions/23713284/how-to-check-file-extensions-in-r}.
    \item inside-R: TclInterface {tcltk}. See \url{http://www.inside-r.org/r-doc/tcltk/.Tcl}.
    \item James Wettenhall & Philippe Grosjean, File Open/Save dialogs in R tcltk, December 01, 2015. See \url{http://www.sciviews.org/recipes/tcltk/TclTk-file-open-save-dialogs/}.
+   \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
+   \item r - Regex return file name, remove path and file extension - Stack Overflow answered and edited by Ananda Mahto on Feb 25 20134. See \url{http://stackoverflow.com/questions/15073753/regex-return-file-name-remove-path-and-file-extension/15073919}.
 }
 }
 \usage{
@@ -86,8 +88,8 @@ where W or SH (Specific Humidity) is expressed as
 }
 \examples{
 \dontrun{
-# Example to check the input file format
 library(ie2misc)
+# Example to check the input file format
 
 # Copy and paste the following code into the R console if you
 # wish to see the input file format.
@@ -97,8 +99,7 @@ package = "ie2misc"))
 
 
 
-
-# Examples to show you different use cases
+# Examples to show different use cases
 
 sat_enthalpy(output = "csv")
 # The sheet number is 1 (default) and the output is csv

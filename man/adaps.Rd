@@ -3,8 +3,9 @@
 \encoding{UTF-8}
 \name{adaps}
 \alias{adaps}
+\alias{adaps2}
 \alias{adapsBATCH}
-\title{adaps and adapsBATCH}
+\title{adaps, adaps2, and adapsBATCH}
 \source{
 \enumerate{
    \item r - How can I check if a file is empty? - Stack Overflow answered by Konrad Rudolph and edited by Geekuna Matata on Apr 23 2014. See \url{http://stackoverflow.com/questions/23254002/how-can-i-check-if-a-file-is-empty}.
@@ -16,6 +17,10 @@
    \item r - Import date-time at a specified timezone, disregard daylights savings time - Stack Overflow answered by James on Nov 4 2011. See \url{http://stackoverflow.com/questions/8004050/import-date-time-at-a-specified-timezone-disregard-daylights-savings-time}.
    \item CST Central Time > What's current time in Central Time Zone now? (USA & Canada). See \url{http://wwp.greenwichmeantime.com/time-zone/usa/central-time/}.
    \item r - Regex return file name, remove path and file extension - Stack Overflow answered and edited by Ananda Mahto on Feb 25 2013. See \url{http://stackoverflow.com/questions/15073753/regex-return-file-name-remove-path-and-file-extension/15073919}.
+   \item R help - How to change the default Date format for write.csv function? answered by William Dunlap on Dec 28, 2009. See \url{http://r.789695.n4.nabble.com/How-to-change-the-default-Date-format-for-write-csv-function-td989826.html}.
+   \item inside-R: strptime {base}. See \url{http://www.inside-r.org/r-doc/base/strftime}.
+   \item convert date and time string to POSIX in R - Stack Overflow commented by cryo111 on Sep 18 2013. See \url{http://stackoverflow.com/questions/18874400/convert-date-and-time-string-to-posix-in-r/18874863}.
+   \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
 }
 }
 \usage{
@@ -26,48 +31,62 @@ adaps(file = tk_choose.files(default = "", caption =
 
 adapsBATCH(path = tk_choose.dir(caption =
   "Select directory with the ADAPS .rdb files"), overwrite = TRUE)
+
+adaps2(file, overwrite = TRUE)
 }
 \arguments{
 \item{file}{Input ADAPS .rdb file(s) to be selected through a file dialog.}
 
-\item{interactive}{If interactive is \code{TRUE}, then the user will select the
-filenames(s) to use for saving with the file dialog. In order to select
-more than one file, the user must hold down the Ctrl (Control) button
-while mouse clicking the chosen files. If interactive is \code{FALSE}, then
-the user will select the directory, via the directory dialog, to use
-for saving and the original filenames will be used.}
+\item{interactive}{If interactive is \code{TRUE}, then the user will select
+the filenames(s) to use for saving with the file dialog. In order to
+select more than one file, the user must hold down the Ctrl (Control)
+button while mouse clicking the chosen files. If interactive is \code{FALSE},
+then the user will select the directory, via the directory dialog, to use
+  for saving and the original filenames will be used.}
 
 \item{overwrite}{If \code{TRUE}, overwrite any existing spreadsheet.}
 
 \item{path}{Directory path of ADAPS .rdb files to be selected through a
 directory dialog. The user will be asked where to find the ADAPS .rdb
 files & then the user will be asked where to save the ADAPS .xlsx files.}
+
+\item{file}{Input ADAPS .rdb file.}
 }
 \value{
-ADAPS .xlsx file(s) where sheet1 is named after the original
-  filename.
+ADAPS .xlsx file(s)
 }
 \description{
-adaps and adapsBATCH process raw ADAPS .rdb files.
+adaps, adaps2, and adapsBATCH process raw Automated Data Processing System
+  (ADAPS) .rdb files from the U.S. Geological Survey (USGS) National Water
+  Information System (NWIS). For these functions, it is only for continuous
+  ADAPS data of the following parameters: discharge (00060), FNU turbidity
+  (63680), and NTRU turbidity (63676 from 63680).
 }
 \details{
 adaps function opens single or multiple raw ADAPS .rdb file(s) to modify the
   format and then exports the file(s) in .xlsx format. This is done for a
-  single file or multiple files that the user selects.
+  single file or multiple files that the user selects with a file dialog.
+
+adaps2 function opens a single raw ADAPS .rdb file to modify the format and
+  then exports the file(s) in .xlsx format. This is done for a single file
+  that the user selects without a file dialog.
 
 adapsBATCH function opens raw ADAPS .rdb files, from a directory, to modify
   the format and then exports the files in .xlsx format. This is done in a
-  BATCH mode (whole directory of ADAPS .rdb files).
+  BATCH mode (whole directory of ADAPS .rdb files) using a directory dialog.
 
-Both adaps and adapsBATCH functions perform the same processes on the raw
-  ADAPS .rdb files: 1) Read in the file and remove the 1st 4 or 5 lines
+adaps, adaps2, and adapsBATCH functions perform the same processes on the
+  raw ADAPS .rdb files: 1) Read in the file and remove the 1st 4 or 5 lines
   depending on whether NTRU data are present or not, 2) create 4 or 5
-  columns (depending on NTRU data are present or not) based on the
+  columns (depending on whether NTRU data are present or not) based on the
   1st 4 or 5 lines, and 3) export the modified file in .xlsx format.
 
-The following lines are representative of the .rdb format used in these
-  functions. Note: ntru may not be present. If so, then there will only be 3
-  cases of 16N in the last row.
+
+
+The following lines are representative of the .rdb format used in the files
+  that these functions can operate on. Note: ntru may not be present. If so,
+  then there will only be 3 cases of 16N in the last row. The last row will
+  be removed in the final spreadsheet.
 
 \tabular{ccccc}{
   DATETIME \tab ght\cr
@@ -79,8 +98,24 @@ The following lines are representative of the .rdb format used in these
 }
 \examples{
 \dontrun{
-# Examples to change (an) ADAPS .rdb file(s) interactively and non-interactively
 library(ie2misc)
+# Example to check the input file format
+# Copy and paste the following code into the R console if you
+# wish to see the ADAPS .rdb input file format.
+# Note the number of lines and the row headings.
+file.show(system.file("extdata", "spring_creek_partial.rdb",
+  package = "ie2misc"), title = paste("spring_creek_partial.rdb"))
+# opens the .rdb file using the default text editor
+
+
+
+
+# Examples to change (an) ADAPS .rdb file(s) interactively and
+# non-interactively
+adaps2(system.file("extdata", "spring_creek_partial.rdb",
+package = "ie2misc"))
+
+
 adaps() # default where interactive = TRUE
 # Follow the file dialog instructions
 
@@ -93,6 +128,7 @@ adaps(interactive = FALSE)
 adapsBATCH()
 # Follow the file dialog instructions
 }
+
 
 }
 
