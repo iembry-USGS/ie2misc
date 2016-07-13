@@ -109,7 +109,7 @@
 #'
 #'
 #' sat_enthalpy2(elevation = 1200, tbegin = 32, tend = 180,
-#' tincrement = 0.01, output  = "csv")
+#' tincrement = 0.01, output = "csv")
 #' # elevation = 1200 feet, tbegin = 32 degrees F, tend = 180 degrees F,
 #' # tincrement = 0.01 degrees F
 #' }
@@ -129,7 +129,7 @@ NULL
 
 #' @export
 #' @rdname sat_enthalpy
-sat_enthalpy <- function (file = tk_choose.files(default = "", caption = "Select file to open", multi = FALSE, filters = matrix(c("Comma-separated value file", ".csv", "MS Excel spreadsheet", ".xlsx", "MS Excel 97-2003 spreadsheet", ".xls"), 6, 2, byrow = TRUE)), sheet = 1, overwrite = TRUE, output  = c("console", "csv", "xlsx")) {
+sat_enthalpy <- function (file = tk_choose.files(default = "", caption = "Select file to open", multi = FALSE, filters = matrix(c("Comma-separated value file", ".csv", "MS Excel spreadsheet", ".xlsx", "MS Excel 97-2003 spreadsheet", ".xls"), 6, 2, byrow = TRUE)), sheet = 1, overwrite = TRUE, output = c("console", "csv", "xlsx")) {
 
 overwrite <- overwrite
 
@@ -297,7 +297,7 @@ saveWorkbook(wb, filesave4, overwrite = overwrite)
 
 #' @export
 #' @rdname sat_enthalpy
-sat_enthalpy2 <- function (file = NULL, sheet = 1, elevation = NULL, tbegin = NULL, tend = NULL, tincrement = NULL, overwrite = TRUE, output  = c("console", "csv", "xlsx")) {
+sat_enthalpy2 <- function (file = NULL, sheet = 1, elevation = NULL, tbegin = NULL, tend = NULL, tincrement = NULL, overwrite = TRUE, output = c("console", "csv", "xlsx")) {
 
 overwrite <- overwrite
 

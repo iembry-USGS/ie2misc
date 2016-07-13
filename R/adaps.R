@@ -43,7 +43,6 @@
 #'
 #'
 #' @param file Input ADAPS .rdb file(s) to be selected through a file dialog.
-#' @param file Input ADAPS .rdb file.
 #' @param interactive If interactive is \code{TRUE}, then the user will select
 #' the filenames(s) to use for saving with the file dialog. In order to
 #' select more than one file, the user must hold down the Ctrl (Control)
@@ -155,7 +154,7 @@ if (confirm == FALSE) {
 if (file.info(file)$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Source 1 & 2 / only process non-empty files and provide a stop warning if the input
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
 
 } else {
 
@@ -495,7 +494,7 @@ if (confirm == FALSE) {
 if (file.info(file)$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Source 1 & 2 / only process non-empty files and provide a stop warning if the input
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
 
 } else {
 

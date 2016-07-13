@@ -56,14 +56,12 @@ user will be asked where to save the QW .xlsx files.}
 
 \item{pattern}{The default pattern is \code{.rdb} (the filename has the .rdb
 extension). This pattern can be changed by \code{qwBATCH(pattern = "pattern")}.}
-
-\item{file}{Input QW file.}
 }
 \value{
 QW .xlsx file(s).
 }
 \description{
-qw, qw2 and qwBATCH process raw QW files. The QW files contain "selected
+qw, qw2 and qwBATCH process raw QW files. The QW files can contain "selected
   water-quality data for stations in the U.S. Geological Survey (USGS)
   National Water Information System (NWIS) water-quality database. The data
   you have secured from the USGS NWISWeb database may include data that have
@@ -97,7 +95,10 @@ qw, qw2 and qwBATCH functions perform the same processes on the raw QW
 \dontrun{
 library(ie2misc)
 # Examples to change (an) QW file(s) interactively and non-interactively
-qw2("http://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22")
+file1 <- "http://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=03584500"
+file2 <- "&period=&begin_date=1904-07-01&end_date=2016-06-22"
+file3 <- paste0(file1, file2) # used to truncate the file name
+qw2(file3)
 # USGS 03584500 ELK RIVER NEAR PROSPECT, TN
 # Discharge, cubic feet per second (Mean)
 

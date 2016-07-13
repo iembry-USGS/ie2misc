@@ -117,7 +117,7 @@ package = "ie2misc"), output = "console")
 
 
 sat_enthalpy2(elevation = 1200, tbegin = 32, tend = 180,
-tincrement = 0.01, output  = "csv")
+tincrement = 0.01, output = "csv")
 # elevation = 1200 feet, tbegin = 32 degrees F, tend = 180 degrees F,
 # tincrement = 0.01 degrees F
 }

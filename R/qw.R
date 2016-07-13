@@ -1,6 +1,6 @@
 #' qw, qw2 and qwBATCH
 #'
-#' qw, qw2 and qwBATCH process raw QW files. The QW files contain "selected
+#' qw, qw2 and qwBATCH process raw QW files. The QW files can contain "selected
 #'   water-quality data for stations in the U.S. Geological Survey (USGS)
 #'   National Water Information System (NWIS) water-quality database. The data
 #'   you have secured from the USGS NWISWeb database may include data that have
@@ -33,7 +33,6 @@
 #'
 #'
 #' @param file Input QW file(s) to be selected through a file dialog.
-#' @param file Input QW file.
 #' @param interactive If interactive is \code{TRUE}, then the user will select the
 #'   filenames(s) to use for saving with the file dialog. In order to select
 #'   more than one file, the user must hold down the Ctrl (Control) button
@@ -83,7 +82,10 @@
 #' \dontrun{
 #' library(ie2misc)
 #' # Examples to change (an) QW file(s) interactively and non-interactively
-#' qw2("http://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22")
+#' file1 <- "http://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=03584500"
+#' file2 <- "&period=&begin_date=1904-07-01&end_date=2016-06-22"
+#' file3 <- paste0(file1, file2) # used to truncate the file name
+#' qw2(file3)
 #' # USGS 03584500 ELK RIVER NEAR PROSPECT, TN
 #' # Discharge, cubic feet per second (Mean)
 #'
@@ -123,8 +125,7 @@ qw <- function (file = tk_choose.files(default = "", caption = "Select file(s) t
 
 overwrite <- overwrite
 
-#date_times <- date_times_tf <- DateTimes_Timezone_Corrected <- NULL
-#sample_start_time_datum_cd <- NULL
+DateTimes <- datetimes <- DateTimes_Timezone_Corrected <- DateTimes_Timezone_Corrected2 <- NULL
 # Source 14
 
 if (interactive == TRUE) { # default
@@ -150,7 +151,7 @@ if (confirm == FALSE) {
 if (file.info(file)$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Source 1 & 2 / only process non-empty files and provide a stop warning if the input
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
 
 } else {
 
@@ -1940,9 +1941,8 @@ qwBATCH <- function (path = tk_choose.dir(caption = "Select directory with the Q
 
 overwrite <- overwrite
 
-#date_times <- date_times_tf <- DateTimes_Timezone_Corrected <- NULL
-#sample_start_time_datum_cd <- NULL
-# Source 17
+DateTimes <- datetimes <- DateTimes_Timezone_Corrected <- DateTimes_Timezone_Corrected2 <- NULL
+# Source 14
 
 confirm <- gconfirm(toolkit = guiToolkit("tcltk"), msg = paste0("Do you want to select", " ", path, " as the directory with the QW files?"), title = "Confirm", icon = "question")
 
@@ -2580,9 +2580,8 @@ qw2 <- function (file, overwrite = TRUE) {
 
 overwrite <- overwrite
 
-#date_times <- date_times_tf <- DateTimes_Timezone_Corrected <- NULL
-#sample_start_time_datum_cd <- NULL
-# Source 17
+DateTimes <- datetimes <- DateTimes_Timezone_Corrected <- DateTimes_Timezone_Corrected2 <- NULL
+# Source 14
 
 if (!nchar(file)) {
 
@@ -2600,12 +2599,15 @@ if (confirm == FALSE) {
 
 } else {
 
-if (file.info(file)$size == 0) {
+if (is.na(file.info(file)$size) | file.info(file)$size != 0) {
+
+} else if (file.info(file)$size == 0) {
 
   stop("Your file is empty. Please try again with a different file.")
-# Source 1 & 2 / only process non-empty files and provide a stop warning if the input
+# Source 1 & 2 / only process non-empty files and provide a stop warning if the input file is empty
 
-} else {
+}
+
 
   rddatatmp <- read.table(file, header = TRUE, row.names = NULL, comment.char = "#", fill = TRUE, stringsAsFactors = FALSE, sep = "\t")
   rddatatmp <- setDT(rddatatmp)
@@ -3181,7 +3183,6 @@ if (grepl(RDdatatmp[[1]][1], pattern = "\\d{0,2}:\\d{2}(?:[:.]\\d+)?|(\\d{0,2}:\
   saveWorkbook(wb, filesave5, overwrite = overwrite)
 
 
-}
 }
 }
 }

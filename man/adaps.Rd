@@ -46,8 +46,6 @@ then the user will select the directory, via the directory dialog, to use
 \item{path}{Directory path of ADAPS .rdb files to be selected through a
 directory dialog. The user will be asked where to find the ADAPS .rdb
 files & then the user will be asked where to save the ADAPS .xlsx files.}
-
-\item{file}{Input ADAPS .rdb file.}
 }
 \value{
 ADAPS .xlsx file(s)
