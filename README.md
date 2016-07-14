@@ -22,7 +22,8 @@ obs1 <- rnorm(1003) # observed
 
 # Using the default value of na.rm = FALSE
 # using a matrix of the numeric vector obs1
-mat1 <- matrix(data = obs1, nrow = length(obs1), ncol = 1, byrow = FALSE, dimnames = list(c(rep("", length(obs1))), "Observed"))
+mat1 <- matrix(data = obs1, nrow = length(obs1), ncol = 1, byrow = FALSE,
+dimnames = list(c(rep("", length(obs1))), "Observed"))
 
 madstat(mat1)
 
@@ -35,7 +36,8 @@ pre <- rnorm(300) # predicted
 
 # Using the default value of na.rm = FALSE
 # using a matrix of the numeric vectors pre and obs
-mat <- matrix(data = c(obs, pre), nrow = length(pre), ncol = 2, byrow = FALSE, dimnames = list(c(rep("", length(pre))), c("Predicted", "Observed")))
+mat <- matrix(data = c(obs, pre), nrow = length(pre), ncol = 2, byrow = FALSE,
+dimnames = list(c(rep("", length(pre))), c("Predicted", "Observed")))
 
 dr(mat[, 2], mat[, 1])
 
@@ -43,26 +45,31 @@ dr(mat[, 2], mat[, 1])
 
 # 3) Produce a saturated enthalpy table and direct the output to the console
 
-sat_enthalpy2(elevation = 1810, tbegin = 28, tend = 80, tincrement = 0.1, output = "console")
-# elevation = 120 feet, tbegin = 32 degrees F, tend = 100 degrees F, tincrement = 0.1 degrees F
+sat_enthalpy2(elevation = 1810, tbegin = 28, tend = 80, tincrement = 0.1,
+output = "console")
+# elevation = 120 feet, tbegin = 32 degrees F, tend = 100 degrees F,
+# tincrement = 0.1 degrees F
 
 
 
-# 4) Create an .xlsx spreadsheet for each of the following water-quality data sets (follow the file dialog):
+# 4) Create an .xlsx spreadsheet for each of the following water-quality data
+# sets (follow the file dialog):
 
-# file1 <- "http://waterdata.usgs.gov/nwis/dv?cb_80154=on&format=rdb&site_no=03584500"
-# file2 <- "&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22"
-# file3 <- paste0(file1, file2) # used to truncate the file name
-# qw2(file3)
+file1 <- "http://waterdata.usgs.gov/nwis/dv?cb_80154=on&format=rdb"
+file2 <- "&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01"
+file3 <- "&end_date=2016-06-22"
+file4 <- paste0(file1, file2, file3) # used to truncate the file name
+qw2(file4)
 
 # USGS 03584500 ELK RIVER NEAR PROSPECT, TN
 # Suspended sediment concentration, milligrams per liter (Mean)
 
 
-# file4 <- "http://waterdata.usgs.gov/nwis/dv?cb_80155=on&format=rdb&site_no=03584500"
-# file5 <- "&referred_module=sw&period=&begin_date=1904-07-01&end_date=2016-06-22"
-# file6 <- paste0(file4, file5) # used to truncate the file name
-# qw2(file6)
+file5 <- "http://waterdata.usgs.gov/nwis/dv?cb_80155=on&format=rdb"
+file6 <- "&site_no=03584500&referred_module=sw&period=&begin_date=1904-07-01"
+file7 <- "&end_date=2016-06-22"
+file8 <- paste0(file5, file6, file7) # used to truncate the file name
+qw2(file8)
 
 # USGS 03584500 ELK RIVER NEAR PROSPECT, TN
 # Suspended sediment discharge, tons per day (Mean)
