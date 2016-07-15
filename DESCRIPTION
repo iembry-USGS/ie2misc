@@ -5,8 +5,8 @@ Author: Irucka Embry [aut, cre] and Anne Hoos [ctb]
 Maintainer: Irucka Embry <iembry@usgs.gov>
 Depends: R (>= 3.0.0), tcltk, data.table (>= 1.9.4), stats, utils, tools
 Imports: readxl, openxlsx, gWidgets2, gWidgets2tcltk, stringi, qdap, reader,
-    ie2miscdata, lubridate
-Suggests: iemisc, iemiscdata, Rcpp (>= 0.11.5), pracma
+    lubridate
+Suggests: ie2miscdata, iemisc, iemiscdata, Rcpp (>= 0.11.5), pracma
 Description: A collection of Irucka Embry's miscellaneous USGS functions
     (processing .exp and .psf files, statistical error functions,
     "+" dyadic operator for use with NA, creating ADAPS and QW
