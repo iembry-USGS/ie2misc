@@ -177,12 +177,12 @@ if (file.info(file)$size == 0) {
 
 
  if (!is.na(timecol)) {
-  numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+ numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-c(datecol, timecol)]
 
  } else if (is.na(timecol)) {
 
- numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-datecol]
 
  }
@@ -787,16 +787,15 @@ if (file.info(file[i])$size == 0) {
 
 
  if (!is.na(timecol)) {
-  numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+ numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-c(datecol, timecol)]
 
  } else if (is.na(timecol)) {
 
- numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-datecol]
 
  }
-
 
 # changing column to numeric class
 # obtain the name of the column based on the column number
@@ -1376,12 +1375,12 @@ for (i in 1:length(file)) {
 
 
  if (!is.na(timecol)) {
-  numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+ numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-c(datecol, timecol)]
 
  } else if (is.na(timecol)) {
 
- numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-datecol]
 
  }
@@ -2009,12 +2008,12 @@ if (file.info(file[i])$size == 0) {
 
 
  if (!is.na(timecol)) {
-  numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+ numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-c(datecol, timecol)]
 
  } else if (is.na(timecol)) {
 
- numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-datecol]
 
  }
@@ -2631,12 +2630,12 @@ if (is.na(file.info(file)$size) | file.info(file)$size != 0) {
 
 
  if (!is.na(timecol)) {
-  numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+ numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-c(datecol, timecol)]
 
  } else if (is.na(timecol)) {
 
- numericcol <- which(grepl(rddatatmp, pattern = "[0-9]"))
+numericcol <- which(!grepl(rddatatmp, pattern = "[letters]", ignore.case = TRUE))
  numericcol <- numericcol[-datecol]
 
  }
