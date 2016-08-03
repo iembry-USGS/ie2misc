@@ -1,6 +1,6 @@
 Package: ie2misc
 Title: Irucka Embry's Miscellaneous USGS Functions
-Version: 0.8.0
+Version: 0.8.5
 Author: Irucka Embry [aut, cre] and Anne Hoos [ctb]
 Maintainer: Irucka Embry <iembry@usgs.gov>
 Depends: R (>= 3.0.0), tcltk, data.table (>= 1.9.4), stats, utils, tools

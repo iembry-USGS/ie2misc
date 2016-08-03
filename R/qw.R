@@ -54,14 +54,14 @@
 #' \enumerate{
 #'    \item r - How can I check if a file is empty? - Stack Overflow answered by Konrad Rudolph and edited by Geekuna Matata on Apr 23 2014. See \url{http://stackoverflow.com/questions/23254002/how-can-i-check-if-a-file-is-empty}.
 #'    \item r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
-#'    \item inside-R: TclInterface {tcltk}. See \url{http://www.inside-r.org/r-doc/tcltk/.Tcl}.
+#'    \item RDocumentation: TclInterface {tcltk}. See \url{http://www.rdocumentation.org/packages/tcltk/versions/3.3.1/topics/TclInterface}.
 #'    \item James Wettenhall & Philippe Grosjean, File Open/Save dialogs in R tcltk, December 01, 2015. See \url{http://www.sciviews.org/recipes/tcltk/TclTk-file-open-save-dialogs/}.
 #'    \item r - read csv files and perform function, then bind together - Stack Overflow answered by bjoseph on Jan 8 2015. See \url{http://stackoverflow.com/questions/27846715/read-csv-files-and-perform-function-then-bind-together}.
 #'    \item r - Convert column classes in data.table - Stack Overflow answered by Matt Dowle on Dec 27 2013. See \url{http://stackoverflow.com/questions/7813578/convert-column-classes-in-data-table}.
 #'    \item Does column exist and how to rearrange columns in R data frame - Stack Overflow answered and edited by Peter McMahan on Aug 2 2009. See \url{http://stackoverflow.com/questions/1177919/does-column-exist-and-how-to-rearrange-columns-in-r-data-frame}.
 #'    \item time - Dealing with timestamps in R - Stack Overflow answered by Dirk Eddelbuettel on Dec 26 2009. See \url{http://stackoverflow.com/questions/1962278/dealing-with-timestamps-in-r/1962336}.
 #'    \item R help - How to change the default Date format for write.csv function? answered by William Dunlap on Dec 28, 2009. See \url{http://r.789695.n4.nabble.com/How-to-change-the-default-Date-format-for-write-csv-function-td989826.html}.
-#'    \item inside-R: strptime {base}. See \url{http://www.inside-r.org/r-doc/base/strftime}.
+#'    \item RDocumentation: strptime {base}. See \url{http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/strptime}.
 #'    \item National Water Information System: Help System Time Zone Codes. See \url{http://help.waterdata.usgs.gov/code/tz_query?fmt=html}.
 #'    \item multiple output filenames in R - Stack Overflow asked and edited by Gabelins on Feb 1 2013. See \url{http://stackoverflow.com/questions/14651594/multiple-output-filenames-in-r}.
 #'    \item r - Regex return file name, remove path and file extension - Stack Overflow answered and edited by Ananda Mahto on Feb 25 2013. See \url{http://stackoverflow.com/questions/15073753/regex-return-file-name-remove-path-and-file-extension/15073919}.
@@ -218,7 +218,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = ymd(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -232,7 +231,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -260,7 +258,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -288,7 +285,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = dmy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -302,7 +298,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -330,7 +325,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -358,7 +352,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = mdy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -372,7 +365,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -400,7 +392,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -432,7 +423,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -460,7 +450,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -488,7 +477,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -516,7 +504,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -544,7 +531,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -572,7 +558,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -600,7 +585,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -628,7 +612,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -656,7 +639,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -827,7 +809,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = ymd(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -841,7 +822,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -869,7 +849,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -897,7 +876,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = dmy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -911,7 +889,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -939,7 +916,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -967,7 +943,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = mdy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -981,7 +956,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1009,7 +983,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1040,7 +1013,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1068,7 +1040,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1096,7 +1067,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1124,7 +1094,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1152,7 +1121,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1180,7 +1148,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1208,7 +1175,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1236,7 +1202,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1264,7 +1229,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1416,7 +1380,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = ymd(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -1430,7 +1393,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1458,7 +1420,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1486,7 +1447,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = dmy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -1500,7 +1460,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1528,7 +1487,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1556,7 +1514,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = mdy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -1570,7 +1527,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1598,7 +1554,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1630,7 +1585,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1658,7 +1612,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1686,7 +1639,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1714,7 +1666,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1742,7 +1693,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1770,7 +1720,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1798,7 +1747,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1826,7 +1774,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -1854,7 +1801,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2049,7 +1995,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = ymd(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -2063,7 +2008,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2091,7 +2035,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2119,7 +2062,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = dmy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -2133,7 +2075,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2161,7 +2102,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2189,7 +2129,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = mdy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -2203,7 +2142,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2231,7 +2169,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2263,7 +2200,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2291,7 +2227,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2319,7 +2254,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2347,7 +2281,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2375,7 +2308,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2403,7 +2335,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2431,7 +2362,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2459,7 +2389,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2487,7 +2416,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2671,7 +2599,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = ymd(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -2685,7 +2612,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2713,7 +2639,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2741,7 +2666,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = dmy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -2755,7 +2679,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2783,7 +2706,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2811,7 +2733,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class1 <- "DateTimes"
   for (col in change_class1) set(rddatatmp, j = col, value = mdy(rddatatmp[[col]], quiet = TRUE)) # Source 6
 
@@ -2825,7 +2746,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2853,7 +2773,6 @@ rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 rddatatmp[, DateTimes := rddatatmp[, datecol, with = FALSE][[1]]]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2885,7 +2804,6 @@ if (ymd_check) {
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2913,7 +2831,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2941,7 +2858,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = ymd_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2969,7 +2885,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -2997,7 +2912,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -3025,7 +2939,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = dmy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -3053,7 +2966,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -3081,7 +2993,6 @@ datetime <- as.POSIXct(rddatatmp[[1]], tzone = "GMT")
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hm(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 
@@ -3109,7 +3020,6 @@ rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatm
 rddatatmp[, DateTimes := paste(rddatatmp[, datecol, with = FALSE][[1]], rddatatmp[, timecol, with = FALSE][[1]], sep = " ")]
 
 # changing column to POSIXct class
-# obtain the name of the column based on the column number
   change_class2 <- "DateTimes"
   for (col in change_class2) set(rddatatmp, j = col, value = mdy_hms(rddatatmp[[col]], quiet = TRUE, tz = "GMT")) # Source 6
 

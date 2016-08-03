@@ -52,6 +52,15 @@ output = "console")
 
 
 
+# IMPORTANT NOTE for Microsoft Windows users based on Stack Overflow answer at http://stackoverflow.com/questions/23367375/error-when-saving-xlsx-workbook-with-package-openxlsx
+# (r - Error when saving xlsx workbook with package openxlsx):
+
+# Make sure that you have the appropriate Rtools installed
+# (https://cloud.r-project.org/bin/windows/Rtools/) for your R version
+
+# Make sure that the system PATH is properly configured
+
+
 # 4) Create an .xlsx spreadsheet for each of the following water-quality data
 # sets (follow the file dialog):
 
