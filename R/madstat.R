@@ -83,6 +83,7 @@
 #'
 #'
 #' # using a data.table of the numeric vector obs1
+#' library(data.table)
 #' df2 <- data.table(obs1)
 #' madstat(df2)
 #'

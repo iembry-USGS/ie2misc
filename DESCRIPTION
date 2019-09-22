@@ -3,10 +3,10 @@ Title: Irucka Embry's Miscellaneous USGS Functions
 Version: 0.8.5
 Author: Irucka Embry [aut, cre] and Anne Hoos [ctb]
 Maintainer: Irucka Embry <iembry@usgs.gov>
-Depends: R (>= 3.0.0), tcltk, data.table (>= 1.9.4), stats, utils, tools
-Imports: readxl, openxlsx, gWidgets2, gWidgets2tcltk, stringi, qdap, reader,
+Depends: R (>= 3.0.0), tcltk, stats, utils, tools
+Imports: data.table (>= 1.9.4), readxl, openxlsx, gWidgets2, gWidgets2tcltk, stringi, qdap, reader,
      lubridate
-Suggests: ie2miscdata, iemisc, iemiscdata, Rcpp (>= 0.11.5), pracma
+Suggests: iemisc, iemiscdata, moments, Rcpp (>= 0.11.5), pracma
 Description: A collection of Irucka Embry's miscellaneous USGS functions
     (processing .exp and .psf files, statistical error functions,
     "+" dyadic operator for use with NA, creating ADAPS and QW
@@ -23,4 +23,4 @@ Copyright: This software is in the public domain because it contains materials
     http://www.usgs.gov/visual-id/credit_usgs.html#copyright
 LazyData: true
 Encoding: UTF-8
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1

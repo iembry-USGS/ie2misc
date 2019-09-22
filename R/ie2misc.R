@@ -9,6 +9,6 @@
 #'
 #' @docType package
 #' @name ie2misc
-#' @import stringi data.table openxlsx readxl tcltk gWidgets2 gWidgets2tcltk
+#' @import stringi openxlsx readxl tcltk gWidgets2 gWidgets2tcltk
 #' @import qdap stats utils tools reader
 #' @importFrom lubridate guess_formats ymd dmy mdy ymd_hm dmy_hm mdy_hm ymd_hms dmy_hms mdy_hms

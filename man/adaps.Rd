@@ -3,8 +3,8 @@
 \encoding{UTF-8}
 \name{adaps}
 \alias{adaps}
-\alias{adaps2}
 \alias{adapsBATCH}
+\alias{adaps2}
 \title{adaps, adaps2, and adapsBATCH}
 \source{
 \enumerate{
@@ -22,9 +22,9 @@
 }
 \usage{
 adaps(file = tk_choose.files(default = "", caption =
-  "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi =
-  TRUE, filters = matrix(c("ADAPS file", ".rdb", "ADAPS file", ".RDB"), 4, 2,
-  byrow = TRUE)), interactive = TRUE, overwrite = TRUE)
+  "Select file(s) to open & hold down Ctrl to choose more than 1 file",
+  multi = TRUE, filters = matrix(c("ADAPS file", ".rdb", "ADAPS file",
+  ".RDB"), 4, 2, byrow = TRUE)), interactive = TRUE, overwrite = TRUE)
 
 adapsBATCH(path = tk_choose.dir(caption =
   "Select directory with the ADAPS .rdb files"), overwrite = TRUE)
@@ -126,4 +126,3 @@ adapsBATCH()
 
 
 }
-

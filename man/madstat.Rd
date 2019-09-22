@@ -70,6 +70,7 @@ madstat(df1)
 
 
 # using a data.table of the numeric vector obs1
+library(data.table)
 df2 <- data.table(obs1)
 madstat(df2)
 
@@ -90,4 +91,3 @@ madstat(df2)
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 }
-

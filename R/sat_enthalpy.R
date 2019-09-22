@@ -116,7 +116,6 @@
 #'
 #'
 #' @import stringi
-#' @import data.table
 #' @import readxl
 #' @import openxlsx
 #' @import tcltk

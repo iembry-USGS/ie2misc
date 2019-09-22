@@ -86,6 +86,7 @@ mape(df1[, 2], df1[, 1])
 
 
 # using a data.table of the numeric vectors pre1 and obs1
+library(data.table)
 df2 <- data.table(obs1, pre1)
 mape(df2[, 2, with = FALSE][[1]], df2[, 1, with = FALSE][[1]])
 
@@ -104,4 +105,3 @@ Lei Ji and Kevin Gallo, "An Agreement Coefficient for Image Comparison", \emph{P
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 }
-

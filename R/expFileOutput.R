@@ -106,8 +106,8 @@
 #' # Follow the file dialog instructions
 #' }
 #'
+#' @importFrom data.table copy data.table fread is.data.table rbindlist set setcolorder setDT setnames
 #' @import stringi
-#' @import data.table
 #' @import openxlsx
 #' @import tcltk
 #' @import gWidgets2
@@ -117,6 +117,7 @@
 #'
 #' @name expFileOutput
 NULL
+`:=` = function(...) NULL
 
 #' @export
 #' @rdname expFileOutput

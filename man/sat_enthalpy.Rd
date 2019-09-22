@@ -22,8 +22,8 @@ sat_enthalpy(file = tk_choose.files(default = "", caption =
   ".xlsx", "MS Excel 97-2003 spreadsheet", ".xls"), 6, 2, byrow = TRUE)),
   sheet = 1, overwrite = TRUE, output = c("console", "csv", "xlsx"))
 
-sat_enthalpy2(file = NULL, sheet = 1, elevation = NULL, tbegin = NULL,
-  tend = NULL, tincrement = NULL, overwrite = TRUE,
+sat_enthalpy2(file = NULL, sheet = 1, elevation = NULL,
+  tbegin = NULL, tend = NULL, tincrement = NULL, overwrite = TRUE,
   output = c("console", "csv", "xlsx"))
 }
 \arguments{
@@ -124,13 +124,12 @@ tincrement = 0.01, output = "csv")
 
 
 }
-\author{
-Irucka Embry [R version], Timothy H. Diehl [Microsoft Excel(R) spreadsheet]
-}
 \references{
 \enumerate{
    \item "Andrew Revering's List of Meteorological Formulas", \url{http://www.aprweather.com/pages/calc.htm}.
    \item Functional Testing and Design Guides, \emph{Functional Testing Guide: from the Fundamentals to the Field}, "Sidebar 3: How to Calculate Enthalpy", \url{http://www.ftguide.org/ftg/IntegratedOperation/IOC-Sidebars-1-3/IOC-SB3-How-To-Calculate-Enthalpy.htm}.
 }
 }
-
+\author{
+Irucka Embry [R version], Timothy H. Diehl [Microsoft Excel(R) spreadsheet]
+}
