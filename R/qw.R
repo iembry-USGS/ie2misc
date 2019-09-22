@@ -114,7 +114,6 @@
 #' @import gWidgets2tcltk
 #' @import readxl
 #' @import openxlsx
-#' @import data.table
 #'
 #' @name qw
 NULL

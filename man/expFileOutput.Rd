@@ -23,9 +23,10 @@
 }
 \usage{
 expFileOutput(file = tk_choose.files(default = "", caption =
-  "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi =
-  TRUE, filters = matrix(c("Text file", ".exp", "Text file", ".EXP"), 4, 2,
-  byrow = TRUE)), output = c("csv", "xlsx", "both"), overwrite = TRUE)
+  "Select file(s) to open & hold down Ctrl to choose more than 1 file",
+  multi = TRUE, filters = matrix(c("Text file", ".exp", "Text file",
+  ".EXP"), 4, 2, byrow = TRUE)), output = c("csv", "xlsx", "both"),
+  overwrite = TRUE)
 
 expFileOutputBATCH(path = tk_choose.dir(caption =
   "Select the directory with the .exp files"), output = c("csv", "xlsx",
@@ -119,4 +120,3 @@ expFileOutputBATCH(output = "both") # returns .csv and .xlsx files
 \author{
 Irucka Embry, Anne Hoos
 }
-

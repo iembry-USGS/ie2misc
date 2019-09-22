@@ -8,3 +8,8 @@
 README.Rmd
 cran-comments.md
 travischanges.txt
+
+# artifacts of R CMD build/check
+*.Rcheck
+*.tar.gz
+

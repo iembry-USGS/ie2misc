@@ -19,9 +19,9 @@
 }
 \usage{
 psfFileChange(file = tk_choose.files(default = "", caption =
-  "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi =
-  TRUE, filters = matrix(c("Text file", ".psf", "Text file", ".PSF"), 4, 2,
-  byrow = TRUE)), interactive = TRUE)
+  "Select file(s) to open & hold down Ctrl to choose more than 1 file",
+  multi = TRUE, filters = matrix(c("Text file", ".psf", "Text file",
+  ".PSF"), 4, 2, byrow = TRUE)), interactive = TRUE)
 
 psfFileChangeBATCH(path = tk_choose.dir(caption =
   "Select the directory with the .psf files"))
@@ -108,4 +108,3 @@ psfFileChangeBATCH() # Follow the file dialog instructions
 \author{
 Irucka Embry, Anne Hoos
 }
-

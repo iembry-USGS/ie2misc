@@ -3,8 +3,8 @@
 \encoding{UTF-8}
 \name{qw}
 \alias{qw}
-\alias{qw2}
 \alias{qwBATCH}
+\alias{qw2}
 \title{qw, qw2 and qwBATCH}
 \source{
 \enumerate{
@@ -29,12 +29,14 @@
 }
 \usage{
 qw(file = tk_choose.files(default = "", caption =
-  "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi =
-  TRUE, filters = matrix(c("QW file", "*", "QW file", ".rdb", "QW file",
-  ".RDB"), 6, 2, byrow = TRUE)), interactive = TRUE, overwrite = TRUE)
+  "Select file(s) to open & hold down Ctrl to choose more than 1 file",
+  multi = TRUE, filters = matrix(c("QW file", "*", "QW file", ".rdb",
+  "QW file", ".RDB"), 6, 2, byrow = TRUE)), interactive = TRUE,
+  overwrite = TRUE)
 
-qwBATCH(path = tk_choose.dir(caption = "Select directory with the QW files"),
-  pattern = "*.rdb", overwrite = TRUE)
+qwBATCH(path = tk_choose.dir(caption =
+  "Select directory with the QW files"), pattern = "*.rdb",
+  overwrite = TRUE)
 
 qw2(file, overwrite = TRUE)
 }
@@ -120,4 +122,3 @@ qwBATCH()
 
 
 }
-
