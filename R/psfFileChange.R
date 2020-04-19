@@ -99,11 +99,10 @@
 #' }
 #'
 #' @import stringi
-#' @import qdap
 #' @import tcltk
 #' @import gWidgets2
 #' @import gWidgets2tcltk
-#'
+#' @importFrom qdap multigsub
 #'
 #' @name psfFileChange
 NULL

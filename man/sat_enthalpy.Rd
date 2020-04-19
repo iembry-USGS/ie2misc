@@ -16,15 +16,25 @@
 }
 }
 \usage{
-sat_enthalpy(file = tk_choose.files(default = "", caption =
-  "Select file to open", multi = FALSE, filters =
-  matrix(c("Comma-separated value file", ".csv", "MS Excel spreadsheet",
-  ".xlsx", "MS Excel 97-2003 spreadsheet", ".xls"), 6, 2, byrow = TRUE)),
-  sheet = 1, overwrite = TRUE, output = c("console", "csv", "xlsx"))
+sat_enthalpy(
+  file = tk_choose.files(default = "", caption = "Select file to open", multi = FALSE,
+    filters = matrix(c("Comma-separated value file", ".csv", "MS Excel spreadsheet",
+    ".xlsx", "MS Excel 97-2003 spreadsheet", ".xls"), 6, 2, byrow = TRUE)),
+  sheet = 1,
+  overwrite = TRUE,
+  output = c("console", "csv", "xlsx")
+)
 
-sat_enthalpy2(file = NULL, sheet = 1, elevation = NULL, tbegin = NULL,
-  tend = NULL, tincrement = NULL, overwrite = TRUE,
-  output = c("console", "csv", "xlsx"))
+sat_enthalpy2(
+  file = NULL,
+  sheet = 1,
+  elevation = NULL,
+  tbegin = NULL,
+  tend = NULL,
+  tincrement = NULL,
+  overwrite = TRUE,
+  output = c("console", "csv", "xlsx")
+)
 }
 \arguments{
 \item{file}{Input file (.xls, .xlsx, or .csv)}
@@ -68,7 +78,7 @@ without using a file dialog.
 
 H is expressed as
 
-\deqn{H = \left(0.24 \times T\right) + \left[W \times \left(1061 + 0.444 \times T\right)\right]}
+	\deqn{H = \left(0.24 \times T\right) + \left[W \times \left(1061 + 0.444 \times T\right)\right]}
 
 \describe{
 \item{\emph{H}}{enthalpy (Btu/lb)}
@@ -76,9 +86,10 @@ H is expressed as
 \item{\emph{W}}{specific humidity (lbwater / lbdry air)}
 }
 
+
 where W or SH (Specific Humidity) is expressed as
 
-\deqn{W = \left(0.622 \times E\right)/\left(Mb - \left(0.378 \times E\right)\right)}
+	\deqn{W = \left(0.622 \times E\right)/\left(Mb - \left(0.378 \times E\right)\right)}
 
 \describe{
 \item{\emph{W}}{W or SH -- Specific Humidity (kg/kg)}
@@ -124,13 +135,12 @@ tincrement = 0.01, output = "csv")
 
 
 }
-\author{
-Irucka Embry [R version], Timothy H. Diehl [Microsoft Excel(R) spreadsheet]
-}
 \references{
 \enumerate{
    \item "Andrew Revering's List of Meteorological Formulas", \url{http://www.aprweather.com/pages/calc.htm}.
    \item Functional Testing and Design Guides, \emph{Functional Testing Guide: from the Fundamentals to the Field}, "Sidebar 3: How to Calculate Enthalpy", \url{http://www.ftguide.org/ftg/IntegratedOperation/IOC-Sidebars-1-3/IOC-SB3-How-To-Calculate-Enthalpy.htm}.
 }
 }
-
+\author{
+Irucka Embry [R version], Timothy H. Diehl [Microsoft Excel(R) spreadsheet]
+}

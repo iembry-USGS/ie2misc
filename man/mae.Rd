@@ -97,4 +97,3 @@ Cort J. Willmott and Kenji Matsuura, "Advantages of the mean-absolute error (MAE
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 }
-

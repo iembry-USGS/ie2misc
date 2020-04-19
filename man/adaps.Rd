@@ -3,8 +3,8 @@
 \encoding{UTF-8}
 \name{adaps}
 \alias{adaps}
-\alias{adaps2}
 \alias{adapsBATCH}
+\alias{adaps2}
 \title{adaps, adaps2, and adapsBATCH}
 \source{
 \enumerate{
@@ -21,13 +21,18 @@
 }
 }
 \usage{
-adaps(file = tk_choose.files(default = "", caption =
-  "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi =
-  TRUE, filters = matrix(c("ADAPS file", ".rdb", "ADAPS file", ".RDB"), 4, 2,
-  byrow = TRUE)), interactive = TRUE, overwrite = TRUE)
+adaps(
+  file = tk_choose.files(default = "", caption =
+    "Select file(s) to open & hold down Ctrl to choose more than 1 file", multi = TRUE,
+    filters = matrix(c("ADAPS file", ".rdb", "ADAPS file", ".RDB"), 4, 2, byrow = TRUE)),
+  interactive = TRUE,
+  overwrite = TRUE
+)
 
-adapsBATCH(path = tk_choose.dir(caption =
-  "Select directory with the ADAPS .rdb files"), overwrite = TRUE)
+adapsBATCH(
+  path = tk_choose.dir(caption = "Select directory with the ADAPS .rdb files"),
+  overwrite = TRUE
+)
 
 adaps2(file, overwrite = TRUE)
 }
@@ -75,6 +80,7 @@ adaps, adaps2, and adapsBATCH functions perform the same processes on the
   depending on whether NTRU data are present or not, 2) create 4 or 5
   columns (depending on whether NTRU data are present or not) based on the
   1st 4 or 5 lines, and 3) export the modified file in .xlsx format.
+
 
 
 
@@ -126,4 +132,3 @@ adapsBATCH()
 
 
 }
-
