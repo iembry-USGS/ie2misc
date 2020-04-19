@@ -32,7 +32,7 @@ This function computes the Nash-Sutcliffe model efficiency (NSE) or
 \details{
 NSE or E is expressed as
 
-\deqn{E = 1 - \frac{\sum \limits_{i=1}^n{\left(P_i - O_i\right)^2}}{\sum \limits_{i=1}^n{\left(O_i - \bar{O}\right)^2}}}
+	\deqn{E = 1 - \frac{\sum \limits_{i=1}^n{\left(P_i - O_i\right)^2}}{\sum \limits_{i=1}^n{\left(O_i - \bar{O}\right)^2}}}
 
 \describe{
 \item{\emph{E}}{"Nash and Sutcliffe’s coefficient of efficiency (E)"}
@@ -43,7 +43,7 @@ NSE or E is expressed as
 \item{\emph{\eqn{\bar{O}}}}{the "true" mean of the observations}
 }
 
-Note: Both P and O should have the same units.
+	Note: Both P and O should have the same units.
 
 "Nash and Sutcliffe’s coefficient of efficiency (E)" and other
   "dimensionless measures of average error" are fully discussed in the
@@ -102,4 +102,3 @@ Cort J. Willmott, Scott M. Robeson, and Kenji Matsuura, "A refined index of mode
  mean-absolute error (MAE), \code{\link{madstat}} for mean-absolute deviation (MAD), \code{\link{dr}}
  for "index of agreement (dr)", and \code{\link{rmse}} for root mean square error (RMSE).
 }
-

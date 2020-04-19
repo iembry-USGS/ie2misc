@@ -31,7 +31,7 @@ This function computes the mean absolute percent error (MAPE).
 \details{
 MAPE is expressed as
 
-\deqn{\frac{1}{n} \sum \limits_{i=1}^n{ 100 \frac{\left| X_i - Y_i \right|} {X_i}}}
+	\deqn{\frac{1}{n} \sum \limits_{i=1}^n{ 100 \frac{\left| X_i - Y_i \right|} {X_i}}}
 
 \describe{
 \item{\emph{n}}{the number of observations}
@@ -39,7 +39,8 @@ MAPE is expressed as
 \item{\emph{Y}}{the predictions}
 }
 
-Below are some points to remember about MAPE from the Ji reference:
+
+	Below are some points to remember about MAPE from the Ji reference:
 \enumerate{
    \item MAPE is "a measure to validate forecast models",
    \item MAPE is "a standardized value and is independent of the unit of
@@ -104,4 +105,3 @@ Lei Ji and Kevin Gallo, "An Agreement Coefficient for Image Comparison", \emph{P
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 }
-

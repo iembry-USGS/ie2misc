@@ -44,7 +44,7 @@ dr is expressed as
 \item{\emph{\eqn{\bar{O}}}}{the "true" mean of the observations}
 }
 
-Note: Both P and O should have the same units.
+	Note: Both P and O should have the same units.
 
 The "index of agreement (dr)" is fully discussed in the Willmott reference.
 }
@@ -101,4 +101,3 @@ Cort J. Willmott, Scott M. Robeson, and Kenji Matsuura, "A refined index of mode
  mean-absolute error (MAE), \code{\link{madstat}} for mean-absolute deviation (MAD), \code{\link{vnse}}
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for root mean square error (RMSE).
 }
-

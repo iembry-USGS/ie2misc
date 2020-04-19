@@ -97,4 +97,3 @@ Cort J. Willmott and Kenji Matsuura, "Advantages of the mean-absolute error (MAE
  for "index of agreement (dr)", and \code{\link{vnse}} for
  Nash-Sutcliffe model efficiency (NSE).
 }
-

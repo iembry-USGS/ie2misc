@@ -90,4 +90,3 @@ madstat(df2)
  for Nash-Sutcliffe model efficiency (NSE), and \code{\link{rmse}} for
  root mean square error (RMSE).
 }
-
